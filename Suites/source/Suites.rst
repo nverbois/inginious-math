@@ -253,17 +253,11 @@ Pour chacune de ces possibilités :
 
 -  Représenter graphiquement les premiers termes de la suite.
 
-**Solution** 
-
-#. :math:`s_0 = 1`, :math:`s_1 = 1` et :math:`s_3=25`.
-
-#. :math:`s_0 = 2`, :math:`s_1 = \sqrt{2}` et :math:`s_3=1`.
-
-#. :math:`s_0 = 1`, :math:`s_1 = 2` et :math:`s_3=-4`.
-
-#. :math:`s_0 = -2`, :math:`s_1 = 2` et :math:`s_3=58`.
-
-#. :math:`s_0 = 5`, :math:`s_1 = 1` et :math:`s_3=\frac{1}{25}`.
+.. inginious:: suite1_1
+.. inginious:: suite1_2
+.. inginious:: suite1_3
+.. inginious:: suite1_4
+.. inginious:: suite1_5
 
 | 
 
@@ -360,19 +354,11 @@ Et en effet, on calcule : :math:`f(0)=11+(-2).0 = 11`,
 Pour chacune de ces possibilités, calculer :math:`a`, :math:`r` et le
 terme de rang :math:`20`.
 
-**Solution**
-
-#. :math:`a = -1`, :math:`r = -7` et :math:`s_{20}=-141`.
-
-#. :math:`a = 2`, :math:`r = 3` et :math:`s_{20}=62`.
-
-#. :math:`a = -\frac{1}{2}`, :math:`r = \frac{3}{2}` et
-   :math:`s_{20}=\frac{59}{2}`.
-
-#. :math:`a = 0`, :math:`r = 3` et :math:`s_{20}=60`.
-
-#. :math:`a = 14+\frac{1}{5}`, :math:`r = \frac{1}{5}` et
-   :math:`s_{20}=19+\frac{1}{5}`.
+.. inginious:: suite2_1
+.. inginious:: suite2_2
+.. inginious:: suite2_3
+.. inginious:: suite2_4
+.. inginious:: suite2_5
 
 | 
 
@@ -389,22 +375,16 @@ terme de rang :math:`20`.
 Pour chacune de ces possibilités, déterminer s’il s’agit d’une suite
 arithmétique.
 
-**Solution**
-
-#. Oui.
-
-#. Non.
-
-#. Non.
-
-#. Oui.
+.. inginious:: suite3_1
+.. inginious:: suite3_2
+.. inginious:: suite3_3
+.. inginious:: suite3_4
 
 | 
 
-**Exercice 2.2.7.** Si j’économise 100 euros par mois et qu’en trois an mes économies ont
-triplé, combien avais-je d’économies initialement ?
+**Exercice 2.2.7.** 
 
-**Solution** 1800 euros.
+.. inginious:: suite4
 
 | 
 
@@ -501,20 +481,11 @@ Et en effet, on calcule : :math:`f(0)=81 . (\frac{1}{3})^0 = 81`,
 Pour chacune de ces possibilités, calculer :math:`b`, :math:`q` et le
 terme de rang :math:`6`.
 
-**Solution** 
-
-#. :math:`b = 1`, :math:`q = -2` et :math:`s_{6}=64`.
-
-#. :math:`b = 2`, :math:`q = 3` et :math:`s_{6}=1458`.
-
-#. :math:`b = -27`, :math:`q = \frac{1}{3}` et
-   :math:`s_{6}=-\frac{1}{27}`.
-
-#. :math:`b = 1`, :math:`q = \frac{1}{5}` et
-   :math:`s_{6}=\frac{1}{15625}`.
-
-#. :math:`b = \frac{7}{256}`, :math:`q = 2` et
-   :math:`s_{6}=\frac{7}{4}`.
+.. inginious:: suite5_1
+.. inginious:: suite5_2
+.. inginious:: suite5_3
+.. inginious:: suite5_4
+.. inginious:: suite5_5
 
 | 
 
@@ -531,25 +502,16 @@ terme de rang :math:`6`.
 Pour chacune de ces possibilités, déterminer s’il s’agit d’une suite
 géométrique.
 
-**Solution** 
-
-#. Oui.
-
-#. Non.
-
-#. Oui.
-
-#. Oui.
+.. inginious:: suite6_1
+.. inginious:: suite6_2
+.. inginious:: suite6_3
+.. inginious:: suite6_4
 
 | 
 
-**Exercice 2.3.7.** On lâche une balle magique depuis le toit d’un immeuble à une hauteur de
-:math:`64`\ m. À chaque rebond, la hauteur jusqu’où parvient la balle
-vaut :math:`3` quarts de la hauteur à laquelle elle était parvenue au
-rebond précédent. Quelle est la hauteur maximale atteinte par la balle à
-son cinquième rebond ?
+**Exercice 2.3.7.** 
 
-**Solution** :math:`\frac{243}{16}` m.
+.. inginious:: suite7
 
 | 
 
@@ -604,13 +566,9 @@ géométrique.
 
 | 
 
-**Exercice 2.4.1.** Recommencer le problème mais avec les données suivantes : une somme
-initiale de :math:`10000`\ €, un temps de placements de :math:`20` ans,
-une première banque proposant des intérêts annuels simples de :math:`2`
-% et une deuxième banque proposant des intérêts annuels composés de
-:math:`1,9` %.
+**Exercice 2.4.1.** 
 
-**Solution** Dans ce cas, la deuxième banque est la plus avantageuse.
+.. inginious:: suite8
 
 2.5 Sommes de suites
 ----------------
@@ -740,80 +698,32 @@ une suite :math:`{(s_n)}_{n \in \mathbb{N}}`, on a :
 
 | 
 
-**Exercice 2.5.5.** Calculer :
+**Exercice 2.5.5.**
 
-#. :math:`0+7+14+21+28+35+42+49+56+63+70`
-
-#. :math:`2 + \frac{2}{5} + \frac{2}{5^2} + ... + \frac{2}{5^6} + \frac{2}{5^7}`
-
-**Solution**
-
-#. :math:`385`
-
-#. :math:`\frac{195312}{78125}`
+.. inginious:: suite9_1
+.. inginious:: suite9_2
 
 | 
 
-**Exercice 2.5.6.** Calculer :
+**Exercice 2.5.6.** 
 
-#. La somme des termes de rangs :math:`0` à :math:`12` d’une suite
-   arithmétique de terme initial :math:`a=-3` et de raison
-   :math:`\frac{1}{4}`.
-
-#. La somme des termes de rangs :math:`0` à :math:`8` d’une suite
-   géométrique de terme initial :math:`b=10^{-6}` et de raison
-   :math:`5`.
-
-#. La somme des :math:`13` premiers termes d’une suite géométrique de
-   terme initial :math:`b=-1` et de raison :math:`-2`.
-
-#. La somme des :math:`102` premiers termes d’une suite arithmétique de
-   terme initial :math:`a=-1` et de raison :math:`\sqrt{2}`.
-
-**Solution**
-
-#. :math:`-\frac{39}{2}`
-
-#. :math:`\frac{488281}{1000000}`
-
-#. :math:`-2731`
-
-#. :math:`51(101\sqrt{2}-1)`
+.. inginious:: suite10_1
+.. inginious:: suite10_2
+.. inginious:: suite10_3
+.. inginious:: suite10_4
 
 | 
 
-**Exercice 2.5.7.** Déterminer :
+**Exercice 2.5.7.** 
 
-#. La somme des :math:`100` premiers nombres impairs.
-
-#. Trois multiples de :math:`2` (:math:`2,4,8,16,32,...`) consécutifs
-   dont la somme vaut :math:`1792`.
-
-**Solution**
-
-#. :math:`1000000`
-
-#. :math:`256`, :math:`512` et :math:`1024`.
+.. inginious:: suite10_5
+.. inginious:: suite10_6
 
 | 
 
-**Exercice 2.5.8.** Pour un travail de barman, on me propose deux systèmes de rémunération
-différents :
+**Exercice 2.5.8.** 
 
-#. Le premier, très classique, consiste à me verser tous les mois
-   :math:`1200`\ €.
-
-#. Le deuxième, inventé avec l’idée de ne pas avoir à payer trop
-   d’argent aux nouveaux venus qui ne seraient pas compétents, consiste
-   à me verser :math:`1000`\ € le premier mois, puis un peu plus chaque
-   mois : mon salaire augmenterait de :math:`2`\ % chaque mois.
-
-Compte tenu du fait que je suit un excellent barman et que je compte
-travailler dans cet établissement pendant :math:`2` ans, quel est le
-système le plus avantageux en ce qui me concerne (c’est-à-dire celui qui
-m’aura rapporté le plus d’argent au terme des :math:`2` ans) ?
-
-**Solution** Le deuxième système est le plus avantageux en ce qui me concerne.
+.. inginious:: suite11
 
 | 
 
@@ -1292,72 +1202,13 @@ minorants .
 
 | 
 
-**Exercice 4.2.5.** En partant des limites de base, démontrer que les suites suivantes ont
-une limite et calculer celle-ci.
+**Exercice 4.2.5.** 
 
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto 3 - \frac{1}{n+1}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto \sqrt{2} - \frac{1}{n+1} + \frac{2}{n+\pi}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto 5 + \frac{n+1}{2n+5}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto \frac{n^2 - 9}{n^2+6+9}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto \frac{n^2 + 7}{n^4+6n+9}
-              \end{aligned}
-
-|   
-
-**Solution**
-
-#. On sait que :math:`\lim\limits_{n \to \infty} 3 = 3` et que
-   :math:`\lim\limits_{n \to \infty} \frac{1}{n+1} = 0`. Par la
-   proposition 4.2.1, on a donc
-   :math:`\lim\limits_{n \to \infty} -1.\frac{1}{n+1} = -1 . 0 = 0`. En
-   conclusion, par la proposition 4.2.1, on a donc
-   :math:`\lim\limits_{n \to \infty} 3-\frac{1}{n+1} = 3 + 0= 3`.
-
-#. :math:`\sqrt{2}`
-
-#. :math:`5 + \frac{1}{2}`
-
-#. :math:`1`
-
-#. :math:`0`
+.. inginious:: suite12_1
+.. inginious:: suite12_2
+.. inginious:: suite12_3
+.. inginious:: suite12_4
+.. inginious:: suite12_5
 
 | 
 
@@ -1549,126 +1400,18 @@ et :math:`(u_n)_{n \in \mathbb{N}}` diverge vers :math:`+\infty`. Alors
 
 | 
 
-**Exercice 4.3.6.** Pour les suites suivantes, déterminer si elles convergent (si oui,
-déterminer la limite), si elles divergent vers :math:`+ \infty` ou si
-elles divergent vers :math:`-\infty`. Justifier.
+**Exercice 4.3.6.** 
 
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto n^3 - \frac{1}{n+1}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto \frac{n^2}{2}.\sqrt[3]{n}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto \frac{n^4+1}{2n^2+5}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto \frac{25-n^2}{n+5} - 1007
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}&\to \mathbb{R}\\
-              n &\mapsto \frac{3-\sqrt{n}}{3+\sqrt{n}} 
-                  \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-                  s : \mathbb{N}&\to \mathbb{R}\\
-                  n &\mapsto 6-|\frac{2n+4}{n+2}|
-                  \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-                  s : \mathbb{N}&\to \mathbb{R}\\
-                  n &\mapsto \frac{4x^3-7x^2+3x-1}{3x^3-x+1}
-                  \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-                  s : \mathbb{N}&\to \mathbb{R}\\
-                  n &\mapsto \frac{\sqrt{5n}}{2n}
-                  \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-                  s : \mathbb{N}&\to \mathbb{R}\\
-                  n &\mapsto -6-5\frac{n}{n+\sqrt{n^2+n}}
-                  \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              s : \mathbb{N}_{0}&\to \mathbb{R}\\
-              n &\mapsto \frac{\sqrt{3n}}{\sqrt[3]{-7n}}
-              \end{aligned} 
-
-**Solution.**
-
-#. On sait que :math:`\lim\limits_{n \to \infty} n^3 = \infty` et que
-   :math:`\lim\limits_{n \to \infty} \frac{1}{n+1} = 0`. Par la
-   proposition `[proplim] <#proplim>`__, on a donc
-   :math:`\lim\limits_{n \to \infty} -1.\frac{1}{n+1} = -1 . 0 = 0`. En
-   conclusion, par la proposition `[propdiv] <#propdiv>`__, on a donc
-   :math:`\lim\limits_{n \to \infty} 3-\frac{1}{n+1} = \infty`.
-
-#. :math:`\lim\limits_{n \to \infty} \frac{n^2}{2}.\sqrt[3]{n} =+\infty`
-
-#. :math:`\lim\limits_{n \to \infty} \frac{n^4+1}{2n^2+5} =+\infty`
-
-#. :math:`\lim\limits_{n \to \infty} \frac{4n^5 + 7}{-n^5+6n^4+9} - \sqrt{n} =-\infty`
-
-#. :math:`\lim\limits_{n \to \infty} \frac{3-\sqrt{n}}{3+\sqrt{n}} =-1`
-
-#. :math:`\lim\limits_{n \to \infty} 6-|\frac{2n+4}{n+2}| =4`
-
-#. :math:`\lim\limits_{n \to \infty} \frac{4x^3-7x^2+3x-1}{3x^3-x+1} =\frac{4}{3}`
-
-#. :math:`\lim\limits_{n \to \infty} \frac{\sqrt{5n}}{2n} =0`
-
-#. :math:`\lim\limits_{n \to \infty} -6-5\frac{n}{n+\sqrt{n^2+n}} =-\frac{17}{2}`
-
-#. :math:`\lim\limits_{n \to \infty} \frac{\sqrt{3n}}{\sqrt[3]{-7n}} =-\infty`
+.. inginious:: suite13_1
+.. inginious:: suite13_2
+.. inginious:: suite13_3
+.. inginious:: suite13_4
+.. inginious:: suite13_5
+.. inginious:: suite13_6
+.. inginious:: suite13_7
+.. inginious:: suite13_8
+.. inginious:: suite13_9
+.. inginious:: suite13_10
 
 | 
 
@@ -1801,22 +1544,15 @@ démontrez-le.
 
 | 
 
-**Exercice 5.2.2.** En exprimant l’expression :math:`2 + \frac{2}{5} + \frac{2}{25} + ...`
-correctement sous la forme d’une limite, calculer sa valeur.
+**Exercice 5.2.2.** 
 
-**Solution**
-|   
-| :math:`\lim\limits_{n \to \infty} \sum\limits_{i=0}^{n} 2 . \left(\frac{1}{5}\right)^i = \lim\limits_{n \to \infty} 2 . \frac{1-\left(\frac{1}{5}\right)^{n+1}}{1-\frac{1}{5}} = \lim\limits_{n \to \infty} \frac{5}{2}\left(1-\left(\frac{1}{5}\right)^{n+1}\right) = \frac{5}{2}.(1-0)=\frac{5}{2}`
+.. inginious:: suite14_1
 
 | 
 
-**Exercice 5.2.3.** En exprimant l’expression
-:math:`44 -22 + 11 + \frac{11}{2} - \frac{11}{4} + ...` correctement
-sous la forme d’une limite, calculer sa valeur.
+**Exercice 5.2.3.** 
 
-**Solution**
-|   
-| :math:`\lim\limits_{n \to \infty} \sum\limits_{i=0}^{n} 44 . \left(-\frac{1}{2}\right)^i = \lim\limits_{n \to \infty} 44 . \frac{1-\left(-\frac{1}{2}\right)^{n+1}}{1-(-\frac{1}{5})} = \lim\limits_{n \to \infty} \frac{220}{6}\left(1-\left(-\frac{1}{5}\right)^{n+1}\right) = \frac{110}{3}.(1-0)=\frac{110}{3}`
+.. inginious:: suite14_2
 
 .. [1]
    Nous les retrouverons avec un autre point de vue dans le prochain
