@@ -199,232 +199,16 @@ suivants, puis déterminer si elles sont continues ou non. Si elles ne
 sont pas continues, donner l’ensemble des points où elles sont
 discontinues.
 
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		  \draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		  \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		  \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:2](\x,{-(\x)/2+1});
-      \draw[thick, fill=white](-4,3)circle(0.2);
-      \draw (2,0)node{$\bullet$};
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-4:0](\x,{-(\x)/2+1});
-    \draw[thick] plot[domain=0:2](\x,{-(\x)/2+2});
-    \draw[thick, fill=white](-4,3)circle(0.2);
-    \draw[thick, fill=white](2,1)circle(0.2);
-    \draw[thick, fill=white](0,1)circle(0.2);
-    \draw (0,2)node{$\bullet$};
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-4:0](\x,{-(\x)/2+1});
-    \draw[thick] plot[domain=0:2](\x,{-(\x)/2-3});
-    \draw[thick, fill=white](-4,3)circle(0.2);
-    \draw (2,-4)node{$\bullet$};
-    \draw[thick, fill=white](0,1)circle(0.2);
-    \draw[thick, fill=white](0,-3)circle(0.2);
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-4:0](\x,{-(\x)/2+1});
-    \draw[thick] plot[domain=0:2](\x,{-(\x)/2-3});
-    \draw[thick, fill=white](-4,3)circle(0.2);
-    \draw (0,-2)node{$\bullet$};
-    \draw[thick, fill=white](2,-4)circle(0.2);
-    \draw[thick, fill=white](0,1)circle(0.2);
-    \draw[thick, fill=white](0,-3)circle(0.2);
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-			\draw[thick] plot[domain=-4:0](\x,{-(\x)/2+1});
-			\draw[thick] plot[domain=2:4](\x,{-(\x)/2+2});
-			\draw[thick, fill=white](-4,3)circle(0.2);
-			\draw[thick, fill=white](2,1)circle(0.2);
-			\draw[thick, fill=white](4,0)circle(0.2);
-			\draw[thick, fill=white](0,1)circle(0.2);
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-4:0](\x,{-(\x)/2+1});
-    \draw[thick] plot[domain=2:4](\x,{-(\x)/2+2});
-    \draw (-4,3)node{$\bullet$};
-    \draw (4,0)node{$\bullet$};
-    \draw (0,1)node{$\bullet$};
-    \draw[thick, fill=white](2,1)circle(0.2);  
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-4:0](\x,{-(\x)/2+1});
-    \draw[thick] plot[domain=2:4](\x,{-(\x)/2+2});
-    \draw (2,1)node{$\bullet$};
-    \draw (4,0)node{$\bullet$};
-    \draw (0,1)node{$\bullet$};
-    \draw[thick, fill=white](-4,3)circle(0.2);
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-4:0](\x,{-(\x)/2+1});
-    \draw[thick] plot[domain=2:4](\x,{-(\x)/2+1});
-    \draw (2,1)node{$\bullet$};
-    \draw (4,-1)node{$\bullet$};
-    \draw (0,1)node{$\bullet$};
-    \draw (2,1)node{$\bullet$};
-    \draw[thick, fill=white](-4,3)circle(0.2);
-    \draw[thick, fill=white](2,0)circle(0.2);  
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-4:0](\x,{-(\x)/2+1});
-    \draw[thick] plot[domain=2:4](\x,{-(\x)/2+2});
-    \draw (2,1)node{$\bullet$};
-    \draw (0,1)node{$\bullet$};
-    \draw (1,2)node{$\bullet$};
-    \draw[thick, fill=white](-4,3)circle(0.2);
-    \draw[thick, fill=white](4,0)circle(0.2);
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw (-4,-4)node{$\bullet$};
-    \draw[thick] plot[domain=-4:-1.1](\x,{-(\x+2)*(\x+2)});
-    \draw[thick, fill=white](-1,-1)circle(0.2);
-    \draw[thick] plot[domain=-0.9:-0.142](\x,{-1/(\x)-2});
-    \draw (0,-3)node{$\bullet$};
-    \draw[thick] plot[domain=0.142:1](\x,{1/(\x)-2});
-    \draw[thick, fill=white](1,-1)circle(0.2);
-    \draw (1,2.5)node{$\bullet$};
-    \draw[thick] plot[domain=1:2](\x,{-(\x)/2+3});
-    \draw[thick] plot[domain=2:2.875](\x,{1/(\x-3)+3});
-    \draw[thick] plot[domain=3.25:5](\x,{1/(\x-3)+1});
-
-**Solution.**
-
-#. :math:`\mathop{\mathrm{dom}}(f) = ]-4,2]`. La fonction est continue.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = ]-4,2[`. La fonction est
-   discontinue en :math:`0`.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = ]-4,0[ \cup ]0,2]`. La fonction est
-   continue.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = ]-4,2[`. La fonction est
-   discontinue en :math:`0`.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = ]-4,0[ \cup ]2,4[`. La fonction est
-   continue.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = [-4,0] \cup ]2,4]`. La fonction est
-   continue.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = ]-4,0] \cup [2,4]`. La fonction est
-   continue.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = ]-4,0] \cup [2,4]`. La fonction est
-   discontinue en :math:`2`.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = ]-4,0] \cup \{1\} \cup [2,4[`. La
-   fonction est continue.
-
-#. :math:`\mathop{\mathrm{dom}}(f) = [-4,-1[ \cup ]-1,3[ \cup ]3,+\infty[`.
-   La fonction est discontinue en :math:`0` et en :math:`1`.
+.. inginious:: cont1_1
+.. inginious:: cont1_2
+.. inginious:: cont1_3
+.. inginious:: cont1_4
+.. inginious:: cont1_5
+.. inginious:: cont1_6
+.. inginious:: cont1_7
+.. inginious:: cont1_8
+.. inginious:: cont1_9
+.. inginious:: cont1_10
 
 | 
 
@@ -665,141 +449,14 @@ présent capables de justifier la continuité de nombreuses fonctions.  
 non, faire le graphe de la fonction et donner l’ensemble des points de
 discontinuité.
 
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              f : \mathbb{R}&\to \mathbb{R}\\
-              x &\mapsto 4x^2 + |x|
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              f : \mathbb{R}&\to \mathbb{R}\\
-              x &\mapsto \sqrt[3]{3+x}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              f : {\mathbb{R}}_{0} &\to \mathbb{R}\\
-              x &\mapsto \frac{2}{x}+x
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              f : ]-3,-2[ &\to \mathbb{R}\\
-              x &\mapsto \sqrt{-x}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              f : \mathbb{R}&\to \mathbb{R}\\
-              x &\mapsto \begin{cases}
-              x+2 & \text{si } x \le 3  \\
-              -x^2+7 & \text{si } x > 3
-              \end{cases}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              f : {\mathbb{R}}_{0} &\to \mathbb{R}\\
-              x &\mapsto \begin{cases}
-              4 & \text{si } x < 0  \\
-              -\sqrt{x}+1 & \text{si } x > 0
-              \end{cases}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              f : [1,4] &\to \mathbb{R}\\
-              x &\mapsto \begin{cases}
-              \frac{x^3 - 8}{x-2} & \text{si } x \neq 2  \\
-              10 & \text{si } x = 2
-              \end{cases}
-              \end{aligned}
-
-#. 
-
-   .. math::
-
-      \begin{aligned}
-              f : ]-\infty,2] &\to \mathbb{R}\\
-              x &\mapsto \begin{cases}
-              \frac{x^2 - 25}{x+5} & \text{si } x \neq -5  \\
-              -10 & \text{si } x = -5
-              \end{cases}
-              \end{aligned}
-
-**Solution.**
-
-#. La fonction :math:`f` est continue. Justification : 
-
-     Les fonctions
-
-     .. math::
-
-        \begin{aligned}
-                g : \mathbb{R}&\to \mathbb{R}\\
-                x &\mapsto x^2
-                \end{aligned}
-
-       
-   
-
-     .. math::
-
-        \begin{aligned}
-                h : \mathbb{R}&\to \mathbb{R}\\
-                x &\mapsto |x|
-                \end{aligned}
-
-       
-   
-
-     .. math::
-
-        \begin{aligned}
-                l : \mathbb{R}&\to \mathbb{R}\\
-                x &\mapsto 4
-                \end{aligned}
-
-     sont continues (ce sont des fonctions de référence : voir théorème
-     2.2.1).
-
-     Or, :math:`f= l.g+h`, donc par la proposition 2.3.2, :math:`f` est continue.
-
-#. La fonction :math:`f` est continue.
-
-#. La fonction :math:`f` est continue.
-
-#. La fonction :math:`f` est continue.
-
-#. La fonction :math:`f` n’est pas continue en :math:`3`.
-
-#. La fonction :math:`f` est continue.
-
-#. La fonction :math:`f` n’est pas continue en :math:`2`.
-
-#. La fonction :math:`f` est continue.
+.. inginious:: cont2_1
+.. inginious:: cont2_2
+.. inginious:: cont2_3
+.. inginious:: cont2_4
+.. inginious:: cont2_5
+.. inginious:: cont2_6
+.. inginious:: cont2_7
+.. inginious:: cont2_8
 
 | 
 
@@ -1330,26 +987,10 @@ définitivement de :math:`3`. On note :
 **Exercice 3.1.10.** À l’aide d’un graphique, déterminer si les limites suivantes existent.
 Si oui, donner les valeurs de celles-ci.
 
-.. hlist::
-  :columns: 2
-
-  * :math:`\lim\limits_{x \to 1} 3x-1`
-  * :math:`\lim\limits_{x \to 6} \sqrt{x-6}`
-  * :math:`\lim\limits_{x \to 0} \frac{1}{x}`
-  * :math:`\lim\limits_{x \to -2} |x+2|-3`
-
-**Solution.**
-
-.. hlist::
-  :columns: 2
-
-  * :math:`\lim\limits_{x \to 1} 3x-1=2`
-
-  * :math:`\lim\limits_{x \to 4} \sqrt{x-6}=2`
-
-  * :math:`\lim\limits_{x \to 0} \frac{1}{x}` n’existe pas.
-
-  * :math:`\lim\limits_{x \to -2} |x+2|-3=-3`
+.. inginious:: limite10_1
+.. inginious:: limite10_2
+.. inginious:: limite10_3
+.. inginious:: limite10_4
 
 | 
 
@@ -1387,17 +1028,7 @@ suivantes existent. Si oui, donner les valeurs de celles-ci.
 
 #. :math:`\lim\limits_{x\to 4} f(x)`
 
-**Solution.**
-
-#. :math:`\lim\limits_{x\to -3} f(x)=2`
-
-#. :math:`\lim\limits_{x\to -2} f(x)=0`
-
-#. :math:`\lim\limits_{x\to 0} f(x)` n’existe pas.
-
-#. :math:`\lim\limits_{x\to 2} f(x)` n’existe pas.
-
-#. :math:`\lim\limits_{x\to 4} f(x)=4`
+.. inginious:: limite11
 
 | 
 
@@ -1430,214 +1061,16 @@ suivantes existent. Si oui, donner les valeurs de celles-ci.
 
 **Exercice 3.1.13.** Déterminer si les limites suivantes si elles existent.
 
-.. hlist::
-   :columns: 2
-
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:2,samples=100](\x,0.5*\x);
-      \draw[thick] plot[domain=2:4,samples=100](\x,-1.5*\x + 5);
-      \draw [thick] (2,1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,2) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,-1) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to 2}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:-1,samples=100](\x,-\x-2);
-      \draw[thick] plot[domain=-1:1.98,samples=100](\x,{0.45*(\x*\x+2*\x+1)-1});
-      \draw [thick] (-1,-1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-   
-   * :math:`\lim\limits_{x\to -1}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-2:2,samples=100,xshift=45](\x,\x*\x-1);
-
-   * :math:`\lim\limits_{x\to 3}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-2.65:1,samples=100](\x,{0.3*(\x*\x-2*\x+1)-1});
-      \draw[thick] plot[domain=0.3:3.5,samples=100,xshift=25](\x,{1/\x});
-      \draw[dashed,thick] (1,-2) -- (1,3.3);
-      \draw [thick] (1,-1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to 1}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=0.038:5,samples=100,xshift=-28](\x,{-ln(\x)});
-      \draw[dashed,thick] (-1,-2) -- (-1,3.3);
-
-   * :math:`\lim\limits_{x\to 0}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-3.2:0,samples=100](\x,-\x);
-      \draw[thick] plot[domain=0:3.2,samples=100](\x,\x);
-
-   * :math:`\lim\limits_{x\to -1}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:4,samples=100](\x,{0.5*\x*sin(400*\x)});
-
-   * :math:`\lim\limits_{x\to 0}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4.135:-0.499,samples=100,xshift=4](\x,{-1/(\x*\x)+2});
-      \draw[thick] plot[domain=0.577:4.27,samples=100,xshift=-8](\x,{-1/(\x*\x)+1});
-
-   * :math:`\lim\limits_{x\to 0}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:2,samples=100](\x,-1);
-      \draw[thick] plot[domain=2:4,samples=100](\x,2);
-      \draw [thick] (2,-1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,2) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,1) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to 2}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4.48:-0.48,samples=100,xshift=13](\x,{-1/\x-0.1});
-      \draw[thick] plot[domain=0.48:4.48,samples=100,xshift=-13](\x,{-1/\x+2.1});
-      \draw [thick] (0,2) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (0,0) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to 0}f(x)`
-
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-
-   * :math:`\lim\limits_{x\to 2}f(x)` n’existe pas.
-
-   * :math:`\lim\limits_{x\to -1}f(x)=-1`
-
-   * :math:`\lim\limits_{x\to 3}f(x)=1`
-
-   * :math:`\lim\limits_{x\to 1}f(x)` n’existe pas.
-
-   * :math:`\lim\limits_{x\to 0}f(x)=0`
-
-   * :math:`\lim\limits_{x\to -1}f(x)=1`
-
-   * :math:`\lim\limits_{x\to 0}f(x)=0`
-
-   * :math:`\lim\limits_{x\to 0}f(x)` n’existe pas.
-
-   * :math:`\lim\limits_{x\to 2}f(x)` n’existe pas.
-
-   * :math:`\lim\limits_{x\to 2}f(x)` n’existe pas.
+.. inginious:: limite12_1
+.. inginious:: limite12_2
+.. inginious:: limite12_3
+.. inginious:: limite12_4
+.. inginious:: limite12_5
+.. inginious:: limite12_6
+.. inginious:: limite12_7
+.. inginious:: limite12_8
+.. inginious:: limite12_9
+.. inginious:: limite12_10
 
 | 
 
@@ -1750,27 +1183,10 @@ affirmer que la limite :math:`\lim\limits_{x \to 2}` existe et vaut
 
 **Exercice 3.2.4.** Calculer les limites suivantes et justifier.
 
-#. :math:`\lim\limits_{x \to 2} \sqrt{x}+1`
-
-#. :math:`\lim\limits_{x \to \frac{-1}{\pi}} 1+\frac{1}{x}`
-
-#. :math:`\lim\limits_{x \to 3} \frac{x^2-9}{x+3}`
-
-#. :math:`\lim\limits_{x \to 1} \sqrt{x^2+\sqrt[3]{(5x)^2+|x-3|}}`
-
-**Solution.**
-
-#. :math:`\lim\limits_{x \to 2} \sqrt{x}+1=\sqrt{2}+1`. Justification :
-   la fonction racine carrée et la fonction constante :math:`1` sont
-   continues en :math:`2`, donc leur somme est continue en :math:`2`.
-   Dès lors, par le théorème 3.2.1, on a
-   :math:`\lim\limits_{x \to 2} \sqrt{x}+1=\sqrt{2}+1`.
-
-#. :math:`\lim\limits_{x \to \frac{-1}{\pi}} 1+\frac{1}{x}=1-\pi`
-
-#. :math:`\lim\limits_{x \to 3} \frac{x^2-9}{x+3}=0`
-
-#. :math:`\lim\limits_{x \to 1} \sqrt{x^2+\sqrt[3]{(5x)^2+|x-3|}}=2`
+.. inginious:: limite13_1
+.. inginious:: limite13_2
+.. inginious:: limite13_3
+.. inginious:: limite13_4
 
 3.3 Lien entre les prolongements continus et les limites de fonctions
 -----------------------------------------------------------------
@@ -1873,52 +1289,14 @@ expression.
 
 **Exercice 3.3.3.** Les limites suivantes existent. Calculer celles-ci.
 
-.. hlist::
-  :columns: 2
-
-  * :math:`\lim\limits_{x \to -1} \frac{x^2-1}{x+1}`
-
-  * :math:`\lim\limits_{x \to 0} 1+\frac{3x^2+x}{x}`
-
-  * :math:`\lim\limits_{x \to 4} \frac{x^2-8x+16}{x^2-16}`
-
-  * :math:`\lim\limits_{x \to 0} \frac{x^2+x}{\sqrt{x}}`
-
-  * :math:`\lim\limits_{x \to 1} \frac{-x^4+x^2+x-1}{2-2x}`
-
-  * :math:`\lim\limits_{x \to 2} \frac{x^4+x^3-8x-8}{x^3-8}`
-
-  * :math:`\lim\limits_{x \to -2} \frac{x-1}{x+2}+\frac{3x-6}{x^2-4}`
-
-  * :math:`\lim\limits_{x \to 4} \frac{4-x}{2-\sqrt{x}}`
-
-**Solution.**
-
-#. | :math:`\lim\limits_{x \to -1} \frac{x^2-1}{x+1}=-2`.
-
-     Justification : pour tout
-     :math:`x \in \mathbb{R}\backslash \{-1\}`, on a
-     :math:`f(x)= \frac{x^2-1}{x+1}=\frac{(x-1)(x+1)}{x+1}=x-1`. La
-     fonction :
-
-     .. math::
-
-        \begin{aligned}
-            g : \mathbb{R}&\to \mathbb{R}\\
-            x &\mapsto x-1
-            \end{aligned}
-
-     est donc un prolongement continu de :math:`f`. Comme
-     :math:`g(-1)=-2`, par le théorème `[pcl] <#pcl>`__, on a donc
-     :math:`\lim\limits_{x \to -1} \frac{x^2-1}{x+1}=-2`.
-
-#. :math:`\lim\limits_{x \to 0} 1+\frac{3x^2+x}{x}=2`
-#. :math:`\lim\limits_{x \to 4} \frac{x^2-8x+16}{x^2-16}=0`
-#. :math:`\lim\limits_{x \to 0} \frac{x^2+x}{\sqrt{x}}=0`
-#. :math:`\lim\limits_{x \to 1} \frac{-x^4+x^2+x-1}{2-2x}=\frac{1}{2}`
-#. :math:`\lim\limits_{x \to 2} \frac{x^4+x^3-8x-8}{x^3-8}=3`
-#. :math:`\lim\limits_{x \to 2} \frac{x-1}{x+2}+\frac{3x-6}{x^2-4}=1`
-#. :math:`\lim\limits_{x \to 4} \frac{4-x}{2-\sqrt{x}}=4`
+.. inginious:: limite1_1
+.. inginious:: limite1_2
+.. inginious:: limite1_3
+.. inginious:: limite1_4
+.. inginious:: limite1_5
+.. inginious:: limite1_6
+.. inginious:: limite1_7
+.. inginious:: limite1_8
 
 |
 
@@ -2392,59 +1770,17 @@ ne converge pas et ne diverge pas en :math:`0`.
 considéré. Si oui, donner le type de divergence (vers :math:`+\infty` ou
 vers :math:`-\infty`).
 
-.. hlist::
-  :columns: 2
-
-   * :math:`\lim\limits_{x \to 0} \frac{-1}{\sqrt{x}}`
-
-   * :math:`\lim\limits_{x \to 1} \frac{1}{x-1}`
-
-   * :math:`\lim\limits_{x \to 0} -10+\frac{1}{x^2}`
-
-   * :math:`\lim\limits_{x \to 4} \frac{-1}{\sqrt{x}}`
-
-**Solution.**
-
-.. hlist::
-  :columns: 2
-
-   * :math:`\lim\limits_{x \to 0} \frac{-1}{\sqrt{x}}=-\infty`
-
-   * La fonction ne diverge pas en :math:`1`.
-
-   * :math:`\lim\limits_{x \to 0} -10+\frac{1}{x^2}=+\infty`
-
-   * La fonction ne diverge pas en :math:`4` (elle converge vers
-   :math:`-\frac{1}{2}`).
+.. inginious:: limite2_1
+.. inginious:: limite2_2
+.. inginious:: limite2_3
+.. inginious:: limite2_4
 
 |
 
 **Exercice 3.4.17.** Voici le graphe d'une fonction réelle :math:`f`. Déterminer l’ensemble
 des points où elle diverge.
 
-.. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-7,-3) grid (7,4);
-
-      \draw[very thick,->] (-7,0) -- (8,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-3) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-7:-3,samples=100](\x,\x+5);
-    \draw[thick] plot[domain=-3:0,samples=100](\x,0.45*\x*\x-2);
-    \draw[thick] plot[domain=0:1.9457,samples=100](\x,{ln(1.95-\x)+2.3});
-    \draw[thick] plot[domain=2.0543:7,samples=100](\x,{ln(\x-2.05)+2.3});
-    \draw [thick] (-3,2) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-    \draw [thick] (0,-2) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-    \draw [thick] (0,3) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-
-**Solution.** L’unique point où la fonction diverge est :math:`2`. On a
-:math:`\lim\limits_{x \to 2} f(x)=-\infty`.
+.. inginious:: limite14
 
 |
 
@@ -2723,45 +2059,14 @@ continue partout sauf en :math:`-1` et :math:`0`, qui a comme limite
 Si elles convergent, donner la limite. Si elles divergent, donner le
 type de divergence (vers :math:`+\infty` ou vers :math:`-\infty`).
 
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to 0} \frac{x^3-x}{x}`
-
-   * :math:`\lim\limits_{x \to 0} \frac{x^3-x}{x^3}`
-
-   * :math:`\lim\limits_{x \to 0} \frac{x^2-x}{x^2}`
-
-   * :math:`\lim\limits_{x \to 1} \frac{x^3-x^2+x-1}{x-1}`
-
-   * :math:`\lim\limits_{x \to 1} \frac{x-1}{x^3-x^2+x-1}`
-
-   * :math:`\lim\limits_{x \to -1} \frac{x^3+x^2-x-1}{x-1}`
-
-   * :math:`\lim\limits_{x \to -1} \frac{x-1}{x^3+x^2-x-1}`
-
-   * :math:`\lim\limits_{x \to 3} 3+x-\frac{1}{\sqrt{x-3}}`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to 0} \frac{x^3-x}{x}=1`
-
-   * :math:`\lim\limits_{x \to 0} \frac{x^3-x}{x^3}=-\infty`
-
-   * La fonction ne converge et ne diverge pas en :math:`0`.
-
-   * :math:`\lim\limits_{x \to 1} \frac{x^3-x^2+x-1}{x-1}=2`
-
-   * :math:`\lim\limits_{x \to 1} \frac{x-1}{x^3-x^2+x-1}=\frac{1}{2}`
-
-   * :math:`\lim\limits_{x \to 1} \frac{x^3+x^2-x-1}{x-1}=4`
-
-   * :math:`\lim\limits_{x \to 1} \frac{x-1}{x^3+x^2-x-1}=+\infty`
-
-   * :math:`\lim\limits_{x \to 3} 3+x-\frac{1}{\sqrt{x-3}}=-\infty`
+.. inginious:: limite3_1
+.. inginious:: limite3_2
+.. inginious:: limite3_3
+.. inginious:: limite3_4
+.. inginious:: limite3_5
+.. inginious:: limite3_6
+.. inginious:: limite3_7
+.. inginious:: limite3_8
 
 |
 
@@ -3300,178 +2605,11 @@ divergences à gauche ou à droite éventuelles.
 
 **Exemple 3.5.17.** Déterminer quelles sont les limites et les divergence à gauche et à droite.
 
-.. hlist::
-   :columns: 2
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=0.046:5,samples=100,xshift=-28](\x,{-ln(\x)});
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 0}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-2.65:1,samples=100](\x,{0.3*(\x*\x-2*\x+1)-1});
-      \draw[thick] plot[domain=0.3333:3.1,samples=100,xshift=25](\x,{1/\x});
-      \draw [thick] (1,-1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 1}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-2.65:1,samples=100](\x,{0.3*(\x*\x-2*\x+1)-1});
-      \draw[thick] plot[domain=0.3333:3.1,samples=100,xshift=25](\x,{1/\x});
-      \draw [thick] (1,-1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 1}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:2,samples=100](\x,0.5*\x);
-      \draw[thick] plot[domain=2:4,samples=100](\x,-1.5*\x + 5);
-      \draw [thick] (2,1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,2) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,-1) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 2}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:2,samples=100](\x,0.5*\x);
-      \draw[thick] plot[domain=2:4,samples=100](\x,-1.5*\x + 5);
-      \draw [thick] (2,1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,2) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,-1) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 2}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4.48:-0.48,samples=100,xshift=13](\x,{-1/\x-0.1});
-      \draw[thick] plot[domain=0.48:4.48,samples=100,xshift=-13](\x,{-1/\x+2.1});
-      \draw [thick] (0,2) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (0,0) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 0}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4.48:-0.48,samples=100,xshift=13](\x,{-1/\x-0.1});
-      \draw[thick] plot[domain=0.48:4.48,samples=100,xshift=-13](\x,{-1/\x+2.1});
-      \draw [thick] (0,2) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (0,0) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 0}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4.135:-2.499,samples=100,xshift=4](\x,{-1/((\x+2)*(\x+2))+2});
-      \draw[thick] plot[domain=2.577:4.27,samples=100,xshift=-8](\x,{-1+1/((\x-2)*(\x-2))+1});
-      \draw [thick] (-2,2) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,-1) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x \underset{<}{\to} -2}f(x)`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \underset{<}{\to} -1}f(x)=0`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 1}f(x)=-1`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 1}f(x)=+\infty`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 2}f(x)=2`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 2}f(x)=1`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 0}f(x)=2`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 0}f(x)=0`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} -2}f(x)=-\infty`
+.. inginious:: limite4_1
+.. inginious:: limite4_2
+.. inginious:: limite4_3
+.. inginious:: limite4_4
+.. inginious:: limite4_5
 
 |  
 
@@ -3520,53 +2658,12 @@ limite à droite ou à gauche. Si elles divergent à droite ou à gauche,
 donner le type de divergence (vers :math:`+\infty` ou vers
 :math:`-\infty`). N’hésitez pas à vous aider d’un graphe.
 
-.. hlist::
-   :columns: 2
+.. inginious:: limite5_1
+.. inginious:: limite5_2
+.. inginious:: limite5_3
+.. inginious:: limite5_4
+.. inginious:: limite5_5
 
-   * :math:`\lim\limits_{x \underset{>}{\to} 0} \frac{1}{x^3}`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 0} \frac{1}{x^3}`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 0} \frac{1}{|x|}`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 0} \frac{1}{|x|}`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 9} \sqrt{x}`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 9} \sqrt{x}`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} \frac{1}{2}} \frac{4x-2}{2x^2+5x-3}`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} \frac{1}{2}} \frac{4x-2}{2x^2+5x-3}`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 1} -\frac{x^2+1}{x^3-x^2+x-1}`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 1} -\frac{x^2+1}{x^3-x^2+x-1}`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 0} \frac{1}{x^3}=+\infty`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 0} \frac{1}{x^3}=-\infty`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 0} \frac{1}{|x|}=+\infty`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 0} \frac{1}{|x|}=+\infty`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 9} \sqrt{x}=3`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 9} \sqrt{x}=3`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} \frac{1}{2}} \frac{4x-2}{2x^2+5x-3}=\frac{4}{7}`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} \frac{1}{2}} \frac{4x-2}{2x^2+5x-3}=\frac{4}{7}`
-
-   * :math:`\lim\limits_{x \underset{>}{\to} 1} -\frac{x^2+1}{x^3-x^2+x-1}=-\infty`
-
-   * :math:`\lim\limits_{x \underset{<}{\to} 1} -\frac{x^2+1}{x^3-x^2+x-1}=+\infty`
 
 |
 
@@ -4166,171 +3263,15 @@ expliquer celle-ci.
 ont une limite ou divergent pour :math:`x` qui tend vers
 :math:`+\infty` ou :math:`-\infty`.
 
-.. hlist::
-   :columns: 2
+.. inginious:: limite6_1
+.. inginious:: limite6_2
+.. inginious:: limite6_3
+.. inginious:: limite6_4
+.. inginious:: limite6_5
+.. inginious:: limite6_6
+.. inginious:: limite6_7
+.. inginious:: limite6_8
 
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:4,samples=300,xshift=-28](\x,{1+(1/8)*cos(200*\x)*(1/2)^\x});
-
-   * :math:`\lim\limits_{x\to +\infty}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-2.65:1,samples=100](\x,{0.3*(\x*\x-2*\x+1)-1});
-      \draw[thick] plot[domain=0.3333:3.1,samples=100,xshift=25](\x,{1/\x});
-      \draw [thick] (1,-1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to +\infty}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:2,samples=100](\x,0.5*\x);
-      \draw[thick] plot[domain=2:4,samples=100](\x,-1.5*\x + 5);
-      \draw [thick] (2,1) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,2) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,-1) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to -\infty}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4.135:-0.499,samples=100,xshift=4](\x,{-1/(\x*\x)+2});
-      \draw[thick] plot[domain=0.577:4.27,samples=100,xshift=-8](\x,{-1/(\x*\x)+1});
-      \draw [thick] (0,2) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to -\infty}f(x)`
-   
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:1.75,samples=100](\x,{-1-1/(\x-2)});
-      \draw[thick] plot[domain=2:4,samples=100](\x,2);
-      \draw [thick] (2,2) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (2,1) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to -\infty}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4.48:-0.48,samples=100,xshift=13](\x,{-1/\x-0.1});
-      \draw[thick] plot[domain=0.48:4.48,samples=100,xshift=-13](\x,{-1/\x+2.1});
-      \draw [thick] (0,2) node[circle,fill=black,draw=black,inner sep=0.4mm] {};
-      \draw [thick] (0,0) node[circle,fill=white,draw=black,inner sep=0.4mm] {};
-
-   * :math:`\lim\limits_{x\to +\infty}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[domain=-4:4,samples=300](\x,{(1/2)*(\x+sin(180*\x))});
-
-   * :math:`\lim\limits_{x\to -\infty}f(x)`
-
-   * .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-4,-4) grid (4,4);
-
-      \draw[very thick,->] (-4,0) -- (5,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-4) -- (0,5) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[thick] plot[samples=300,domain=-4:4](\x,{(1/2)*\x*sin(1000*\x)});
-
-   * :math:`\lim\limits_{x \to -\infty}f(x)`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to + \infty}f(x)=1`
-
-   * :math:`\lim\limits_{x \to + \infty}f(x)=0`
-
-   * :math:`\lim\limits_{x \to -\infty}f(x)=-\infty`
-
-   * :math:`\lim\limits_{x \to -\infty}f(x)=2`
-
-   * :math:`\lim\limits_{x \to +\infty}f(x)=2`
-
-   * :math:`\lim\limits_{x \to + \infty}f(x)=+\infty`
-
-   * :math:`\lim\limits_{x \to -\infty}f(x)=2`
-
-   * La fonction n’a pas de limite et ne diverge pas pour :math:`x` qui tend vers :math:`-\infty`.
 
 |
 
@@ -4340,46 +3281,12 @@ tend vers :math:`+\infty` ou pour :math:`x` qui tend vers
 divergent, donner le type de divergence (vers :math:`+\infty` ou vers
 :math:`-\infty`). N’hésitez pas à vous aider d’un graphe.
 
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to \infty} x^3`
-
-   * :math:`\lim\limits_{x \to -\infty} x^3`
-
-   * :math:`\lim\limits_{x \to \infty} \frac{1}{x^3}`
-
-   * :math:`\lim\limits_{x \to -\infty} \frac{1}{x^3}`
-
-   * :math:`\lim\limits_{x \to -\infty} 3x+5`
-
-   * :math:`\lim\limits_{x \to -\infty} -\pi+\frac{1}{|x|}`
-
-   * :math:`\lim\limits_{x \to +\infty} 100`
-
-   * Petit challenge :
-   :math:`\lim\limits_{x \to +\infty} \frac{4x-2}{2x^2+5x-3}`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to \infty} x^3=+\infty`
-
-   * :math:`\lim\limits_{x \to -\infty} x^3=-\infty`
-
-   * :math:`\lim\limits_{x \to \infty} \frac{1}{x^3}=0`
-
-   * :math:`\lim\limits_{x \to -\infty} \frac{1}{x^3}=0`
-
-   * :math:`\lim\limits_{x \to -\infty} 3x+5=-\infty`
-
-   * :math:`\lim\limits_{x \to -\infty} -\pi+\frac{1}{|x|}=-\pi`
-
-   * :math:`\lim\limits_{x \to +\infty} 100=100`
-
-   * :math:`\lim\limits_{x \to +\infty} \frac{4x-2}{2x^2+5x-3}=0`
+.. inginious:: limite7_1
+.. inginious:: limite7_2
+.. inginious:: limite7_3
+.. inginious:: limite7_4
+.. inginious:: limite7_5
+.. inginious:: limite7_6
 
 |
 
@@ -4401,19 +3308,7 @@ par seconde.
 #. Au fur et à mesure que le temps passe, de quoi se rapproche le
    rapport de la quantité d’eau douce et de la quantité d’eau salée ?
 
-**Solution.**
-
-#. :math:`\frac{3000+60}{120}=\frac{51}{2}=25,5`. Après 60 secondes, il
-   y a :math:`25,5` fois plus d’eau douce dans l’aquarium que d’eau
-   salée.
-
-#. :math:`f(t)=\frac{3000+t}{2t}`. Après :math:`t` secondes, il y a
-   :math:`\frac{3000+t}{2t}` fois plus (ou moins) d’eau douce dans
-   l’aquarium que d’eau salée.
-
-#. :math:`\lim\limits_{x \to +\infty} \frac{3000+t}{2t}=\frac{1}{2}`.
-   Plus le temps passe, plus on se rapproche d’une situation où il y a
-   deux fois moins d’eau douce dans l’aquarium que d’eau salée.
+.. inginious:: limite8_1
 
 |
 
@@ -4431,9 +3326,7 @@ de l’avion après :math:`t` heures est de :math:`A*\frac{t}{2(t+1)}` où
 De quelle altitude se rapproche de l’avion au fur et à mesure que le
 temps passe ? Risque-t-il de s’écraser ?
 
-**Solution.** :math:`\lim\limits_{x \to +\infty} 10.\frac{t}{2(t+1)}=5`. Plus le temps
-passe, plus l’altitude de l’avion se rapproche de :math:`5`\ km. L’avion
-ne risque pas de s’écraser.
+.. inginious:: limite8_2
 
 |
 
@@ -4609,96 +3502,11 @@ Passons donc immédiatement aux exercices.
 toutes les asymptotes horizontales et verticales et donner leurs
 équations cartésiennes.
 
-#. .. tikz:: 
+.. inginious:: asymp1_1
+.. inginious:: asymp1_2
+.. inginious:: asymp1_3
+.. inginious:: asymp1_4
 
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-5:0.56,samples=100](\x,{(\x*\x-1)/(3*\x-2)});
-    \draw[thick] plot[domain=0.74:5,samples=100](\x,{(\x*\x-1)/(3*\x-2)});
-    \draw[thick, dashed] (-5,-1.44444) -- (5,1.8888);
-    \draw[thick, dashed] (0.66666666,-2) -- (0.66666666,2);
-
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-5,-2) grid (5,2);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-2) -- (0,3) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-5:-1,samples=100](\x,{sqrt(\x*\x-1)/\x});
-    \draw[thick] plot[domain=1:5,samples=100](\x,{sqrt(\x*\x-1)/\x});
-    \draw[thick, dashed] (-5,-1) -- (0,-1);
-    \draw[thick, dashed] (0,1) -- (5,1);
-		\draw (-1,0)node{$\bullet$};
-		\draw (1,0)node{$\bullet$};
-
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-8,-8) grid (8,8);
-
-      \draw[very thick,->] (-8,0) -- (9,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-8) -- (0,9) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-8:-2.35,samples=100](\x,{(\x*\x*\x)/(4-\x*\x)});
-    \draw[thick] plot[domain=-1.82:1.82,samples=100](\x,{(\x*\x*\x)/(4-\x*\x)});
-    \draw[thick] plot[domain=2.35:8,samples=100](\x,{(\x*\x*\x)/(4-\x*\x)});
-    \draw[thick, dashed] (-2,-8) -- (-2,8);
-    \draw[thick, dashed] (2,-8) -- (2,8);
-    \draw[thick, dashed] (-8,8) -- (8,-8);
-  
-
-#. .. tikz:: 
-
-      \draw[step=1cm,gray,very thin] (-8,-5) grid (8,5);
-
-      \draw[very thick,->] (-8,0) -- (9,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-    \draw[thick] plot[domain=-8:-2.26,samples=100](\x,{(\x-3)/(sqrt(\x*\x-4)});
-    \draw[thick] plot[domain=2.01:8,samples=100](\x,{(\x-3)/(sqrt(\x*\x-4)});
-    \draw[thick, dashed] (-2,-5) -- (-2,2);
-    \draw[thick, dashed] (2,-5) -- (2,2);
-    \draw[thick, dashed] (-8,-1) -- (0,-1);
-    \draw[thick, dashed] (0,1) -- (8,1);
-
-
-**Solution.**
-
-#. :math:`\mbox{AV} \equiv x=1`.
-
-#. :math:`{\mbox{AH}}_{d} \equiv y=1` et
-   :math:`{\mbox{AH}}_{g} \equiv y=-1`.
-
-#. :math:`\mbox{AV} \equiv x=-2` et :math:`\mbox{AV} \equiv x=2`.
-
-#. :math:`{\mbox{AH}}_{d} \equiv y=1`,
-   :math:`{\mbox{AH}}_{g} \equiv y=-1`, :math:`\mbox{AV} \equiv x=-2` et
-   :math:`\mbox{AV} \equiv x=2`.
 
 |
 
@@ -4741,62 +3549,12 @@ toutes les asympotes horizontales et verticales de la fonction choisie.
 **Exercice 3.7.9.** Pour les fonctions suivantes, déterminer les équations cartésiennes de
 toutes les asymptotes horizontales et verticales.
 
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}\backslash \{0\} \to \mathbb{R}\\
-      x \mapsto \frac{1}{x}-3\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}\to \mathbb{R}\\
-      x \mapsto x\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}\backslash \{-1\} \to \mathbb{R}\\
-      x \mapsto \frac{2}{(x+1)^2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}\backslash \{2\} \to \mathbb{R}\\
-      x \mapsto \frac{2x+1}{6-3x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}\to \mathbb{R}\\
-      x \mapsto \frac{1}{1+x^2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}\backslash \{1;-1\} \to \mathbb{R}\\
-      x \mapsto \frac{x+1}{x^2-1}\end{aligned}
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`{\mbox{AH}} \equiv y=-3` et :math:`\mbox{AV} \equiv x=0`.
-
-   * Pas d’asymptote horizontale ou verticale.
-
-   * :math:`{\mbox{AH}} \equiv y=0` et :math:`\mbox{AV} \equiv x=-1`.
-
-   * :math:`{\mbox{AH}} \equiv y=-\frac{2}{3}` et
-      :math:`\mbox{AV} \equiv x=2`.
-
-   * :math:`{\mbox{AH}} \equiv y=0`.
-
-   * :math:`{\mbox{AH}} \equiv y=0` et :math:`\mbox{AV} \equiv x=1`.
+.. inginious:: asymp2_1
+.. inginious:: asymp2_2
+.. inginious:: asymp2_3
+.. inginious:: asymp2_4
+.. inginious:: asymp2_5
+.. inginious:: asymp2_6
 
 |
 
@@ -5646,53 +4404,16 @@ plus grands donnent de plus en plus petits).
 **Exercice 3.8.28.** En utilisant les propriétés des limites et des divergences, déterminer
 les limites ou les divergences suivantes.
 
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to +\infty} 2 + \frac{1}{x}-\frac{4}{x^4}=`
-
-   * :math:`\lim\limits_{x \to +\infty} 1 + \frac{2}{x^3}-x^3=`
-
-   * :math:`\lim\limits_{x \to -\infty} x^4+x^2=`
-
-   * :math:`\lim\limits_{x \to -\infty} -x^4+x^2=`
-
-   * :math:`\lim\limits_{x \to 2} \frac{2x}{x^2-4x+4}=`
-
-   * :math:`\lim\limits_{x \to 0} \frac{1}{x^2}.\frac{x^2-1}{x^4}=`
-
-   * :math:`\lim\limits_{x \to +\infty} \frac{4x}{x^4-4x+4}=`
-
-   * :math:`\lim\limits_{x \to -\infty} \frac{x^4-4x+4}{4x}=`
-
-   * :math:`\lim\limits_{x \to -\infty} \frac{x^{1007}-2}{2x^{1007}+1}=`
-
-   * Défi : :math:`\lim\limits_{x \to 4} \frac{\sqrt{x}-2}{x-4}=`
-
-**Solution.** 
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to +\infty} 2 + \frac{1}{x}-\frac{4}{x^4}=2`
-
-   * :math:`\lim\limits_{x \to +\infty} 1 + \frac{2}{x^3}-x^3=-\infty`
-
-   * :math:`\lim\limits_{x \to -\infty} x^4+x^2=+\infty`
-
-   * :math:`\lim\limits_{x \to -\infty} -x^4+x^2=-\infty`
-
-   * :math:`\lim\limits_{x \to 2} \frac{2x}{x^2-4x+4}=+\infty`
-
-   * :math:`\lim\limits_{x \to 0} \frac{1}{x^2}.\frac{x^2-1}{x^4}=-\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} \frac{4x}{x^4-4x+4}=0`
-
-   * :math:`\lim\limits_{x \to -\infty} \frac{x^4-4x+4}{4x}=+\infty`
-
-   * :math:`\lim\limits_{x \to -\infty} \frac{x^{1007}-2}{2x^{1007}+1}=\frac{1}{2}`
-
-   * :math:`\lim\limits_{x \to 4} \frac{\sqrt{x}-2}{x-4}=\frac{1}{4}`
+.. inginious:: limite9_1
+.. inginious:: limite9_2
+.. inginious:: limite9_3
+.. inginious:: limite9_4
+.. inginious:: limite9_5
+.. inginious:: limite9_6
+.. inginious:: limite9_7
+.. inginious:: limite9_8
+.. inginious:: limite9_9
+.. inginious:: limite9_10
 
 |
 
