@@ -678,334 +678,52 @@ exponentielles.
 **Exercice 2.4.1.** En utilisant les propriétés élémentaires des fonctions exponentielles,
 calculer les nombres suivants sans avoir recours à une calculatrice.
 
-.. hlist::
-   :columns: 2
-
-   * :math:`\sqrt{2^{12}}`
-   * :math:`\frac{3^{\pi}}{3^{\pi-1}}`
-   * :math:`(5^{-\sqrt{2}+3})^2 . 5^{2\sqrt{2}-4}`
-   * :math:`6^{\pi\sqrt{3}-1}. (\frac{1}{3})^{\pi\sqrt{3}-4}. 2^{-\pi\sqrt{3}}`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`64`
-
-   * :math:`3`
-
-   * :math:`25`
-
-   * :math:`\frac{27}{2}`
+.. inginious:: foncExp1_1
+.. inginious:: foncExp1_2
+.. inginious:: foncExp1_3
+.. inginious:: foncExp1_4
 
 **Exercice 2.4.2.** Donner les domaines de définition réels maximaux pour les fonctions dont
 les expressions sont les suivantes :
 
-.. hlist::
-   :columns: 2
-
-   * :math:`f(x)=4^{x^2-1}`
-
-   * :math:`g(x)=\frac{x}{e^{2x}}`
-
-   * :math:`h(x)=3-\sqrt{1+(\frac{1}{7})^{x}}`
-
-   * :math:`i(x)=\frac{\pi}{\sqrt{1-e^{-x}}}`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\mathop{\mathrm{dom}}(f)=\mathbb{R}`
-
-   * :math:`\mathop{\mathrm{dom}}(g)=\mathbb{R}`
-
-   * :math:`\mathop{\mathrm{dom}}(h)=\mathbb{R}`
-
-   * :math:`\mathop{\mathrm{dom}}(i)=]0;+\infty[`
+.. inginious:: foncExp2_1
+.. inginious:: foncExp2_2
+.. inginious:: foncExp2_3
+.. inginious:: foncExp2_4
 
 **Exercice 2.4.3.** En utilisant les règles de transformations des graphes et les propriétés
 des fonctions exponentielles, tracer les graphes des fonctions
 suivantes.
 
-.. hlist::
-   :columns: 2
-
-   * .. math::
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{1}{5}5^x\end{aligned}
-
-   * .. math::
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \left(\frac{1}{3}\right)^{x+1}-2\end{aligned}
-
-   * .. math::
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 2^{-2x}\end{aligned}
-
-   * .. math::
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 2\left(\frac{1}{2}\right)^{-2x+2}-2\end{aligned}
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-5:2](\x,{0.2*5^\x});
-
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-2.77:5](\x,{-2+0.333333333*0.333333333^\x});
-
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-1.16:5](\x,{0.25^\x});
-
-
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-5:1.9](\x,{-2+0.5 * 4^\x });
+.. inginious:: foncExp3_1
+.. inginious:: foncExp3_2
+.. inginious:: foncExp3_3
+.. inginious:: foncExp3_4
 
 
 **Exercice 2.4.4** Pour les fonctions suivantes, déterminer si elles convergent ou
 divergent pour :math:`x \to -\infty` et :math:`x \to +\infty`.
 
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 5^x\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \left(\frac{1}{\pi}\right)^x\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 7.2^{x^2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{2^x}{2x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & x.(\sqrt{2})^x\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & x^3.3^{-x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{{16}^x}{x^4}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \left({\frac{3}{4}}\right)^x + x\end{aligned}
-
-
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to +\infty} 5^x = +\infty` et
-   :math:`\lim\limits_{x \to -\infty} 5^x = 0`
-
-   * :math:`\lim\limits_{x \to +\infty} \left(\frac{1}{\pi}\right)^x = 0` et
-   :math:`\lim\limits_{x \to -\infty} \left(\frac{1}{\pi}\right)^x = +\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} 7.2^x = +\infty` et
-   :math:`\lim\limits_{x \to -\infty} 7.2^x = +\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} \frac{2^x}{2x} = +\infty` et
-   :math:`\lim\limits_{x \to -\infty} \frac{2^x}{2x} = 0`
-
-   * :math:`\lim\limits_{x \to +\infty} x.(\sqrt{2})^x = +\infty` et
-   :math:`\lim\limits_{x \to -\infty} x.(\sqrt{2})^x = 0`
-
-   * :math:`\lim\limits_{x \to +\infty} x^3 .3^{-x} = 0` et
-   :math:`\lim\limits_{x \to -\infty} x^3 .3^{-x} = -\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} \frac{{16}^x}{x^4} = +\infty` et
-   :math:`\lim\limits_{x \to -\infty} \frac{{16}^x}{x^4} = 0`
-
-   * :math:`\lim\limits_{x \to +\infty} \left({\frac{3}{4}}\right)^x + x = +\infty`
-   et
-   :math:`\lim\limits_{x \to -\infty} \left({\frac{3}{4}}\right)^x + x = +\infty`
+.. inginious:: foncExp4_1
+.. inginious:: foncExp4_2
+.. inginious:: foncExp4_3
+.. inginious:: foncExp4_4
+.. inginious:: foncExp4_5
+.. inginious:: foncExp4_6
+.. inginious:: foncExp4_7
+.. inginious:: foncExp4_8
 
 **Exercice 2.4.5.** Calculer les dérivées des fonctions dérivables suivantes.
 
-.. hlist::
-   :columns: 2
+.. inginious:: foncExp5_1
+.. inginious:: foncExp5_2
+.. inginious:: foncExp5_3
+.. inginious:: foncExp5_4
+.. inginious:: foncExp5_5
+.. inginious:: foncExp5_6
+.. inginious:: foncExp5_7
+.. inginious:: foncExp5_8
 
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & e^x + x^2\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & e^x . x^3\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & e^{2x+1}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{e^x}{x^2+1}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & e^{3x+1}+e^{x^3-x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \sqrt{1+e^x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & e^{\frac{1}{x^2+1}}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \sin(e^{3x+1})\end{aligned}
-
-
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & e^x + 2x\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & e^x (x^3+3x^2)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 2e^{2x+1}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{e^x(x^2-1)^2}{(x^2+1)^2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 3e^{3x+1}+(3x^2-1)e^{x^3-x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{e^x}{2\sqrt{1+e^x}}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{-2x e^{\frac{1}{x^2+1}}}{(x^2+1)^2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 3\cos(e^{3x+1})e^{3x+1}\end{aligned}
 
 **Exercice 2.4.6.** Donner l’équation cartésienne de la tangente au graphe de la fonction
 :math:`f` donnée ci-dessous au point d’abscisse :math:`1`.
@@ -1016,27 +734,11 @@ divergent pour :math:`x \to -\infty` et :math:`x \to +\infty`.
    f : \mathbb{R}&\to \mathbb{R}\\
    x \mapsto & e^{-x}.(x+1)\end{aligned}
 
-**Solution.** :math:`y = -\frac{1}{e}x +\frac{3}{e}`
+.. inginious:: foncExp6
 
-**Exercice 2.4.7.** La fonction suivante est-elle strictement décroissante ?
+**Exercice 2.4.7. et Exercice 2.4.8.** 
 
-.. math::
-
-   \begin{aligned}
-   f : \mathbb{R}&\to \mathbb{R}\\
-   x \mapsto & \sqrt[3]{-e-e^x}\end{aligned}
-
-**Solution** Oui. Sa dérivée est strictement négative, donc :math:`f` est strictement
-décroissante.
-
-**Exercice 2.4.8.** Démontrer que la fonction exponentielle est deux fois dérivable.
-Ensuite, montrer qu’elle est convexe.
-
-**Solution** Puisque la fonction exponentielle est dérivable et que sa dérivée est
-égale à la fonction exponentielle, sa dérivée est dérivable et la
-fonction exponentielle est donc deux fois dérivable. Puisque la dérivée
-de la fonction exponentielle a comme dérivée la fonction exponentielle,
-qui est strictement positive, la fonction exponentielle est convexe.
+.. inginious:: foncExp7
 
 **Exercice 2.4.9.** La fonction suivante possède-t-elle un maximum ? Si oui, quel est-il et
 quel est le point de maximum associé ?
@@ -1047,8 +749,7 @@ quel est le point de maximum associé ?
    f : [0;1] &\to \mathbb{R}\\
    x \mapsto & e^{3x}  (x-1)^2\end{aligned}
 
-**Solution** Oui. La maximum est :math:`\frac{4e}{9}\simeq 1,2081` et le point de
-maximum est :math:`\frac{1}{3}`.
+.. inginious:: foncExp8
 
 **Exercice 2.4.10.** Donner une primitive de la fonction exponentielle.
 
@@ -1056,76 +757,14 @@ maximum est :math:`\frac{1}{3}`.
 
 **Exercice 2.4.11.** Calculer les intégrales des fonctions intégrables suivantes.
 
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : [0;1] &\to \mathbb{R}\\
-      x \mapsto & 2e^x + 1\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [3;4] &\to \mathbb{R}\\
-      x \mapsto & \frac{1}{e^x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [-1;0] &\to \mathbb{R}\\
-      x \mapsto & x^2 e^{x^3}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [0;1] &\to \mathbb{R}\\
-      x \mapsto & \frac{e^x}{(2+e^x)^2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [10;11] &\to \mathbb{R}\\
-      x \mapsto & x e^{x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [1;2] &\to \mathbb{R}\\
-      x \mapsto & x^2 e^{-x} \end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [0;1] &\to \mathbb{R}\\
-      x \mapsto & \cos(e^{x})e^{x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [0;\frac{\pi}{2}] &\to \mathbb{R}\\
-      x \mapsto & \sin(x)e^{x}\end{aligned}
-
-
-.. hlist::
-   :columns: 2
-
-   * :math:`2e-1 \simeq 4,4366`
-
-   * :math:`\frac{e-1}{e^4}\simeq 0,031`
-
-   * :math:`\frac{e-1}{3e}\simeq 0,21`
-
-   * :math:`\frac{1}{3} - \frac{1}{2+e}\simeq 0,121`
-
-   * :math:`e^{10} (10e - 9) \simeq 400503,22`
-
-   * :math:`\frac{5(e-2)}{e^2}\simeq 0,486`
-
-   * :math:`\sin(e)-\sin(1) \simeq = -0,43`
-
-   * :math:`\frac{1}{2}(1+e^{\frac{\pi}{2}}) \simeq 2,9052`
+.. inginious:: foncExp9_1
+.. inginious:: foncExp9_2
+.. inginious:: foncExp9_3
+.. inginious:: foncExp9_4
+.. inginious:: foncExp9_5
+.. inginious:: foncExp9_6
+.. inginious:: foncExp9_7
+.. inginious:: foncExp9_8
 
 3 Fonctions réciproques
 =====================
@@ -1359,112 +998,24 @@ injective.
 :math:`\mathbb{R}`. Pour chacune d’entre elles, trouver la fonction
 réciproque.
 
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 2x+1\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & 5\sqrt[5]{x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & (x+1)^3\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & x^2\sqrt[3]{x}\end{aligned}
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{1}{2}x-\frac{1}{2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \left(\frac{x}{5}\right)^5\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \sqrt[3]{x}-1\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \sqrt[7]{x^3}\end{aligned}
+.. inginious:: foncReci1_1
+.. inginious:: foncReci1_2
+.. inginious:: foncReci1_3
+.. inginious:: foncReci1_4
 
 **Exercice 3.3.4.** En utilisant l’injectivité des fonctions exponentielles,
 résoudre les équations suivantes dans :math:`\mathbb{R}`.
 
-.. hlist::
-   :columns: 2
-
-   * :math:`2^{3x}-2^{x-3}=0`
-
-   * :math:`(\frac{1}{4})^{\frac{x}{3}+1}=1`
-
-   * :math:`3^{\pi + x} = (\frac{1}{9})^{2x}`
-
-   * :math:`e^{x^2+1} = \frac{1}{e^{-2x}}`
-
-   * :math:`10^x = \frac{2^x}{25}`
-
-   * :math:`\frac{3^{x^2-1}}{2^{x^2}} = 2`
-
-   * :math:`\frac{({\pi}^{\frac{x^3}{2}+\frac{x^2}{2}})^{2}}{{\pi}^{x^3+x+1}}=\pi`
-
-   * :math:`2(\frac{25}{4})^{2x} -7(\frac{25}{4})^x +5=0`
-
-   * :math:`(\frac{1}{2})^{-2x} +16=10 2^x`
-
-   * :math:`(e)^{2x+1} -e^{x+3}+e^2=e^x`
-
-**Solution**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`S=\{-\frac{3}{2}\}`
-
-   * :math:`S=\{-3\}`
-
-   * :math:`S=\{-\frac{\pi}{5}\}`
-
-   * :math:`S=\{1\}`
-
-   * :math:`S=\{-2\}`
-
-   * :math:`S=\{-1;1\}`
-
-   * :math:`S=\{-1;2\}`
-
-   * :math:`S=\{\frac{1}{2}\}`
-
-   * :math:`S=\{1;3\}`
-
-   * :math:`S=\{-1;2\}`
+.. inginious:: foncReci2_1
+.. inginious:: foncReci2_2
+.. inginious:: foncReci2_3
+.. inginious:: foncReci2_4
+.. inginious:: foncReci2_5
+.. inginious:: foncReci2_6
+.. inginious:: foncReci2_7
+.. inginious:: foncReci2_8
+.. inginious:: foncReci2_9
+.. inginious:: foncReci2_10
 
 **Remarque 3.3.5.** Il n’y a pas d’inéquation avec des fonctions exponentielles au programme
 du cours de mathématiques de 4 heures par semaine. Néanmoins, il est
@@ -1867,552 +1418,99 @@ On a donc pour tout :math:`x \in \mathbb{R}` :
 **Exercice 4.4.1.** En utilisant les propriétés élémentaires des fonctions logarithmes,
 calculer les nombres suivants sans avoir recours à une calculatrice.
 
-.. hlist::
-   :columns: 2
-
-   * :math:`{\log}_2 (512)`
-
-   * :math:`{\log}_3 (36)-{\log}_3 (4)`
-
-   * :math:`3\ln (\frac{1}{\sqrt{e}})`
-
-   *  :math:`{\log}_{\pi} (e^{-3})-3{\log}_{\pi} (\frac{1}{e})`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`9`
-
-   * :math:`2`
-
-   * :math:`-\frac{1}{2}`
-
-   * :math:`0`
+.. inginious:: foncLog1_1
+.. inginious:: foncLog1_2
+.. inginious:: foncLog1_3
+.. inginious:: foncLog1_4
 
 **Exercice 4.4.2.** En utilisant une calculatrice et la formule de changement de base pour
 les logarithmes, trouver une approximation des nombres suivants à
 :math:`0,001` près.
 
-.. hlist::
-   :columns: 2
-
-   * :math:`3\ln (3)`
-
-   * :math:`{\log}_{10} (500)`
-
-   * :math:`{\log}_2 (36)`
-
-   * :math:`{\log}_{\pi} (e^{-3})`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`1,099`
-
-   * :math:`2,699`
-
-   * :math:`5,170`
-
-   * :math:`2,621`
+.. inginious:: foncLog2_1
+.. inginious:: foncLog2_2
+.. inginious:: foncLog2_3
+.. inginious:: foncLog2_4
 
 **Exercice 4.4.3** Donner les domaines de définition réels maximaux pour les fonctions dont
 les expressions sont les suivantes :
 
-.. hlist::
-   :columns: 2
+.. inginious:: foncLog12_1
+.. inginious:: foncLog12_2
+.. inginious:: foncLog12_3
 
-   * :math:`f(x)=\ln(2x+1)`
 
-   * :math:`g(x)={\log}_{11}(x^2-1)`
+**Exercice 4.4.4.** 
 
-   * :math:`h(x)={\log}_{3}(\frac{1}{x-1})+{\log}_{3}(x^2-5x+6)`
-
-   * :math:`i(x)=\sqrt{1+\ln(x)}`
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\mathop{\mathrm{dom}}(f)=]-\frac{1}{2};+\infty[`
-
-   * :math:`\mathop{\mathrm{dom}}(g)=]-\infty;-1[ \cup ]1;+\infty[`
-
-   * :math:`\mathop{\mathrm{dom}}(h)=]1;2[ \cup ]3;+\infty[`
-
-   * :math:`\mathop{\mathrm{dom}}(i)=[\frac{1}{e};+\infty[`
-
-**Exercice 4.4.4.** En utilisant les règles de transformations des graphes et les propriétés
-des fonctions logarithmes, tracer les graphes des fonctions suivantes.
-
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : ]-1;+\infty[ &\to \mathbb{R}\\
-      x \mapsto & {\log}_{2} (x+1)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {{\mathbb{R}}_{0}}^{-} &\to \mathbb{R}\\
-      x \mapsto & \ln(-x)+1\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : ]-2;+\infty[ &\to \mathbb{R}\\
-      x \mapsto & 2{\log}_{\frac{1}{3}} (\frac{1}{2}x+1)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & \ln(x^3)\end{aligned}
-
-**Solution.** 
-
-.. hlist::
-   :columns: 2
-
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-0.9687:5](\x,{1.442695*ln(\x+1)});
-
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-5:-0.0024](\x,{1+ln(-1*\x)});
-
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-1.8716:5](\x,{-0.910239*2*ln(0.5*\x+1)});
-   
-   * .. tikz::
-
-      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
-
-      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
-		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
-
-      \foreach \x in {1}
-		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-
-      \foreach \y in {1}
-		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=0.18889:5](\x,{3*ln(\x)});
+.. inginious:: foncLog3
 
 
 **Exercice 4.4.5.** Pour les fonctions suivantes, déterminer si elles convergent ou
 divergent pour :math:`x \to 0` et :math:`x \to +\infty`.
 
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & {\log}_{\frac{1}{6}}(x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & {\log}_{\frac{1}{6}} (x) + {\log}_{\frac{1}{5}} (x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & {\log}_{2} (x) . {\log}_{3} (x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & {\log}_{2} (x) . {\log}_{\frac{1}{3}} (x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & \ln(x^2)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & \ln(x^2 + 1)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & {\log}_{3}(3^x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & {\log}_{3}(x) - {\log}_{9}(x)\end{aligned}
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`\lim\limits_{x \to +\infty} {\log}_{\frac{1}{6}}(x) = -\infty`
-      et :math:`\lim\limits_{x \to 0} {\log}_{\frac{1}{6}}(x) = +\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} {\log}_{\frac{1}{6}} (x) + {\log}_{\frac{1}{5}} (x)= -\infty`
-      et
-      :math:`\lim\limits_{x \to 0} {\log}_{\frac{1}{6}} (x) + {\log}_{\frac{1}{5}} (x) = +\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} {\log}_{2} (x) . {\log}_{3} (x) = +\infty`
-      et
-      :math:`\lim\limits_{x \to 0} {\log}_{2} (x) . {\log}_{3} (x) = +\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} {\log}_{2} (x) . {\log}_{\frac{1}{3}} (x) = -\infty`
-      et
-      :math:`\lim\limits_{x \to 0} {\log}_{2} (x) . {\log}_{\frac{1}{3}} (x) = -\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} \ln(x^2) = +\infty` et
-      :math:`\lim\limits_{x \to 0} \ln(x^2) = -\infty`
-
-   * :math:`\lim\limits_{x \to +\infty} \ln(x^2 + 1) = +\infty` et
-      :math:`\lim\limits_{x \to 0} \ln(x^2 + 1) = 0`
-
-   * :math:`\lim\limits_{x \to +\infty} {\log}_{3}(3^x) = +\infty` et
-      :math:`\lim\limits_{x \to 0} {\log}_{3}(3^x) = 0`
-
-   * :math:`\lim\limits_{x \to +\infty} {\log}_{3}(x) - {\log}_{9}(x) = +\infty`
-      et
-      :math:`\lim\limits_{x \to 0} {\log}_{3}(x) - {\log}_{9}(x) = -\infty`
+.. inginious:: foncLog4_1
+.. inginious:: foncLog4_2
+.. inginious:: foncLog4_3
+.. inginious:: foncLog4_4
+.. inginious:: foncLog4_5
+.. inginious:: foncLog4_6
+.. inginious:: foncLog4_7
+.. inginious:: foncLog4_8
 
 **Exercice 4.4.6.** Calculer les dérivées des fonctions dérivables suivantes.
 
-.. hlist::
-   :columns: 2
+.. inginious:: foncLog5_1
+.. inginious:: foncLog5_2
+.. inginious:: foncLog5_3
+.. inginious:: foncLog5_4
+.. inginious:: foncLog5_5
+.. inginious:: foncLog5_6
+.. inginious:: foncLog5_7
+.. inginious:: foncLog5_8
 
-   * .. math::
+**Exercice 4.4.7.** 
 
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & \ln(x)+ex\end{aligned}
+.. inginious:: foncLog6
 
-   * .. math::
+**Exercice 4.4.8. et Exercice 4.4.9.** 
 
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & {\log}_{\frac{1}{19}}(x^3)\end{aligned}
+.. inginious:: foncLog7
 
-   * .. math::
+**Exercice 4.4.10.** 
 
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & {\log}_{3}(\ln(3) x^2)\end{aligned}
+.. inginious:: foncLog8
 
-   * .. math::
+**Exercice 4.4.11.** 
 
-      \begin{aligned}
-      f : [-\frac{1}{49};+\infty[ &\to \mathbb{R}\\
-      x \mapsto & \sqrt{{\log}_{7}(x)+2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & e^{3x^2+1}\ln(x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & 2^{\ln(2x)}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : ]1;+\infty[ &\to \mathbb{R}\\
-      x \mapsto & {\log}_{\frac{1}{2}}({\log}_{\frac{1}{3}}(x))\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & x^x\end{aligned}
-
-**Solution.** 
-
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & \frac{1}{x}+e\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & \frac{3}{x \ln(\frac{1}{19})}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & \frac{2}{x (\ln(3))^2}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [-\frac{1}{49};+\infty[ &\to \mathbb{R}\\
-      x \mapsto & \frac{1}{2 \ln(7) x \sqrt{{\log}_{7}(x)+2}}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : \mathbb{R}&\to \mathbb{R}\\
-      x \mapsto & \frac{5^{3x^2+1}}{\ln(5) x} + \ln(5) 5^{3x^2+1} 6x {\log}_{5}(x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & 2\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : ]1;+\infty[ &\to \mathbb{R}\\
-      x \mapsto & \frac{1}{\ln(\frac{1}{2}) \ln(\frac{1}{3}) x {\log}_{\frac{1}{3}}(x)}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-      x \mapsto & x^x(1+\ln(x))\end{aligned}
-
-**Exercice 4.4.7.** Donner l’équation cartésienne de la tangente au graphe de la fonction
-:math:`f` donnée ci-dessous au point d’abscisse :math:`0`.
-
-.. math::
-
-   \begin{aligned}
-   f : ]-\frac{1}{2};+\infty[ &\to \mathbb{R}\\
-   x \mapsto & \ln(2x+1)\end{aligned}
-
-**Solution.** :math:`y = 2x`
-
-**Exercice 4.4.8.** La fonction suivante est-elle strictement décroissante ?
-
-.. math::
-
-   \begin{aligned}
-   f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-   x \mapsto & -\ln(1+\frac{1}{x})\end{aligned}
-
-**Solution.** Non. Sa dérivée est strictement positive, donc :math:`f` est strictement
-croissante.
-
-**Exercice 4.4.9.** Démontrer que la fonction logarithme népérien est deux fois dérivable.
-Ensuite, montrer qu’elle est concave.
-
-**Solution.** Puisque la fonction logarithme népérien est dérivable et que sa dérivée
-est égale à la fonction inverse restreinte sur
-:math:`{\mathbb{R}}_{0}^{+}`, sa dérivée est dérivable et la fonction
-logarithme népérien est donc deux fois dérivable. Puisque la dérivée de
-la fonction logarithme népérien a comme dérivée la fonction :
-
-.. math::
-
-   \begin{aligned}
-   f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-   x \mapsto & -\frac{1}{x^2}\end{aligned}
-
-et que cette fonction est strictement négative, la fonction logarithme
-népérien est concave.
-
-**Exercice 4.4.10.** La fonction suivante possède-t-elle un maximum ? Si oui, quel est-il et
-quel est le point de maximum associé ?
-
-.. math::
-
-   \begin{aligned}
-   f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-   x \mapsto & \ln(\frac{ex}{e^2+x^2})\end{aligned}
-
-**Solution.** Oui. La maximum est :math:`-\ln(2) \simeq -0,693147` et le point de
-maximum est :math:`e \simeq 2,71828`.
-
-**Exercice 4.4.11.** Donner une primitive de la fonction logarithme népérien.
-
-**Solution.** La fonction suivante :
-
-.. math::
-
-   \begin{aligned}
-   f : {\mathbb{R}}_{0}^{+}&\to \mathbb{R}\\
-   x \mapsto x \ln(x) -x\end{aligned}
+.. inginious:: foncLog9
 
 **Exercice 4.4.12.** Calculer les intégrales des fonctions intégrables suivantes.
 
-.. hlist::
-   :columns: 2
-
-   * .. math::
-
-      \begin{aligned}
-      f : [1;e] &\to \mathbb{R}\\
-      x \mapsto & \frac{1}{x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [0;\sqrt{e^2-1}] &\to \mathbb{R}\\
-      x \mapsto & \frac{x}{x^2+1}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [1;e^3] &\to \mathbb{R}\\
-      x \mapsto & \frac{x+1}{x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [\frac{1}{e};e] &\to \mathbb{R}\\
-      x \mapsto & x\ln(x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [1;e^4] &\to \mathbb{R}\\
-      x \mapsto & \ln(x)\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [e;e^{e}] &\to \mathbb{R}\\
-      x \mapsto & \frac{1}{x\ln(x)}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [e^2;e^4] &\to \mathbb{R}\\
-      x \mapsto & \frac{(\ln(x))^2}{x}\end{aligned}
-
-   * .. math::
-
-      \begin{aligned}
-      f : [0;\frac{\pi}{3}] &\to \mathbb{R}\\
-      x \mapsto & \tan(x)\end{aligned}
-
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`1`
-
-   * :math:`1`
-
-   * :math:`2+e^3 \simeq 22,0855`
-
-   * :math:`\frac{3+e^4}{4e^2} \simeq 1,9488`
-
-   * :math:`1+3e^4 \simeq 164,79445`
-
-   * :math:`1`
-
-   * :math:`\frac{56}{3} \simeq 18,667`
-
-   * :math:`\ln(2) \simeq 0,69315`
+.. inginious:: foncLog10_1
+.. inginious:: foncLog10_2
+.. inginious:: foncLog10_3
+.. inginious:: foncLog10_4
+.. inginious:: foncLog10_5
+.. inginious:: foncLog10_6
+.. inginious:: foncLog10_7
+.. inginious:: foncLog10_8
 
 **Exercice 4.4.13.** En utilisant les propriétés des fonctions exponentielles et
 logarithmes, résoudre les équations suivantes dans :math:`\mathbb{R}`.
 
-.. hlist::
-   :columns: 2
-
-   * :math:`2^x=7`
-
-   * :math:`\ln(x+1)=3`
-
-   * :math:`{\log}_{\sqrt{2}} (x^2-12) = {\log}_{\sqrt{2}} (x)`
-
-   * :math:`\ln(x-2)-\ln(x-4)=-\ln(2)`
-
-   * :math:`\ln(x) + 1 = \frac{1}{\ln(x)}`
-
-   * :math:`\ln((x-1)(x-4)) = \ln(-3x+7)`
-
-   * :math:`\ln(x-1)-\ln(\frac{1}{x-4})  = \ln(-3x+7)`
-
-   * :math:`(e)^{x}-4=5e^{-x}`
+.. inginious:: foncLog11_1
+.. inginious:: foncLog11_2
+.. inginious:: foncLog11_3
+.. inginious:: foncLog11_4
+.. inginious:: foncLog11_5
+.. inginious:: foncLog11_6
+.. inginious:: foncLog11_7
+.. inginious:: foncLog11_8
 
 Exercices supplémentaires :
 `https://fr.wikiversity.org/wiki/Fonction_logarithme/Exercices/%C3%89quations\_comportant_des_exponentielles 
 <https://fr.wikiversity.org/wiki/Fonction_logarithme/Exercices/%C3%89quations_comportant_des_exponentielles>`__
 
-**Solution.**
-
-.. hlist::
-   :columns: 2
-
-   * :math:`S=\{{\log}_2 (7)\}`
-
-   * :math:`S=\{e^3 -1\}`
-
-   * :math:`S=\{4\}`
-
-   * :math:`S=\{0\}`
-
-   * :math:`S=\{e^{\frac{-1+\sqrt{5}}{2}};e^{\frac{-1-\sqrt{5}}{2}}\}`
-
-   * :math:`S=\{-1\}`
-
-   * :math:`S=\emptyset`
-
-   * :math:`S=\{\ln(5)\}`
 
 **Remarque 4.4.14.** Il n’y a pas d’inéquation avec des fonctions logarithmes au programme du
 cours de mathématiques de 4 heures par semaine. Néanmoins, il est
@@ -2496,6 +1594,7 @@ année, au moins sous une forme semblable).
    Comme les intérêts sont annuels, il faudra attendre :math:`17` ans
    pour avoir au moins :math:`25000` euros sur le compte.
 
+.. inginious:: app3
 
 Ainsi, puisque nous sommes à présent capables de résoudre toute
 équation de la forme :
@@ -2510,35 +1609,10 @@ intérêts composés.
 
 Entraînons-nous avec quelques exercices.
 
-**Exercice 5.1.1.** Vous déposez :math:`500` euros sur un compte en banque avec des intérêts
-composés annuels de :math:`1,65 \%`. Combien d’années devez-vous
-attendre sans toucher à l’argent du compte pour que la somme initiale
-soit doublée ?
-
-**Solution.** :math:`43` ans.
-
-**Exercice 5.1.2.** Vous empruntez :math:`200000` euros pour acheter votre première maison
-avec des intérêts composés annuels de :math:`2,1 \%`. Si vous souhaitez
-éviter de devoir rembourser plus de :math:`300000` euros, après combien
-d’années au plus devez-vous rembourser l’emprunt ?
-
-**Solution.** :math:`19` ans.
-
-**Exercice 5.1.3.** Vous êtes engagé pour votre premier travail avec un salaire mensuel net
-de :math:`1500` euros. Après chaque année écoulée, on augmente votre
-salaire de :math:`1 \%` de sa valeur. Après combien de temps aurrez-vous
-accumulé les :math:`200000` euros dont vous avez besoin pour acheter
-votre première maison sans emprunter ?
-
-**Solution.** :math:`84` ans et :math:`2` mois.
-
-**Exercice 5.1.4.** Durant vos vacances, emporté par la joie et les plaisirs, vous dépensez
-chaque jour un peu plus. Vous estimez que vous dépenserez :math:`100`
-euros le premier jour et que vous dépenserez chaque jour :math:`5\%` de
-plus que la veille. Si votre budget est de :math:`1500` euros, combien
-de temps vos vacances peuvent-elles durer ?
-
-**Solution.** :math:`10` jours.
+.. inginious:: app1_1
+.. inginious:: app1_2
+.. inginious:: app1_3
+.. inginious:: app1_4
 
 5.2 Le temps de décomposition d’une substance radioactive
 -----------------------------------------------------
@@ -2643,20 +1717,10 @@ exemple en chimie avec le temps de demi-réaction qui correspond au temps
 nécessaire pour que la moitié des réactifs en présence (restants) aient
 réagi.
 
-**Exercice 5.2.2.** Supposons que vous habitez aux États-Unis et que vous détectez une
-activité de rayonnement due au radon :math:`222` de
-:math:`500`\ Bq/m\ :math:`^3`. Pendant combien de jours devez-vous vous
-tenir à distance de votre habitation ?
+.. inginious:: app2_1
 
-**Solution.** Environ :math:`6.64216` jours.
+.. inginious:: app2_2
 
-**Exercice 5.2.3.** Combien de temps faudra-t-il attendre pour que l’activité d’une quantité
-de :math:`200`\ kg de plutonium :math:`239` dont la demi-vie est de
-:math:`24130`\ ans soit égale à :math:`400`\ Bq ?
-
-**Solution.** Environ :math:`966688` années, autrement dit presque un million
-d’années. (Pour information, l’espèce humaine existerait depuis environ
-:math:`300000` ans.)
 
 5.3 Les échelles logarithmiques
 ---------------------------
@@ -2798,21 +1862,17 @@ lisible.
 Terminons ce chapitre avec quelques exercices sur la magnitude du moment
 des tremblements de terre et sur les échelles logarithmiques.
 
-**Exercice 5.3.2.** Quel est le moment d’un tremblement de terre d’une magnitude de
-:math:`4,5` ?
+**Exercice 5.3.2.** 
 
-**Solution.** :math:`7161434102129106`\ N.m.
+.. inginious:: app4_1
 
-**Exercice 5.3.3.** Quel est la magnitude d’un tremblement de terre dont le moment est de
-:math:`10^{15}`\ N.m ?
+**Exercice 5.3.3.** 
 
-**Solution.** :math:`3,93`
+.. inginious:: app4_2
 
-**Exercice 5.3.4.** À quelle augmentation de puissance (énergie libérée) correspond une
-augmentation de :math:`1` sur l’échelle de la magnitude du moment pour
-un tremblement de terre ?
+**Exercice 5.3.4.** 
 
-**Solution.** Facteur multiplicatif de :math:`\sqrt{1000}\simeq 31,6`.
+.. inginious:: app4_3
 
 **Exercice 5.3.5.** Voici un graphe de l’évolution des approximations du nombre :math:`\pi`
 par les êtres humains :
