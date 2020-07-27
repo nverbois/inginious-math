@@ -27,8 +27,12 @@ author = 'Nicolas Verbois'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.tikz']
-
+extensions = ['sphinxcontrib.tikz', 'sphinx.ext.imgmath']
+imgmath_add_tooltips = False
+imgmath_latex_preamble = '''
+\\usepackage[utf8]{inputenc}
+\\usepackage{gensymb}
+'''
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
