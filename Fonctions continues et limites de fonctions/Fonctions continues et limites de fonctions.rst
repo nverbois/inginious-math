@@ -467,15 +467,15 @@ discontinuité.
   aux fonctions continues.
 | Le premier est assez intuitif. Pour reprendre l’exemple de
   l’introduction de la température dans une pièce, si on suppose que la
-  température de la pièce était de :math:`10°` à minuit et
-  qu’elle est de :math:`20°` à midi et qu’on choisit une
-  température en :math:`10°` et :math:`20°`, par exemple
-  :math:`15°`, on est intuitivement convaincu qu’il y a eu au
+  température de la pièce était de :math:`10\degree` à minuit et
+  qu’elle est de :math:`20\degree` à midi et qu’on choisit une
+  température en :math:`10\degree` et :math:`20\degree`, par exemple
+  :math:`15\degree`, on est intuitivement convaincu qu’il y a eu au
   moins un court instant dans la matinée où la température de la pièce
-  était de :math:`15°` (puisque le phénomène est continu, on doit
+  était de :math:`15\degree` (puisque le phénomène est continu, on doit
   bien passer par toutes les valeurs intermédiaires entre
-  :math:`10°` et :math:`20°` pour passer de
-  :math:`10°` à :math:`20°`). Cette intuition est
+  :math:`10\degree` et :math:`20\degree` pour passer de
+  :math:`10\degree` à :math:`20\degree`). Cette intuition est
   formalisée par le théorème suivant :
 
 **Théorème 2.4.1** (Théorème des valeurs intermédiaires). Soit :math:`I` un intervalle de la forme :math:`I=[a,b]`. Soit
