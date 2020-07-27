@@ -15,7 +15,6 @@
 # sys.path.insert(0, os.path.abspath('.'))
 import sphinx_bootstrap_theme
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'Syllabus interactif : Les suites'
@@ -28,9 +27,12 @@ author = 'Nicolas Verbois, Maxime Parmentier'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-#extensions = ['sphinx.ext.mathjax']
-extensions = ['sphinxcontrib.tikz']
-
+extensions = ['sphinxcontrib.tikz', 'sphinx.ext.imgmath']
+imgmath_add_tooltips = False
+imgmath_latex_preamble = '''
+\\usepackage[utf8]{inputenc}
+\\usepackage{gensymb}
+'''
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -40,8 +42,6 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 tikz_proc_suite = 'pdf2svg'
-
-#tikz_resolution = 184
 
 
 # -- Options for HTML output -------------------------------------------------
