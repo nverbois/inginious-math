@@ -18,8 +18,8 @@ import sphinx_bootstrap_theme
 # -- Project information -----------------------------------------------------
 
 project = 'Syllabus interactif : Les suites'
-copyright = '2020, Nicolas Verbois, Maxime Parmentier'
-author = 'Nicolas Verbois, Maxime Parmentier'
+copyright = '2020, Maxime Parmentier'
+author = 'Maxime Parmentier'
 
 
 # -- General configuration ---------------------------------------------------
