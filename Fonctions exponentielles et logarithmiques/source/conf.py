@@ -18,8 +18,8 @@ import sphinx_bootstrap_theme
 # -- Project information -----------------------------------------------------
 
 project = 'Fonctions exponentielles et logarithmiques'
-copyright = '2020, Nicolas Verbois'
-author = 'Nicolas Verbois'
+copyright = '2020, Maxime Parmentier'
+author = 'Maxime Parmentier'
 
 
 # -- General configuration ---------------------------------------------------
