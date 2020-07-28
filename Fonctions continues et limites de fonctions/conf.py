@@ -18,8 +18,8 @@ import sphinx_bootstrap_theme
 # -- Project information -----------------------------------------------------
 
 project = 'Syllabus interactif : Fonctions continues et limites de fonctions'
-copyright = '2020, Nicolas Verbois'
-author = 'Nicolas Verbois'
+copyright = '2020, Maxime Parmentier'
+author = 'Maxime Parmentier'
 
 
 # -- General configuration ---------------------------------------------------
