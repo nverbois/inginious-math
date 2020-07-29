@@ -1,0 +1,666 @@
+
+2 Suites
+======
+
+Dans cette section, nous allons introduire la notion de suite. Une suite
+(de nombres) n’est rien d’autre qu’une succession infinie indexée (par
+les nombres naturels) de nombres.
+
+2.1 Définitions
+-----------
+
+.. |nbsp| unicode:: 0xA0 
+   :trim:
+
+
+**Définition 2.1.1.** |nbsp| Une *suite* est une fonction de :math:`\mathbb{N}` dans
+:math:`\mathbb{R}` : :math:`f : \mathbb{N}\to \mathbb{R}`.
+
+**Exemple 2.1.2.** Les fonctions suivantes :
+
+.. math::
+
+   \begin{aligned}
+       f : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto 2
+       \end{aligned}
+
+et
+
+.. math::
+
+   \begin{aligned}
+       g : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto 2+ \frac{1}{n+1}
+       \end{aligned}
+
+sont deux suites dont les termes sont :math:`2,2,2,2,2,2,...` et
+:math:`2+ \frac{1}{1},2+ \frac{1}{2},2+ \frac{1}{3},2+ \frac{1}{4},2+ \frac{1}{5},...`.
+On ne peut évidemment pas donner tous les termes de ces deux suites : il
+y en a une infinité.
+
+**Contre-exemple 2.1.3.** La fonction
+
+.. math::
+
+   \begin{aligned}
+       f : \mathbb{R}&\to \mathbb{R}\\
+       x &\mapsto x^2
+       \end{aligned}
+
+n’est pas une suite.
+
+| 
+
+**Notation.** Les lettres :math:`s,t,u,v` sont souvent utilisées pour les suites.
+Plutôt que d’écrire :math:`s : \mathbb{N}\to \mathbb{R}` pour déclarer
+une suite, on écrit souvent :math:`{(s_n)}_{n \in \mathbb{N}}`. Plutôt
+que d’écrire :math:`s(n)`, ce qui est souvent nommé terme de rang
+:math:`n` de la suite :math:`s`, on écrit souvent :math:`s_n`. Dans ce
+document, nous reprendrons ces conventions communément admises.
+
+**Remarque 2.1.4.** Comme pour les fonctions, il est possible de représenter les suites dans
+un graphe orthonormé. Par exemple, la suite
+
+.. math::
+
+   \begin{aligned}
+       g : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto 2+ \frac{1}{n+1}
+       \end{aligned}
+
+a le graphe suivant :
+
+.. tikz:: 
+
+		\draw[step=1cm,gray,very thin] (0,0) grid (5,5);
+
+		\draw[very thick,->] (0,0) -- (5,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,0) -- (0,5) node[anchor=south west] {y};
+		
+		\foreach \x in {0,1,2,3,4,5}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+		\draw[very thick,blue] (0,2+0.7) node[anchor=south] {\large{$\bullet$}};
+		\draw[very thick,blue] (1,2+0.2) node[anchor=south] {\large{$\bullet$}};
+		\draw[very thick,blue] (2,2+0.0333333) node[anchor=south] {\large{$\bullet$}};
+		\draw[very thick,blue] (3,2-0.05) node[anchor=south] {\large{$\bullet$}};
+		\draw[very thick,blue] (4,2-0.1) node[anchor=south] {\large{$\bullet$}};
+		\draw[very thick,blue] (5,2-0.13) node[anchor=south] {\large{$\bullet$}};
+		\foreach \y in {0,1,2,3,4,5}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+Attention à ne pas relier les points du graphe ! Dans le cas des suites,
+le domaine de définition est :math:`\mathbb{N}`, pas :math:`\mathbb{R}`
+!
+
+| Il y a deux manières de définir une suite particulière. On peut la
+  définir comme une fonction : c’est ce qui a été fait à l’exemple 2.1.2. Dans ce cas, on dit qu’on donne la suite
+  *en fonction du rang* puisqu’on possède alors une formule qui nous
+  permet de calculer directement le terme de rang :math:`n` de la suite
+  (:math:`n` étant un nombre naturel choisi).
+| Mais il existe une autre manière de déclarer une suite, dite *par
+  récurrence*. Celle-ci consiste à donner le ou les premiers termes de
+  la suite, puis donner une règle générale permettant de calculer tous
+  les termes suivants à partir de ce ou ces premiers termes. Plutôt que
+  de donner la définition générale et abstraite de suite définie par
+  récurrence (qui est assez technique), donnons un exemple très connu de
+  suite définie par récurrence : la suite de Fibonacci.
+
+| 
+
+**Exemple 2.1.5.** 
+
+  La suite de Fibonacci est l’unique suite :math:`{(F_n)}_{n \in \mathbb{N}}` telle que :
+  
+  .. math::
+
+     \left\{
+         \begin{array}{l}
+         F_0 = 1 \\
+         F_1 = 1 \\
+         F_{n+2} = F_{n+1} + F_{n} ~~~~~~ n \in \mathbb{N}
+         \end{array}
+         \right.
+
+  Autrement dit, on donne les deux premiers termes de la suite,
+  :math:`F_0 =1` et :math:`F_1 = 1`, et la règle générale nous dit ici
+  que pour obtenir un terme de la suite, il suffit d’additionner les
+  deux précédents. Par exemple, que vaut le terme de rang :math:`2` de
+  la suite, c’est-à-dire :math:`F_2` ? En prenant :math:`n=0` dans la
+  formule générale, on sait qu’on doit avoir pour la suite
+  :math:`{(F_n)}_{n \in \mathbb{N}}` :
+
+  .. math:: F_{0+2} = F_{0+1} + F_{0}
+
+  Autrement dit :
+
+  .. math:: F_{2} = F_{1} + F_{0}
+
+  Donc :
+
+  .. math:: F_{2} = 1 + 1 = 2
+
+  Puisqu’on connait :math:`F_2`, on peut alors particulariser la formule
+  générale non plus en :math:`n=0` mais en :math:`n=1` pour découvrir
+  comment calculer :math:`F_3` à partir de :math:`F_2` et :math:`F_1` :
+
+  .. math:: F_{3} = F_{2} + F_{1} = 2+1=3
+
+  Et ainsi de suite. On peut calculer que les premiers termes de la
+  suite de Fibonacci sont :math:`1,1,2,3,5,8,13,21,34,...`.
+|   
+| La suite de Fibonacci est fascinante et très populaire car elle
+  apparaît spontanément dans la nature, que ce soit dans les fleurs de
+  tournesol ou dans les coquilles de certains mollusques. De plus, elle
+  est reliée à un nombre qui a eu autrefois énormément d’importance en
+  architecture et en art : le nombre d’or. Malheureusement, nous n’avons
+  pas la possibilité dans ce cours de nous étendre sur le sujet.
+
+L’exemple de la suite de Fibonacci comprend toute la généralité
+nécessaire pour manipuler les suites définies par récurrence que nous
+rencontrerons. La plupart du temps, seul le premier terme de la suite
+est donné et la règle générale de récurrence ne dépent seulement que
+d’un seul terme (contrairement au cas de la suite de Fibonacci, où elle
+dépend de deux termes (:math:`F_{n+1}` et :math:`F_n`)).
+
+**Remarque 2.1.6.** Une suite définie en fonction du rang est souvent plus facile à
+manipuler qu’une suite donnée par récurrence, mais il est parfois plus
+facile de définir une suite par récurrence.
+
+Dans les deux sections suivantes, nous allons étudier deux types de
+suites pour lesquels il est aisé de passer de la formulation en fonction
+du rang à la formulation par récurrence et vice-versa.
+
+| 
+
+**Exemple 2.1.7.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite telle que :
+
+#. :math:`s_n = n^3 -n +1`        :math:`(n \in \mathbb{N})`
+
+#. :math:`s_n = \frac{2}{\sqrt{n+1}}`        :math:`(n \in \mathbb{N})`
+
+#. :math:`\left\{\begin{array}{l}s_0 = 1 \\s_1 = 2 \\s_{n+2} = F_{n+1} + 2s_{n} - 6 ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`\left\{\begin{array}{l}s_0 = -2 \\s_{n+1} = \frac{1}{4}(s_{n})^3 +4 ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`s_n = \frac{1}{5^{n-1}}`        :math:`(n \in \mathbb{N})`
+
+Pour chacune de ces possibilités :
+
+-  Calculer :math:`s_0`, :math:`s_1` et le terme de rang :math:`3`.
+
+-  Représenter graphiquement les premiers termes de la suite.
+
+.. inginious:: suite1_1
+.. inginious:: suite1_2
+.. inginious:: suite1_3
+.. inginious:: suite1_4
+.. inginious:: suite1_5
+
+| 
+
+2.2 Suites arithmétiques
+--------------------
+
+| Considérons les trois suites dont les premiers termes sont :
+
+| :math:`0,1,2,3,4,5,...`
+| :math:`-5,-5+\frac{1}{3},-5+\frac{2}{3},-4,-4+\frac{1}{3},-4+\frac{1}{3},...`
+| :math:`11,9,7,5,3,1,-1,-3,...`
+
+| Elles ont un point commun : pour passer d’un terme au suivant, on
+  ajoute toujours un même nombre. Pour la première suite, ce nombre est
+  :math:`1`, pour la deuxième, ce nombre est :math:`\frac{1}{3}`, pour
+  la troisième, ce nombre est :math:`-2`. C’est le principe qui définit
+  les suites arithmétiques.
+
+| 
+
+**Définition 2.2.1.** 
+
+  Une *suite arithmétique* est une suite :math:`{(s_n)}_{n \in \mathbb{N}}` telle que :
+  
+  .. math::
+
+     \left\{
+         \begin{array}{l}
+         s_0 = a \\
+         s_{n+1} = s_{n} + r ~~~~~~ n \in \mathbb{N}
+         \end{array}
+         \right.
+
+  où :math:`a \in \mathbb{R}` est le *terme initial* et
+  :math:`r \in \mathbb{R}` est la *raison* (ce qu’on ajoute pour passer
+  d’un terme au suivant).
+
+| 
+
+**Exemple 2.2.2.** La suite dont les premiers termes sont :math:`11,9,7,5,3,1,-1,-3,...`
+est une suite arithmétique de terme initial :math:`a=11` et de raison
+:math:`r=-2`.
+
+**Remarque 2.2.3.** Puisque pour passer d’un terme au suivant dans une suite arithmétique,
+il suffit d’ajouter la raison, les termes successifs d’une suite
+arithmétique de terme initial :math:`a \in \mathbb{R}` et de raison
+:math:`r \in \mathbb{R}` peuvent être notés :
+
+.. math:: a,a+1.r,a+2.r,a+3.r,a+4.r,a+5.r,...
+
+Il n’est dès lors pas surprenant qu’on puisse démontrer qu’une suite
+arithmétique de terme initial :math:`a \in \mathbb{R}` et de raison
+:math:`r \in \mathbb{R}` est égale à la suite :
+
+.. math::
+
+   \begin{aligned}
+       f : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto a + r.n
+       \end{aligned}
+
+Ce qui correspond à la définition de cette suite en fonction du rang.
+
+**Exemple 2.2.4.** La suite dont les premiers termes sont :math:`11,9,7,5,3,1,-1,-3,...`
+est une suite arithmétique de terme initial :math:`a=11` et de raison
+:math:`r=-2`. Elle est égale à la suite :
+
+.. math::
+
+   \begin{aligned}
+       f : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto 11 + (-2).n
+       \end{aligned}
+
+Et en effet, on calcule : :math:`f(0)=11+(-2).0 = 11`,
+:math:`f(1)=11+(-2).1 = 9`, :math:`f(2)=11+(-2).2 = 7`,
+:math:`f(3)=11+(-2).3 = 5`, ...
+
+| 
+
+**Exercice 2.2.5.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite arithmétique telle que
+:
+
+#. :math:`a=-1` et :math:`r=-7`
+
+#. :math:`s_0 = 2` et :math:`s_1 = 5`
+
+#. :math:`\left\{\begin{array}{l}s_0 = -\frac{1}{2} \\s_{n+1} = s_{n} + \frac{3}{2} ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`s_n = 3n`        :math:`(n \in \mathbb{N})`
+
+#. :math:`s_4 = 15` et :math:`s_{31} = 20 + \frac{2}{5}`
+
+Pour chacune de ces possibilités, calculer :math:`a`, :math:`r` et le
+terme de rang :math:`20`.
+
+.. inginious:: suite2_1
+.. inginious:: suite2_2
+.. inginious:: suite2_3
+.. inginious:: suite2_4
+.. inginious:: suite2_5
+
+| 
+
+**Exercice 2.2.6.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite telle que :
+
+#. :math:`s_n = 3^0`        :math:`(n \in \mathbb{N})`
+
+#. :math:`\left\{\begin{array}{l}s_0 = 1 \\s_{n+1} = 2s_{n} + \frac{3}{2} ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`\left\{\begin{array}{l}s_0 = 1 \\s_1 = 2 \\s_{n+2} = s_{n+1} + s_{n} - 6 ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`\left\{\begin{array}{l}s_0 = 0 \\s_{n+1} = s_{n} . 3 ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+Pour chacune de ces possibilités, déterminer s’il s’agit d’une suite
+arithmétique.
+
+.. inginious:: suite3_1
+.. inginious:: suite3_2
+.. inginious:: suite3_3
+.. inginious:: suite3_4
+
+| 
+
+**Exercice 2.2.7.** 
+
+.. inginious:: suite4
+
+| 
+
+2.3 Suites géométriques
+-------------------
+
+| Considérons les trois suites dont les premiers termes sont :
+
+| :math:`1,2,4,8,16,32,...`
+| :math:`10,-10,10,-10,10,...`
+| :math:`81,27,9,3,1,\frac{1}{3},\frac{1}{9},...`
+
+| Elles ont un point commun : pour passer d’un terme au suivant, on
+  multiplie toujours par un même nombre. Pour la première suite, ce
+  nombre est :math:`2`, pour la deuxième, ce nombre est :math:`-1`, pour
+  la troisième, ce nombre est :math:`\frac{1}{3}`. C’est le principe qui
+  définit les suites géométriques.
+
+**Définition 2.3.1.**  
+
+  Une *suite géométrique* est une suite :math:`{(s_n)}_{n \in \mathbb{N}}` telle que :
+
+  .. math::
+
+     \left\{
+         \begin{array}{l}
+         s_0 = b \\
+         s_{n+1} = s_{n} . q ~~~~~~ n \in \mathbb{N}
+         \end{array}
+         \right.
+
+  où :math:`b \in \mathbb{R}` est le *terme initial* et
+  :math:`q \in \mathbb{R}` est la *raison* (ce par quoi on multiplie
+  pour passer d’un terme au suivant).
+
+| 
+
+**Exemple 2.3.2.** La suite dont les premiers termes sont
+:math:`81,27,9,3,1,\frac{1}{3},\frac{1}{9},...` est une suite
+géométrique de terme initial :math:`b=81` et de raison
+:math:`q=\frac{1}{3}`.
+
+**Remarque 2.3.3.** Puisque pour passer d’un terme au suivant dans une suite géométrique, il
+suffit de multiplier par la raison, les termes successifs d’une suite
+géométrique de terme initial :math:`b \in \mathbb{R}` et de raison
+:math:`q \in \mathbb{R}` peuvent être notés :
+
+.. math:: b,b.q,b.q^2,b.q^3,,b.q^4,b.q^5,...
+
+Il n’est dès lors pas surprenant qu’on puisse démontrer qu’une suite
+géométrique de terme initial :math:`b \in \mathbb{R}` et de raison
+:math:`q \in \mathbb{R}` est égale à la suite :
+
+.. math::
+
+   \begin{aligned}
+       f : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto b.q^n
+       \end{aligned}
+
+Ce qui correspond à la définition de cette suite en fonction du rang.
+
+**Exemple 2.3.4.** La suite dont les premiers termes sont
+:math:`81,27,9,3,1,\frac{1}{3},\frac{1}{9},...` est une suite
+arithmétique de terme initial :math:`b=81` et de raison
+:math:`q=\frac{1}{3}`. Elle est égale à la suite :
+
+.. math::
+
+   \begin{aligned}
+       f : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto 81 . (\frac{1}{3})^n
+       \end{aligned}
+
+Et en effet, on calcule : :math:`f(0)=81 . (\frac{1}{3})^0 = 81`,
+:math:`81 . (\frac{1}{3})^1 = 27`, :math:`81 . (\frac{1}{3})^2 = 9`,
+:math:`81 . (\frac{1}{3})^3 = 3`, ...
+
+| 
+
+**Exercice 2.3.5.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite géométrique telle que
+:
+
+#. :math:`b=1` et :math:`q=-2`
+
+#. :math:`s_0 = 2` et :math:`s_1 = 6`
+
+#. :math:`\left\{\begin{array}{l}s_0 = -27 \\s_{n+1} = s_{n} . \frac{1}{3} ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`s_n = (\frac{1}{5})^n`        :math:`(n \in \mathbb{N})`
+
+#. :math:`s_4 = \frac{7}{16}` et :math:`s_{10} = 28`
+
+Pour chacune de ces possibilités, calculer :math:`b`, :math:`q` et le
+terme de rang :math:`6`.
+
+.. inginious:: suite5_1
+.. inginious:: suite5_2
+.. inginious:: suite5_3
+.. inginious:: suite5_4
+.. inginious:: suite5_5
+
+| 
+
+**Exercice 2.3.6.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite telle que :
+
+#. :math:`s_n = 4^0`        :math:`(n \in \mathbb{N})`
+
+#. :math:`\left\{\begin{array}{l}s_0 = 1 \\s_{n+1} = 2s_{n} + \frac{3}{2} ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`\left\{\begin{array}{l}s_0 = -1 \\s_1 = 1 \\s_{n+2} = s_{n+1} + 2s_{n} ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`\left\{\begin{array}{l}s_0 = 0 \\s_{n+1} = s_{n} + s_0 ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+Pour chacune de ces possibilités, déterminer s’il s’agit d’une suite
+géométrique.
+
+.. inginious:: suite6_1
+.. inginious:: suite6_2
+.. inginious:: suite6_3
+.. inginious:: suite6_4
+
+| 
+
+**Exercice 2.3.7.** 
+
+.. inginious:: suite7
+
+| 
+
+2.4 Intérêts simples et intérêts composés
+-------------------------------------
+
+**Problème** Considérons le problème suivant : nous disposons de :math:`100`\ € et
+nous avons la possibilité de déposer ces :math:`100`\ € sur un compte
+d’une première banque qui nous propose des intérêts mensuels de
+:math:`1` % de la somme initiale déposée sur le compte (c’est-à-dire,
+dans notre cas, :math:`100`\ €) ou sur un compte d’une seconde banque
+qui elle nous propose des intérêts mensuels de :math:`0,5` % de la
+somme présente sur le compte ce mois-là, somme qui évolue donc chaque
+mois. En supposant que nous allons laisser l’argent sur le compte
+pendant :math:`12` mois, sans y toucher ni y ajouter quelque chose,
+quelle est la banque la plus avantageuse (pour nous) ?
+
+
+Commençons par donner la suite des sommes d’argent dont nous
+disposerons après les premiers mois si nous choisissons la première
+banque : après :math:`1` mois, nous disposerons de
+:math:`100 + 0,01 . 100 = 101`\ €. Après :math:`2` mois, nous
+disposerons de :math:`101 + 0,01 . 100 = 102`\ €. Et ainsi de suite :
+on remarque qu’on a affaire à une suite arithmétique de terme initial
+:math:`a=100` et de raison :math:`1`. Après :math:`12` mois, nous
+disposerons donc de :math:`100 + 12 . 1 = 112`\ €.
+
+
+Passons au cas de la deuxième banque. Après le premier mois, nous
+disposerons de
+:math:`100 + 0,005 . 100 = 100 . (1 + 0,005) = 100 . 1,005 = 100,5`\ €.
+Après le deuxième mois, nous disposerons de
+:math:`100,5 + 0.005 . 100,5 = 100,5 . (1 + 0,005) = 100,5 . 1,005 = 101,0025`\ €.
+Et ainsi de suite : on remarque qu’on a affaire à une suite
+géométrique de terme initial :math:`b=100` et de raison :math:`1,005`.
+Après :math:`12` mois, nous disposerons donc de
+:math:`100 . (1,005)^{12} \simeq 106,17`\ €.
+
+
+Conclusion : la première banque est la plus intéressante. Néanmoins,
+ce ne sera pas éternellement le cas : puisque les intérêts de la
+seconde banque grandissent sans cesse et de plus en plus vite, il est
+clair que sur le plus long terme (pouvez-vous déterminer à partir de
+combien de mois ?), la seconde banque est plus intéressante.
+
+Les intérêts que propose la première banque sont ce qu’on appelle des
+*intérêts simples*, tandis que ceux que propose la seconde banque sont
+ce qu’on appelle des *intérêts composés*. Il est important de se
+souvenir que les intérêts simples correspondent à une suite
+arithmétique, tandis que les intérêts composés correspondent à une suite
+géométrique.
+
+| 
+
+**Exercice 2.4.1.** 
+
+.. inginious:: suite8
+
+2.5 Sommes de suites
+----------------
+
+Dans cette section, nous allons découvrir les méthodes et formules pour
+la somme des :math:`k` premiers termes d’une suite arithmétique ou
+géométrique donnée, où :math:`k` est un nombre naturel choisi. Mais
+commençons par l’exemple de l’introduction :
+
+| **Exemple 2.5.1.** Que vaut :math:`1+2+3+...+49+50+51+...+98+99+100` ?
+| Bien entendu, nous pourrions commencer à calculer cette somme en
+  additionnant successivement tous les termes. Néanmoins, cette méthode
+  serait quelque peu longue et pénible. Voici une autre méthode : on
+  peut grouper les termes de la sommes deux-à-deux, :math:`1` avec
+  :math:`100`, :math:`2` avec :math:`99`, :math:`3` avec :math:`98`, ...
+  , :math:`50` avec :math:`51`. Toutes ces paires donnent :math:`101` et
+  il y a :math:`50` paires. On en déduit que :
+
+  .. math:: 1+2+3+...+49+50+51+...+98+99+100  = 101 . 50 = 5050
+
+  Cette simple idée va nous permettre de démontrer la formule pour la
+  somme des :math:`k` (:math:`k\in \mathbb{N}`) premiers termes d’une
+  suite arithmétique.
+
+| 
+
+**Proposition 2.5.2.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite
+arithmétique de terme initial :math:`a \in \mathbb{R}` et de raison
+:math:`r \in \mathbb{R}`. Choisissons un nombre
+:math:`k \in \mathbb{N}`. Notons la somme des termes de la suite
+:math:`{(s_n)}_{n \in \mathbb{N}}` pour les rangs de :math:`0` à
+:math:`k` de la façon suivante :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = s_0 + s_1 + s_2 + ... + s_{k-2} + s_{k-1} + s_k
+
+Alors on a :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = \frac{(2a + k r)(k+1)}{2}
+
+*Démonstration* Puisque :math:`{(s_n)}_{n \in \mathbb{N}}` une suite arithmétique de
+terme initial :math:`a \in \mathbb{R}` et de raison
+:math:`r \in \mathbb{R}`, on a pour :math:`i \in \mathbb{N}` :
+:math:`s_i = a + i  r`. Dès lors :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = a + (a+r)  + (a+2r) + ... + (a+(k-2)r) + (a+(k-1)r) + (a+kr)
+
+On peut écrire cette somme dans l’autre sens :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = (a+kr) + (a+(k-1))r  + (a+(k-2)r) ... + (a+2r) + (a+r) + a
+
+Additionnons les deux égalités précédentes et groupons ensemble le
+premier terme de la somme du membre de droite de la première égalité
+avec le premier terme de la somme du membre de droite de la deuxième
+égalité, le deuxième terme de la somme du membre de droite de la
+première égalité avec le deuxième terme de la somme du membre de droite
+de la deuxième égalité, le troisième terme de la somme du membre de
+droite de la première égalité avec le troisième terme de la somme du
+membre de droite de la deuxième égalité et ainsi de suite :
+
+.. math::
+
+   \begin{aligned}
+           2 \sum\limits_{i=0}^{k} s_i =& [a+(a+kr)] + [(a+r)+(a+(k-1))r]  + [(a+2r)+(a+(k-2)r)] + {}... \\
+           &{}+ [(a+(k-2)r)+(a+2r)] + [(a+(k-1))r+(a+r)] + [(a+kr)+a]
+       \end{aligned}
+
+On observe que tous ces rassemblements donnent le même résultat :
+:math:`2a+kr`. Ces rassemblements sont au nombre de :math:`k+1`, on a
+donc :
+
+.. math:: 2 \sum\limits_{i=0}^{k} s_i =(2a + k  r)(k+1)
+
+Conclusion :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = \frac{(2a + k  r)(k+1)}{2}
+
+| 
+
+Nous avons une proposition similaire pour les suites géométriques :
+
+**Proposition 2.5.3.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite géométrique
+de terme initial :math:`b \in \mathbb{R}` et de raison
+:math:`q \in {\mathbb{R}} \backslash \{1\}`. Choisissons un nombre
+:math:`k \in \mathbb{N}`. On a :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = b. \frac{1-q^{k+1}}{1-q}
+
+*Démonstration* Puisque :math:`{(s_n)}_{n \in \mathbb{N}}` une suite géométrique de
+terme initial :math:`b \in \mathbb{R}` et de raison
+:math:`q \in \mathbb{R}`, on a pour :math:`i \in \mathbb{N}` :
+:math:`s_i = bq^i`. Dès lors :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = b + (bi)  + (bi^2) + ... + (bq^{k-2}) + (bq^{k-1}) + (bq^{k})
+
+On peut multiplier cette égalité par :math:`q` :
+
+.. math:: q \sum\limits_{i=0}^{k} s_i = (bi)  + (bi^2) + (bi^3) ... + (bq^{k-1}) + (bq^{k}) + (bq^{k+1})
+
+Soustrayons la deuxième égalité à la première en groupant ensemble le
+deuxième terme de la somme du membre de droite de la première égalité
+avec le premier terme de la somme du membre de droite de la deuxième
+égalité, le troisième terme de la somme du membre de droite de la
+première égalité avec le deuxième terme de la somme du membre de droite
+de la deuxième égalité, le quatrième terme de la somme du membre de
+droite de la première égalité avec le troisième terme de la somme du
+membre de droite de la deuxième égalité et ainsi de suite :
+
+.. math:: \sum\limits_{i=0}^{k} s_i - q \sum\limits_{i=0}^{k} s_i = b + [bi - bi] + [bi^2 - bi^2]   + ... + [bq^{k-1} - bq^{k-1}] + [bq^{k}-bq^{k}] - bq^{k+1}
+
+On observe que tous ces rassemblements donnent le même résultat :
+:math:`0`. On a donc :
+
+.. math:: (1-q) \sum\limits_{i=0}^{k} s_i=b- bq^{k+1}
+
+Puisque :math:`q \neq 1`, on conclut :
+
+.. math:: \sum\limits_{i=0}^{k} s_i= \frac{b-bq^{k+1}}{1-q} = b. \frac{1-q^{k+1}}{1-q}
+
+**Remarque 2.5.4.** Si on souhaite calculer la somme des termes d’une suite arithmétique ou
+géométrique non pas à partir de :math:`0` mais à partir d’un autre
+nombre naturel choisi, disons :math:`l`, il est possible de s’en sortir
+facilement grâce aux formules des propositions
+`[sommeari] <#sommeari>`__ et `[sommegéo] <#sommegéo>`__ puisque pour
+une suite :math:`{(s_n)}_{n \in \mathbb{N}}`, on a :
+
+.. math:: \sum\limits_{i=l}^{k} s_i = \sum\limits_{i=0}^{k}s_i - \sum\limits_{i=0}^{l-1}s_i
+
+| 
+
+**Exercice 2.5.5.**
+
+.. inginious:: suite9_1
+.. inginious:: suite9_2
+
+| 
+
+**Exercice 2.5.6.** 
+
+.. inginious:: suite10_1
+.. inginious:: suite10_2
+.. inginious:: suite10_3
+.. inginious:: suite10_4
+
+| 
+
+**Exercice 2.5.7.** 
+
+.. inginious:: suite10_5
+.. inginious:: suite10_6
+
+| 
+
+**Exercice 2.5.8.** 
+
+.. inginious:: suite11
+
+| 

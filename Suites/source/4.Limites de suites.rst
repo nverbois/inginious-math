@@ -1,0 +1,529 @@
+
+4 Limites de suites (optionnel)
+=============================
+
+| Dans cette section, nous allons présenter une notion qui nous
+  accompagnera tout au long des deux prochains chapitres : la notion de
+  limite. Dans un premier temps, nous allons nous intéresser à cette
+  notion dans un cadre simple, celui des limites de suites.
+| Malheureusement, les démonstrations des résultats présentés dans cette
+  section ne pourront être données dans le cadre de ce cours.
+
+4.1 Définition
+----------
+
+Dans l’introduction, nous avons discuté des problèmes qui surgissent
+rapidement si l’on considère l’infini comme un nombre réel tel que
+:math:`\frac{1}{0}=\infty` ou encore :math:`\frac{1}{\infty}=0`.
+ 
+  Néanmoins, si l’on considère par exemple la suite
+
+  .. math::
+
+     \begin{aligned}
+     s : \mathbb{N}&\to \mathbb{R}\\
+     n &\mapsto \frac{1}{n+1}\end{aligned}
+
+  on aimerait malgré tout pouvoir exprimer clairement l’idée que les
+  termes de cette suite se rapprochent de :math:`0`, de façon
+  définitive, au fur et à mesure que le rang grandit :
+
+  .. math:: \frac{1}{10}=0,1
+
+  .. math:: \frac{1}{100}=0,01
+
+  .. math:: \vdots
+
+  .. math:: \frac{1}{10000}=0,0001
+
+  .. math:: \vdots
+
+  .. math:: \frac{1}{1000000}=0,000001
+
+  .. math:: \vdots
+
+| Une définition rigoureuse de ce phénomène peut être obtenue en prenant
+  le point de vue suivant : si on affirme que la suite
+  :math:`(s_n)_{n \in \mathbb{N}}` définie ci-dessus se rapproche de
+  :math:`0`, de façon définitive, au fur et à mesure que le rang
+  grandit, il est nécessaire que que pour toute borne réelle strcitement
+  positive :math:`\epsilon` que l’on se fixe, il doit avoir un certain
+  :math:`N \in \mathbb{N}` tel qu’à partir de ce moment :math:`N`, tous
+  les termes de la suite sont à une distance au plus :math:`\epsilon` de
+  :math:`0` (sinon, il existera toujours des termes de la suite qui
+  s’éloigneront de :math:`0` plutôt que de s’en rapprocher, quel que
+  soit l’endroit où on est arrivé dans la suite).
+| De cet exemple, on tire la définition suivante :
+
+| 
+
+**Définition 4.1.1.** Soit une suite :math:`(s_n)_{n \in \mathbb{N}}`. La suite
+:math:`(s_n)_{n \in \mathbb{N}}` a une limite :math:`S \in \mathbb{R}`
+si pour tout nombre réel strictement positif :math:`\epsilon`, il existe
+:math:`N \in \mathbb{N}` tel que pour tout :math:`n \in \mathbb{N}` avec
+:math:`n \ge N`, on a
+
+.. math:: |s_n - S | < \epsilon
+
+Dans ce cas, on note :math:`\lim\limits_{n \to \infty} s_n = S` et on
+dit que la suite converge vers :math:`S`.
+
+| 
+
+Passons en revue les suites issues des fonctions de référence et
+déterminons si elles ont une limite.
+
+#. Suite obtenue à partir de la fonction constante de constante
+   :math:`c` (:math:`c` est un nombre réel quelconque) :
+
+   .. math::
+
+      \begin{aligned}
+              s : \mathbb{N}&\to \mathbb{R}\\
+              n &\mapsto c
+              \end{aligned}
+
+   Cette suite a trivialement pour limite :math:`c` :
+   :math:`\lim\limits_{n \to \infty} c = c`.
+
+#. Suite obtenue à partir de la fonction identité :
+
+   .. math::
+
+      \begin{aligned}
+              f : \mathbb{N}&\to \mathbb{R}\\
+              n &\mapsto n
+              \end{aligned}
+
+   Cette suite n’a pas de limite.
+
+#. Suite obtenue à partir de la fonction carrée :
+
+   .. math::
+
+      \begin{aligned}
+              f : \mathbb{N}&\to \mathbb{R}\\
+              n &\mapsto n^2
+              \end{aligned}
+
+   Cette suite n’a pas de limite.
+
+#. Suite obtenue à partir de la fonction cubique :
+
+   .. math::
+
+      \begin{aligned}
+              f : \mathbb{N}&\to \mathbb{R}\\
+              n &\mapsto n^3
+              \end{aligned}
+
+   Cette suite n’a pas de limite.
+
+#. Suite obtenue à partir de la fonction racine carrée :
+
+   .. math::
+
+      \begin{aligned}
+              f : \mathbb{N}&\to \mathbb{R}\\
+              n &\mapsto \sqrt{n}
+              \end{aligned}
+
+   Cette suite n’a pas de limite.
+
+#. Suite obtenue à partir de la fonction racine cubique :
+
+   .. math::
+
+      \begin{aligned}
+              f : \mathbb{N}&\to \mathbb{R}\\
+              n &\mapsto \sqrt[3]{n}
+              \end{aligned}
+
+   Cette suite n’a pas de limite.
+
+#. Suite obtenue à partir de la fonction inverse :
+
+   .. math::
+
+      \begin{aligned}
+              f : \mathbb{N}&\to \mathbb{R}\\
+              n &\mapsto \frac{1}{n+1}
+              \end{aligned}
+
+   Cette suite a comme limite :math:`0` :
+   :math:`\lim\limits_{n \to \infty} \frac{1}{n+1} = 0`.
+
+#. Suite obtenue à partir de la fonction valeur absolue :
+
+   .. math::
+
+      \begin{aligned}
+              f : \mathbb{N}&\to \mathbb{R}\\
+              n &\mapsto |n|
+              \end{aligned}
+
+   Cette suite n’a pas de limite.
+
+Ces limites de base vont nous permettre de calculer des limites plus
+complexes grâce aux résultats de la prochaine section.
+
+| 
+
+**Exercice 4.1.2** (Difficile). À partir de la définition de limite, démontrer que si
+:math:`c \in \mathbb{R}`, la suite
+
+.. math::
+
+   \begin{aligned}
+       s : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto c
+       \end{aligned}
+
+a pour limite :math:`c`.
+
+**Solution** Soit un nombre réel strictement positif :math:`\epsilon` fixé. Prenons
+:math:`N =0`. Alors, pour tout :math:`n \in \mathbb{N}` avec
+:math:`n \ge N`, on a :math:`| s_n - c | = | c - c | = |0| = 0`, donc
+:math:`| s_n - c | < \epsilon`.
+
+| 
+
+**Exercice 4.1.3** (Très difficile). À partir de la définition démontrer que la suite
+
+.. math::
+
+   \begin{aligned}
+       s : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto \frac{1}{n+1}
+       \end{aligned}
+
+a pour limite :math:`0`.
+
+**Solution** Soit un nombre réel strictement positif :math:`\epsilon` fixé. Prenons
+:math:`N \in \mathbb{N}` tel que :math:`N` soit strictement plus grand
+que :math:`\frac{1}{\epsilon}` (ce qui implique que
+:math:`\epsilon > \frac{1}{N}`). Alors, pour tout
+:math:`n \in \mathbb{N}` avec :math:`n \ge N`, on a
+:math:`| s_n - 0 | = | \frac{1}{n+1} - 0 | = |\frac{1}{n+1}| = \frac{1}{n+1}`,
+donc :math:`| s_n - 0 | < \frac{1}{N+1} < \frac{1}{N} < \epsilon`.
+
+| 
+
+4.2 Propriétés des limites
+----------------------
+
+Donnons à présent plusieurs résultats importants concernant les limites.
+Commençons par une proposition qui décrit comment se combinent les
+limites de deux suites convergentes lorsqu’on les combinent entre elles.
+
+**Proposition 4.2.1.** Soient deux suites :math:`(s_n)_{n \in \mathbb{N}}` et
+:math:`(u_n)_{n \in \mathbb{N}}` qui convergent respectivement vers
+:math:`S \in \mathbb{R}` et :math:`U \in \mathbb{R}`. Alors :
+
+-  La suite :math:`(s_n + u_n)_{n \in \mathbb{N}}` converge et on a
+   :math:`\lim\limits_{n \to \infty} s_n + u_n = S+U`.
+
+-  Si :math:`a \in \mathbb{R}`, la suite
+   :math:`(a.s_n)_{n \in \mathbb{N}}` converge et on a
+   :math:`\lim\limits_{n \to \infty} a.s_n = a.S`.
+
+-  La suite :math:`(s_n . u_n)_{n \in \mathbb{N}}` convergent et on a
+   :math:`\lim\limits_{n \to \infty} s_n . u_n = S.U`.
+
+-  Si :math:`U \neq 0`, la suite
+   :math:`(\frac{s_n}{u_n})_{n \in \mathbb{N}}` converge et on a
+   :math:`\lim\limits_{n \to \infty} \frac{s_n}{u_n} = \frac{S}{U}`.
+
+À présent, décrivons comme intéragissent les limites avec les inégalités
+(non-strictes) :
+
+| 
+
+**Théorème 4.2.2** (Théorème du sandwich). Soient trois suites :math:`(s_n)_{n \in \mathbb{N}}`,
+:math:`(u_n)_{n \in \mathbb{N}}` et :math:`(v_n)_{n \in \mathbb{N}}`
+avec pour tout :math:`n \in \mathbb{N}` : :math:`s_n \le u_n \le v_n` et
+telles que :math:`(s_n)_{n \in \mathbb{N}}` converge vers
+:math:`S \in \mathbb{R}` et :math:`(V_n)_{n \in \mathbb{N}}` converge
+vers :math:`V \in \mathbb{R}`. Alors :
+
+-  Sa suite :math:`(u_n)_{n \in \mathbb{N}}` converge vers
+   :math:`U \in \mathbb{R}`, on a nécessairement :math:`S \le U \le V`.
+
+-  Si :math:`S=V`, alors la suite :math:`(u_n)_{n \in \mathbb{N}}`
+   converge nécessairement vers un nombre :math:`U \in \mathbb{R}` qui
+   est en fait égal à :math:`S` et :math:`V`.
+
+Pour terminer, donnons un théorème nommé en l’honneur du mathématicien
+qui a inventé la définition moderne de limite :
+
+| 
+
+**Théorème 4.2.3** (Théorème du Weierstrass). Soit une suite :math:`(s_n)_{n \in \mathbb{N}}`. Si
+:math:`(s_n)_{n \in \mathbb{N}}` est croissante et est majorée, alors
+:math:`(s_n)_{n \in \mathbb{N}}` converge nécessairement et sa limite
+est le plus petit de ses majorants.
+
+**Remarque 4.2.4.** Ce théorème reste valable si l’on remplace croissante par décroissante,
+majorée par minorée et plus petit de ses majorants par plus grand de ses
+minorants .
+
+| 
+
+**Exercice 4.2.5.** 
+
+.. inginious:: suite12_1
+.. inginious:: suite12_2
+.. inginious:: suite12_3
+.. inginious:: suite12_4
+.. inginious:: suite12_5
+
+| 
+
+4.3 Divergence vers :math:`+ \infty` et :math:`- \infty`
+----------------------------------------------------
+
+De la même manière que la notion de limite nous permet d’exprimer
+clairement l’idée que la suite qui provient de la fonction inverse se
+rapproche de :math:`0`, de façon définitive, au fur et à mesure que le
+rang grandit, la notion de divergence va nous permettre d’exprimer
+clairement l’idée que la suite qui provient de la fonction identité (par
+exemple) grandit de plus en plus, de façon définitive, au fur et à
+mesure que le rang augmente :
+
+**Théorème 4.3.1.** Soit une suite :math:`(s_n)_{n \in \mathbb{N}}`. La suite
+:math:`(s_n)_{n \in \mathbb{N}}` diverge vers :math:`+ \infty` si pour
+tout nombre réel :math:`M`, il existe :math:`N \in \mathbb{N}` tel que
+pour tout :math:`n \in \mathbb{N}` avec :math:`n \ge N`, on a
+
+.. math:: s_n  \ge M
+
+Dans ce cas, on note :math:`\lim\limits_{n \to \infty} s_n = \infty` et
+on dit que la suite diverge vers :math:`+ \infty`.
+
+**Remarque 4.3.2.** Attention ! Lorsqu’on écrit
+:math:`\lim\limits_{n \to \infty} s_n = \infty`, on ne dit absolument
+pas la suite :math:`(s_n)_{n \in \mathbb{N}}` a une limite et que cette
+limite est le nombre :math:`\infty` ! La notation est extrêmement
+similaire à celle de limite, mais le sens de celle-ci est très
+différent.
+
+On peut définir de façon similaire la divergence vers :math:`- \infty` :
+
+| 
+
+**Définition 4.3.3.** Soit une suite :math:`(s_n)_{n \in \mathbb{N}}`. La suite
+:math:`(s_n)_{n \in \mathbb{N}}` diverge vers :math:`- \infty` si pour
+tout nombre réel :math:`M`, il existe :math:`N \in \mathbb{N}` tel que
+pour tout :math:`n \in \mathbb{N}` avec :math:`n \ge N`, on a
+
+.. math:: s_n  \le M
+
+Dans ce cas, on note :math:`\lim\limits_{n \to \infty} s_n = -\infty` et
+on dit que la suite diverge vers :math:`- \infty`.
+
+| 
+
+Passons en revue les suites issues des fonctions de référence et
+déterminons si elles divergent.
+
+#. Suite obtenue à partir de la fonction constante de constante
+   :math:`c` (:math:`c` est un nombre réel quelconque) :
+
+   .. math::
+
+      \begin{aligned}
+          s : \mathbb{N}&\to \mathbb{R}\\
+          n &\mapsto c
+          \end{aligned}
+
+   Cette suite a pour limite :math:`c` et ne diverge pas.
+
+#. Suite obtenue à partir de la fonction identité :
+
+   .. math::
+
+      \begin{aligned}
+          f : \mathbb{N}&\to \mathbb{R}\\
+          n &\mapsto n
+          \end{aligned}
+
+   Cette suite diverge vers :math:`+\infty`.
+
+#. Suite obtenue à partir de la fonction carrée :
+
+   .. math::
+
+      \begin{aligned}
+          f : \mathbb{N}&\to \mathbb{R}\\
+          n &\mapsto n^2
+          \end{aligned}
+
+   Cette suite diverge vers :math:`+\infty`.
+
+#. Suite obtenue à partir de la fonction cubique :
+
+   .. math::
+
+      \begin{aligned}
+          f : \mathbb{N}&\to \mathbb{R}\\
+          n &\mapsto n^3
+          \end{aligned}
+
+   Cette suite diverge vers :math:`+\infty`.
+
+#. Suite obtenue à partir de la fonction racine carrée :
+
+   .. math::
+
+      \begin{aligned}
+          f : \mathbb{N}&\to \mathbb{R}\\
+          n &\mapsto \sqrt{n}
+          \end{aligned}
+
+   Cette suite diverge vers :math:`+\infty`.
+
+#. Suite obtenue à partir de la fonction racine cubique :
+
+   .. math::
+
+      \begin{aligned}
+          f : \mathbb{N}&\to \mathbb{R}\\
+          n &\mapsto \sqrt[3]{n}
+          \end{aligned}
+
+   Cette suite diverge vers :math:`+\infty`.
+
+#. Suite obtenue à partir de la fonction inverse :
+
+   .. math::
+
+      \begin{aligned}
+          f : \mathbb{N}&\to \mathbb{R}\\
+          n &\mapsto \frac{1}{n+1}
+          \end{aligned}
+
+   Cette suite a comme limite :math:`0` et ne diverge pas.
+
+#. Suite obtenue à partir de la fonction valeur absolue :
+
+   .. math::
+
+      \begin{aligned}
+          f : \mathbb{N}&\to \mathbb{R}\\
+          n &\mapsto |n|
+          \end{aligned}
+
+   Cette suite diverge vers :math:`+\infty`.
+
+| 
+
+On a des résultats similaires à ceux de la proposition
+4.2.1 pour deux suites divergentes :
+
+**Proposition 4.3.4.** Soient deux suites :math:`(s_n)_{n \in \mathbb{N}}` et
+:math:`(u_n)_{n \in \mathbb{N}}` qui divergent toutes les deux vers
+:math:`+ \infty`. Alors :
+
+-  La suite :math:`(s_n + u_n)_{n \in \mathbb{N}}` diverge vers
+   :math:`+\infty`.
+
+-  Soit :math:`a \in \mathbb{R}`. Si :math:`a>0`, la suite
+   :math:`(a.s_n)_{n \in \mathbb{N}}` diverge vers :math:`+\infty`. Si
+   :math:`a< 0`, la suite :math:`(a.s_n)_{n \in \mathbb{N}}` converge
+   vers :math:`0`. Si :math:`a<0`, la suite
+   :math:`(a.s_n)_{n \in \mathbb{N}}` diverge vers :math:`-\infty`.
+
+-  La suite :math:`(s_n . u_n)_{n \in \mathbb{N}}` diverge vers
+   :math:`+\infty`.
+
+-  Pour la division, il n’existe pas de règle générale.
+
+On a également des résultats similaires à ceux de la proposition
+4.2.1 pour une suite convergente et une suite
+divergente :
+
+**Proposition 4.3.5.** Soient deux suites :math:`(s_n)_{n \in \mathbb{N}}` et
+:math:`(u_n)_{n \in \mathbb{N}}` telles que
+:math:`(s_n)_{n \in \mathbb{N}}` converge vers :math:`S \in \mathbb{R}`
+et :math:`(u_n)_{n \in \mathbb{N}}` diverge vers :math:`+\infty`. Alors
+:
+
+-  La suite :math:`(s_n + u_n)_{n \in \mathbb{N}}` diverge vers
+   :math:`+\infty`.
+
+-  Si :math:`S > 0`, la suite :math:`(s_n . u_n)_{n \in \mathbb{N}}`
+   diverge vers :math:`+\infty`. Si :math:`S < 0`, la suite
+   :math:`(s_n . u_n)_{n \in \mathbb{N}}` diverge vers :math:`-\infty`.
+   Si :math:`S=0`, pas de règle générale.
+
+-  La suite :math:`(\frac{s_n}{u_n})_{n \in \mathbb{N}}` converge vers
+   :math:`0`.
+
+-  Si :math:`S>0`, alors la suite
+   :math:`(\frac{u_n}{s_n})_{n \in \mathbb{N}}` diverge vers
+   :math:`+\infty`. Si :math:`S<0`, alors la suite
+   :math:`(\frac{u_n}{s_n})_{n \in \mathbb{N}}` diverge vers
+   :math:`-\infty`. Si :math:`S=0`, pas de règle générale.
+
+| 
+
+**Exercice 4.3.6.** 
+
+.. inginious:: suite13_1
+.. inginious:: suite13_2
+.. inginious:: suite13_3
+.. inginious:: suite13_4
+.. inginious:: suite13_5
+.. inginious:: suite13_6
+.. inginious:: suite13_7
+.. inginious:: suite13_8
+.. inginious:: suite13_9
+.. inginious:: suite13_10
+
+| 
+
+**Exercice 4.3.7.** Un élève a écrit que
+
+.. math::
+
+   \begin{aligned}
+       0=\lim\limits_{n \to \infty} 0 &= \lim\limits_{n \to \infty} ((-1)^n -(-1)^n) \\
+       &= \lim\limits_{n \to \infty} ((-1)^n +(-1)^{n+1}) \\
+       &= \lim\limits_{n \to \infty} (-1)^n +\lim\limits_{n \to \infty}(-1)^{n+1} \\
+       &= \lim\limits_{n \to \infty} (-1)^n +\lim\limits_{n \to \infty}(-1)^{n} \\
+       &= 2\lim\limits_{n \to \infty} (-1)^n
+       \end{aligned}
+
+et donc
+
+.. math:: \lim\limits_{n \to \infty} (-1)^n = 0
+
+Êtes-vous d’accord avec cette conclusion ? Quelle proposition l’élève
+a-t-il mal utilisé ? Où se situe son erreur ?
+
+**Solution**
+| L’élève a utilisé la proposition `[proplim] <#proplim>`__ à l’envers
+  (ce qui n’est pas correct) : on a bien que
+  :math:`\lim\limits_{n \to \infty} ((-1)^n +(-1)^{n+1}) = 0`, mais ça
+  n’implique pas que les suites
+
+  .. math::
+
+     \begin{aligned}
+         s : \mathbb{N}&\to \mathbb{R}\\
+         n &\mapsto ((-1)^n
+         \end{aligned}
+
+  et
+
+  .. math::
+
+     \begin{aligned}
+         s : \mathbb{N}&\to \mathbb{R}\\
+         n &\mapsto (-1)^{n+1}
+         \end{aligned}
+
+  aient une limite et que
+  :math:`\lim\limits_{n \to \infty} ((-1)^n +(-1)^{n+1}) = \lim\limits_{n \to \infty} (-1)^n +\lim\limits_{n \to \infty}(-1)^{n+1}`.
+
+| 

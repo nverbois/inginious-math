@@ -1,0 +1,97 @@
+
+5 Conclusion : retour sur les problèmes de l’introduction (optionnel)
+===================================================================
+
+Finalement, rassemblons tout ce que nous avons appris dans ce chapitre
+pour résoudre certains des problèmes de l’introduction.
+
+5.1 Paradoxe de la flèche : la solution
+-----------------------------------
+
+| Selon Zénon, la distance que doit parcourir la flèche pour atteindre
+  la cible,
+  :math:`\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ...`
+  ne peut qu’être infinie car correspondant à une somme d’une infinité
+  de distances/de termes strictement positifs. Cela contredit
+  l’intuition géométrique et l’expérience physique, d’où le paradoxe.
+| Heureusement, nous sommes à présent capables d’exprimer clairement le
+  sens de l’expression
+  :math:`\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + ...` :
+  on peut en effet la voir comme la limite d’une suite consistant en les
+  sommes finies des :math:`n+1` premiers termes d’une suite géométrique
+  de terme initial :math:`b=\frac{1}{2}` et de raison
+  :math:`q=\frac{1}{2}` :
+
+  .. math:: \lim\limits_{n \to \infty} \sum\limits_{i=0}^{n} \frac{1}{2} . \left(\frac{1}{2}\right)^i
+
+  De plus, nous avons à présent une formule pour calculer ces sommes
+  finies :
+
+  .. math:: \sum\limits_{i=0}^{n} \frac{1}{2} . \left(\frac{1}{2}\right)^i = \frac{1}{2} . \frac{1-\left(\frac{1}{2}\right)^{n+1}}{1-\frac{1}{2}}
+
+  Et nous sommes donc en mesure de calculer notre limite :
+
+  .. math:: \lim\limits_{n \to \infty} \sum\limits_{i=0}^{n} \frac{1}{2} . \left(\frac{1}{2}\right)^i = \lim\limits_{n \to \infty} \frac{1}{2} . \frac{1-\left(\frac{1}{2}\right)^{n+1}}{1-\frac{1}{2}} = \lim\limits_{n \to \infty} 1-\left(\frac{1}{2}\right)^{n+1} = 1-0=1
+
+  Contrairement à ce que Zénon pensait, la suite
+  :math:`(\sum\limits_{i=0}^{n} \frac{1}{2} . (\frac{1}{2})^i)_{n \in \mathbb{N}}`
+  ne diverge pas vers :math:`+\infty` mais converge bien vers :math:`1`
+  ! Cela rejoint l’intuition géométrique et l’expérience physique : le
+  paradoxe est donc résolu.
+
+| 
+
+5.2 0,999... < 1 ou 0,999... = 1 ?
+------------------------------
+
+| Nous allons à présent pouvoir trancher : a-t-on :math:`0,999... < 1`
+  ou :math:`0,999... = 1` ?
+| À nouveau, les :math:`...` expriment la présence d’une limite
+  dissimulée. En fait, lorsqu’on écrit :math:`0,999...`, on écrit de
+  façon raccourcie la limite suivante :
+
+  .. math::
+
+     \begin{aligned}
+     0,999...& = 0,9 + 0,09 + 0,009 + ... \\
+     &= \frac{9}{10} + \frac{9}{100} + \frac{9}{1000} + ... \\
+     &= \lim\limits_{n \to \infty} \sum\limits_{i=0}^{n} \frac{9}{10} . \left(\frac{1}{10}\right)^i\end{aligned}
+
+  (Le fait que les :math:`...` correspondent à une limite n’est pas
+  révélé en primaire ou en début de secondaire pour des raisons
+  évidentes.)
+|   
+| Puisque nous sommes à présent d’exprimer clairement le nombre
+  :math:`0,999...`, nous devrions être également capables de démontrer
+  si ce nombre est strictement plus petit que :math:`1` ou égal à
+  :math:`1` :
+
+  .. math:: \lim\limits_{n \to \infty} \sum\limits_{i=0}^{n} \frac{9}{10} . \left(\frac{1}{10}\right)^i = \lim\limits_{n \to \infty} \frac{9}{10} . \frac{1-\left(\frac{1}{10}\right)^{n+1}}{1-\frac{1}{10}} = \lim\limits_{n \to \infty} \frac{90}{90}\left(1-\left(\frac{1}{10}\right)^{n+1}\right) = 1.(1-0)=1
+
+  Ce qui clôt la discussion.
+
+| 
+
+**Exercice 5.2.1.** On vous affirme depuis longtemps que :math:`\frac{1}{3} = 0,333...`. En
+écrivant correctement :math:`0,333...` sous la forme d’une limite,
+démontrez-le.
+
+**Solution**
+|   
+| :math:`\lim\limits_{n \to \infty} \sum\limits_{i=0}^{n} \frac{3}{10} . \left(\frac{1}{10}\right)^i = \lim\limits_{n \to \infty} \frac{3}{10} . \frac{1-\left(\frac{1}{10}\right)^{n+1}}{1-\frac{1}{10}} = \lim\limits_{n \to \infty} \frac{30}{90}\left(1-\left(\frac{1}{10}\right)^{n+1}\right) = \frac{1}{3}.(1-0)=\frac{1}{3}`
+
+| 
+
+**Exercice 5.2.2.** 
+
+.. inginious:: suite14_1
+
+| 
+
+**Exercice 5.2.3.** 
+
+.. inginious:: suite14_2
+
+.. [1]
+   Nous les retrouverons avec un autre point de vue dans le prochain
+   chapitre.

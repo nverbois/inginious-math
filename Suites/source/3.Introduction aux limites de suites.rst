@@ -1,0 +1,205 @@
+
+3 Introduction aux limites de suites (optionnel)
+==============================================
+
+L’infini est une notion qui a intéressé et effrayé les hommes depuis
+au moins la Grèce Antique. Manipulée de façon intuitive, cette notion
+est difficile à cerner et peut mener à ce qu’on appelle des paradoxes,
+des affirmations qui semblent défier la logique car ne pouvant être ni
+vraies, ni fausses. C’est seulement au dix-neuvième siècle, grâce au
+travail de Karl Weierstrass, que les mathématiciens sont parvenus à
+formaliser correctement cette idée étrange qu’est l’infini. Cette
+découverte est d’autant plus incroyable qu’elle a mené à la naissance
+de l’analyse mathématique moderne, la branche des mathématiques qui
+étudie les nombres (réels) et ce qu’il est possible de faire à l’aide
+de ceux-ci.
+
+
+Il est à noter que le travail de Georg Cantor, quelques années plus
+tard, a permis d’étudier mathématiquement l’infini d’une autre manière
+que ce que permet l’analyse. Néanmoins, nous ne pourrons
+malheureusement pas aborder cet autre point de vue dans ce chapitre.
+Pour commencer notre voyage vers la compréhension de l’infini,
+intéressons-nous à quelques situations simples où l’infini semble
+jouer un rôle et où un point de vue purement naïf et intuitif de cette
+notion nous mène à de mystérieuses considérations.
+
+3.1 0,999999... = 1 ?
+-----------------
+
+| Comment comparer les deux nombres :math:`0,99999...` (avec une
+  infinité de chiffres :math:`9` derrière la virgule) et :math:`1`. Si
+  le premier peut sembler plus petit que le second, les règles de
+  transformation des nombres à virgules en fraction laisse à penser que
+  non :
+
+  .. math:: 0,999999... = \frac{9}{9} = 1
+
+  Bien entendu, à ce stade, ces règles peuvent sembler complétement
+  arbitraires. Néanmoins, remarquons qu’un peu de calcul algébrique
+  audacieux nous fait arriver à la même conclusion :
+
+  .. math:: x=0,999999...
+
+  .. math:: 10x=9,999999...
+
+  .. math:: 10x=9+0,999999...
+
+  .. math:: 10x=9+x
+
+  .. math:: 9x=9
+
+  .. math:: x=1
+
+  .. math:: 0,999999...=1
+
+  Mais le passage de la première ligne à la deuxième pose question :
+  s’il y a une infinité de chiffres :math:`9` derrière la virgule,
+  peut-on vraiment dire que :math:`10.0,999999...=9,999999...` ?
+|   
+| On voit que cette infinité de chiffres après la virgule n’est pas si
+  simple à interpréter. Alors qu’il s’agit d’une notation à laquelle de
+  nombreuses personnes sont habituées (par exemple avec
+  :math:`\frac{1}{3}=0,333333...`), il est inquiétant de constater que
+  le sens de cette notation n’est pas sans équivoque. Cette notation est
+  d’autant plus problématique qu’elle ouvre la porte à d’autres
+  questions difficiles faisant intervenir l’infini, telles que
+  :math:`0,999999...` est-il infiniment proche de :math:`1`, sans être
+  égal à :math:`1` ? ou si :math:`0,999999...` est un nombre, qu’en
+  est-il de :math:`...999999` ? .
+|   
+| Il semble clair que nous avons besoin de clarifier ce que nous
+  entendons par cette infinité de chiffres après la virgule.
+
+3.2 La division par 0
+-----------------
+
+| L’impossibilité de diviser par :math:`0` est parfois présentée comme
+  une règle d’or des mathématiques. Mais finalement, pourquoi ne peut-on
+  pas diviser par :math:`0` ? Essayons de braver cet interdit.
+| Remarquons d’abord que plus on divise par quelque chose de petit, plus
+  le résultat est grand :
+
+  .. math:: 1 / \frac{1}{10} = 10
+
+  .. math:: 1 / \frac{1}{100} = 100
+
+  .. math:: 1 / \frac{1}{1000} = 1000
+
+:math:`\vdots`
+
+.. math:: 1 / \frac{1}{1000000000000} = 1000000000000
+
+:math:`\vdots`
+
+| Si on voulait attribuer une valeur à la division de, par exemple,
+  :math:`1` par :math:`0`, il semble a priori raisonnable d’affirmer que
+  le résultat de cette division doit être un nombre plus grand que tous
+  les autres : :math:`\infty`.
+
+  .. math:: \frac{1}{0} = \infty
+
+  Cette idée pose cependant vite question. En effet, si :math:`\infty`
+  est un nombre plus grand que tous les nombres, on devrait avoir :
+
+  .. math:: \infty + 1 = \infty
+
+  Mais alors, en soustrayant :math:`\infty` des deux côtés de l’équation
+  :
+
+  .. math:: 1=0
+
+  Ce qui est assez problématique.
+|   
+| Autre complication : on peut également considérer que le résultat de
+  :math:`2` par :math:`0` donne :math:`\infty`. Mais si
+  :math:`\frac{1}{0} = \infty` et :math:`\frac{2}{0} = \infty`, on
+  devrait avoir :math:`1 = 0.\infty` et :math:`2 = 0.\infty` et donc
+  :math:`1=2`. En fait, si on considère intuitivement que le résultat de
+  n’importe quel nombre strictement positif par :math:`0` doit donner
+  :math:`\infty`, on peut montrer ainsi que :math:`1` est égal à
+  n’importe quel nombre strictement positif !
+|   
+| Cette fois-ci, il semble clair que considérer naïvement l’infini comme
+  un nombre (réel) nous mène à d’étranges résultats.
+
+3.3 Le paradoxe de la flèche
+------------------------
+
+Ce paradoxe date d’il y a plus de :math:`2000` ans et est généralement
+associé à Zénon, un Grec de la Grèce antique qui collectionnait les
+paradoxes. Le paradoxe est connu comme le paradoxe de la flèche (ou le
+paradoxe de l’archer) et a une variante faisant intervenir une tortue
+et Achille (ou un lièvre). Nous allons donner ici la première version.
+Imaginons un archer situé à une distance de :math:`1`\ dam de sa
+cible. Lorsque l’archer va décocher une flèche, celle-ci va parcourir
+la distance qui la sépare de la cible, jusqu’au moment où elle la
+touchera, ce qui arrive en un temps fini.
+
+
+Néanmoins, Zénon fait remarquer que la flèche, avant d’atteindre la
+cible, devra d’abord parcourir la moitié de la distance qui la sépare
+de la cible. De plus, une fois que la flèche aura parcouru cette
+première moitié de la distance qui la sépare de la cible (une distance
+de :math:`\frac{1}{2}`\ dam), la flèche devra d’abord parcourir la
+moitié de la distance restante (c’est-à-dire
+:math:`\frac{1}{4}`\ dam). Ensuite, à nouveau, la flèche devra d’abord
+parcourir la moitié de la distance restante (c’est-à-dire
+:math:`\frac{1}{8}`\ dam). Et ainsi de suite sans qu’il arrive un
+moment où la distance qui sépare la flèche de la cible soit nulle !
+Puisque la flèche devrait parcourir une infinité de distances, Zénon
+en conclut qu’il lui faudrait un temps infini pour arriver à la cible.
+Néanmoins, Zénon est bien conscient que s’il réalise l’expérience...
+la flèche touchera la cible. C’est un paradoxe.
+
+ 
+  Si on souhaite formuler un peu plus mathématiquement le paradoxe, on
+  peut le faire comme suit. L’intuition physique nous dit que :
+
+  .. math:: \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + ... = 1
+
+  Tandis que l’argument de Zénon consiste à dire que :
+
+  .. math:: \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + ... = \infty
+
+  Nous verrons plus tard que la notion de limite permet de choisir
+  l’égalité la plus pertinente et de comprendre d’où provient la
+  confusion.
+
+3.4 Des sommes infinies
+-------------------
+
+| À la section précédente, nous avons rencontré notre première somme
+  infinie , autrement dit une somme avec une infinité de termes :
+
+  .. math:: \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + ...
+
+  A priori, il n’est pas clair qu’on puisse attribuer à cette suite de
+  symboles un sens quelconque. Après tout, les êtres humains que nous
+  sommes ne peuvent jamais qu’additionner un nombre fini de termes
+  puisqu’il semble que notre vie est finie.
+|   
+| Est-il possible de donner sens à toutes les sommes infinies ? Nous
+  verrons une fois de plus grâce à la notion de limite qu’il nous faut
+  prendre des précautions lorsqu’on souhaite parler de tels objets. De
+  plus, nous verrons que le sujet des sommes infinies est un sujet
+  subtil et riche, comme en témoignent les résultats ci-dessous :
+
+-  | Il ne fait pas sens de considérer :math:`1+2+3+4+5+6+...` comme un
+     nombre réel.
+
+-  | Il fait sens de considérer
+     :math:`\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + ...`
+     comme un nombre réel et on a l’égalité
+     :math:`\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + ...=1`.
+
+-  | Il ne fait pas sens de considérer :math:`1-1+1-1+1-1+...` comme un
+     nombre réel (on ne dira donc pas que cette somme infinie est égale
+     à :math:`-1`, :math:`0` ou :math:`1`).
+
+-  Il ne fait pas sens de considérer
+   :math:`\frac{1}{1}+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+...` comme un
+   nombre réel... mais il fait sens de considérer
+   :math:`\frac{1}{2^2}+\frac{1}{3^2}+\frac{1}{4^2}+...` comme un nombre
+   réel et on a l’égalité
+   :math:`\frac{1}{2^2}+\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2}+\frac{1}{4^2}+...=\frac{{\pi}^2}{6}`.

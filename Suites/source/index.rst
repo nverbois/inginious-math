@@ -3,18 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Syllabus interactif : Les suites's documentation!
+Bienvenue sur ce syllabus interactif sur les suites
 ============================================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Chapitres: 
 
-   Suites
+   1.Introduction
+   2.Suites
+   3.Introduction aux limites de suites
+   4.Limites de suites
+   5.Conclusion
 
 
-
-Indices and tables
+Index et Tables
 ==================
 
 * :ref:`genindex`
