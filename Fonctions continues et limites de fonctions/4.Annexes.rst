@@ -1,0 +1,157 @@
+
+4 Annexe
+======
+
+| Cette section facultative contient une démonstration du fait que la
+  somme de deux fonctions continues est toujours une fonction continue.
+|   
+| Pour démontrer que la somme de deux fonctions continues est continue,
+  nous avons besoin d’un lemme *extrêmement* connu : l’inégalité
+  triangulaire. C’est un des résultats de base les plus importants en
+  analyse mathématique.
+
+**Lemme 4.0.1.** Soient deux nombres réels :math:`x,y \in \mathbb{R}`.
+On a toujours :
+
+.. math:: |x+y| \le |x|+|y|
+
+**Démonstration** Si :math:`x` et :math:`y` sont deux nombres positifs, les valeurs
+absolues sont inutiles et l’inégalité devient :
+
+.. math:: x+y \le x+y
+
+Ce qui est évidemment vrai. Il suffit de vérifier les autres cas, ceux
+où :math:`x` et :math:`y` ne sont pas tous les deux positifs.
+
+-  Si :math:`x` est strictement négatif et :math:`y` aussi, alors
+   :math:`x+y` aussi. L’inégalité devient alors :
+
+   .. math:: -(x+y) \le -x-y
+
+   Ce qui est aussi évidemment vrai.
+
+-  Si :math:`x` est strcitement négatif mais :math:`y` est positif,
+   l’inégalité devient :
+
+   .. math:: |x+y| \le -x+y
+
+   Il y a deux possibilités :
+
+   -  Soit :math:`x` est moins grand négativement que :math:`y` est
+      grand positivement, plus précisément :math:`x+y > 0` (ce qui est
+      équivalent à dire que :math:`y>-x`), alors on peut faire
+      disparaître la dernière valeur absolue et l’inégalité devient :
+
+      .. math:: x+y \le -x+y
+
+      Autrement dit :
+
+      .. math:: 2x \le 0
+
+      Ce qui est vrai puisque justement :math:`x` est strictement
+      négatif.
+
+   -  Soit :math:`x` est plus grand négativement que :math:`y` est grand
+      positivement, plus précisément :math:`x+y < 0` (ce qui est
+      équivalent à dire que :math:`y<-x`), alors pour faire disparaître
+      la dernière valeur absolue on doit multiplier son contenu par
+      :math:`-1` :
+
+      .. math:: -(x+y) \le -x+y
+
+      Autrement dit :
+
+      .. math:: -x-y \le -x+y
+
+      C’est-à-dire :
+
+      .. math:: 0 \le 2y
+
+      Ce qui est vrai puisque justement :math:`y` est positif.
+
+-  Si :math:`x` est positif mais :math:`y` est strictement négatif, il
+   s’agit du même cas que le cas précédent avec les rôles de :math:`x`
+   et :math:`y` inversés. Donc ça fonctionne aussi.
+
+Tous les cas ont été testés, donc on a bien toujours (quelque soit le
+cas dans lequel on se trouve) :
+
+.. math:: |x+y| \le |x|+|y|
+
+À présent, nous pouvons démontrer que si on additionne deux fonctions
+définies sur un même intervalle dont on sait qu’elles sont continues en
+un point :math:`c` de cet intervalle, leur somme est continue en ce
+point :math:`c` :
+
+**Proposition 4.0.2** Soit :math:`I` un intervalle. Soit :math:`f:I \to \mathbb{R}` et
+:math:`g: I \to \mathbb{R}` deux fonctions continues en
+:math:`c \in I`.
+
+Alors la fonction :math:`(f+g) : I \to \mathbb{R}` est continue en
+:math:`c`.
+
+*Démonstration* Nous devons démontrer que pour tout :math:`\epsilon>0`, on peut
+trouver :math:`\delta >0` tel que pour tous les :math:`x \in I` qui
+sont à une distance au plus :math:`\delta` de :math:`c`, c’est-à-dire
+tel que :math:`|x-c| < \delta`, on est certain qu’on a
+:math:`|(f(x)+g(x))-(f(c)+g(c))|<\epsilon` (c’est ce que signifie que
+:math:`f+g` est continue en :math:`c`).
+
+Fixons un :math:`\epsilon` strictement plus grand que :math:`0`
+quelconque (pour montrer que ça marche pour tous les :math:`\epsilon`,
+il suffit de montrer que ça marche pour un :math:`\epsilon`
+quelconque/générique) et montrons que nous pouvons trouver un tel
+:math:`\delta` strcitement plus grand que :math:`0` pour cet
+:math:`\epsilon`. Pour ce faire, utilisons ce que nous savons :
+
+-  Nous savons que la fonction :math:`f` est continue en :math:`c` : en
+   particulier, si on applique la définition pour la moitié du
+   :math:`\epsilon` que nous nous sommes fixés, cela nous dit qu’il
+   existe un :math:`{\delta}_f`, un :math:`\delta` propre à la fonction
+   :math:`f`, tel que pour tous les :math:`x \in I` tel que
+   :math:`|x-c|<{\delta}_f`, on est certain qu’on a
+   :math:`|f(x)-f(c)| < \frac{\epsilon}{2}`.
+
+-  Nous savons que la fonction :math:`g` est continue en :math:`c` : en
+   particulier, pour le :math:`\epsilon` que nous nous sommes fixés,
+   cela nous dit qu’il existe un :math:`{\delta}_g`, un :math:`\delta`
+   propre à la fonction :math:`g`, tel que pour tous les :math:`x \in I`
+   tel que :math:`|x-c|<{\delta}_g`, on est certain qu’on a
+   :math:`|g(x)-g(c)| < \frac{\epsilon}{2}`.
+
+| Pour le delta que nous voulons, il suffit alors de prendre le minimum
+  de :math:`{\delta}_f` et :math:`{\delta}_g` :
+  :math:`\delta = \min({\delta}_f;{\delta}_g)` (le plus petit des deux).
+  En effet, on a alors que pour tout :math:`x \in I` tel que
+  :math:`|x-c|<\delta`, puisque :math:`\delta` est le minimum de
+  :math:`{\delta}_f` et :math:`{\delta}_g`, on a aussi que
+  :math:`|x-c|<{\delta}_f` et :math:`|x-c|<{\delta}_g`, et donc on est
+  certain que :math:`|f(x)-f(c)| < \frac{\epsilon}{2}` et
+  :math:`|g(x)-g(c)| < \frac{\epsilon}{2}` à la fois.
+| Dès lors, par l’inégalité triangulaire, on a pour tout :math:`x \in I`
+  tel que :math:`|x-c|<\delta` :
+
+  .. math::
+
+     \begin{aligned}
+         |(f(x)+g(x))-(f(c)+g(c))| &= |(f(x)-f(c))+(g(x)-g(c))| \\
+         &\le |(f(x)-f(c))|+|(g(x)-g(c))| \\
+         &<\frac{\epsilon}{2}+\frac{\epsilon}{2}\\
+         &<\epsilon
+         \end{aligned}
+
+  Ce qui conclut la démonstration.
+
+.. [1]
+   Remarque : pour la plupart des fonctions de référence, la
+   démonstration n’est pas très compliquée. N’hésitez pas à essayer de
+   faire vous-même la preuve par exemple pour une fonction constante ou
+   pour la fonction identité.
+
+.. [2]
+   La démonstration de ce théorème est en fait assez compliquée et
+   nécessite de bien comprendre les propriétés fondamentales des nombres
+   réels. Heureusement, son énoncé est très intuitif.
+
+.. [3]
+   La démonstration de ce théorème est aussi assez compliquée.

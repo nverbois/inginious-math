@@ -1,0 +1,46 @@
+| Cours de mathématiques de cinquième année
+  4 périodes/semaine
+| Fonctions continues et
+  limites de fonctions
+| Lycée Martin V
+
+1 Introduction
+============
+
+| Ce chapitre est probablement le plus difficile de ce cours, au moins
+  sur le plan conceptuel. Nous allons y introduire la notion de fonction
+  continue, mais surtout de limite (de fonction). Cette notion de limite
+  et les idées sous-jacentes à sa définition sont les idées
+  fondamentales qui ont mené à la naissance de l’analyse mathématique
+  moderne. Leur portée est immense et de nombreux futurs chapitres du
+  cours de mathématiques de cinquième année et de sixième année
+  secondaire utiliseront d’ailleurs directement ou indirectement ce que
+  nous allons construire dans ce chapitre.
+| Pour cette raison, il est indispensable de maîtriser la matière de ce
+  chapitre au terme de celui-ci, sans quoi la compréhension de ce qui
+  suivra sera rendue difficile, sinon impossible.
+|  
+| Étant donné la difficulté conceptuelle de la notion de limite et
+  l’optique que le programme lui réserve dans le cours de mathématiques
+  du secondaire, nous avons choisi de la faire apparaître par
+  l’intermédiare des fonctions continues plutôt que par les limites de
+  suites. Par expérience, cette dernière approche à l’énorme défaut que
+  les élèves semblent avoir énormément de mal à généraliser rapidement
+  l’idée de limite de suite pour arriver à l’idée de limite de fonction.
+  Néanmoins, la partie optionnelle du chapitre précédent contient tout
+  de même une telle approche et il est grandement conseillé de lire
+  celle-ci dans le courant du début de ce chapitre sur les fonctions
+  continues et les limites de fonctions.
+|  
+| Si le sujet des fonctions continues peut être amené de façon
+  relativement intuitive et introduit à l’aide d’un problème (et de sa
+  solution) assez amusant et intéressant, le sujet des limites de
+  fonctions devra être découvert au moins dans un premier temps de façon
+  purement technique. Pas d’inquiétude néanmoins : nous découvrirons dès
+  le prochain chapitre des exemples concrets d’application de cette
+  notion.
+|  
+| Enfin, il est vivement conseillé de maîtriser parfaitement l’ensemble
+  de la matière vue jusqu’à présent portant sur les fonctions. Il serait
+  extrêmement dommageable que la compréhension de ce chapitre soit
+  rendue encore plus difficile par un manque de maîtrise des prérequis.

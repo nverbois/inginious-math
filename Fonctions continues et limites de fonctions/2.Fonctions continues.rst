@@ -1,0 +1,699 @@
+
+2 Fonctions continues
+===================
+
+2.1 Définition et exemples
+----------------------
+
+| L’idée de continuité est déjà présente dans le langage courant. Par
+  exemple, on dira que la température d’une pièce (qui n’est chauffée
+  que durant la journée) évolue de façon continue au cours du temps. Sa
+  température est plus basse durant la nuit que durant la journée, mais
+  elle ne passe subitement d’une température basse à une température
+  élevée : la température évolue progressivement et continuement.
+| On peut donner de nombreux autres exemples de phénomènes continus :
+  les déplacements, la vitesse, l’accélération, le son... En fait, la
+  supposition que tous les phénomènes naturels sont continus est souvent
+  une supposition implicite de notre vie de tous les jours et de la
+  physique classique. Puisque nous avons le réflexe intuitif de
+  formaliser tous ces phénomènes de la nature sous la forme de processus
+  continus, il est pertinent de s’intéresser à cette formalisation que
+  sont les fonctions continues.
+| De plus, les fonctions continues ont un intérêt mathématique non
+  négligeable et nous permettront d’introduire l’idée de limite de
+  fonction.
+
+**Définition 2.1.1.**  Soit :math:`I` un intervalle éventuellement privé d’un point. Soit 
+:math:`f : I \to \mathbb{R}`.
+
+  On dit que :math:`f` est une fonction continue en :math:`c \in I` si
+  et seulement si pour tout :math:`\epsilon > 0`, il existe
+  :math:`\delta > 0` tel que pour tout :math:`x \in I` tel que
+  :math:`|x-c| < \delta`, on a :math:`|f(x) - f(c)| < \epsilon`.
+
+**Remarque 2.1.2.** Cette définition, assez technique, ne doit pas vous faire peur. Une
+lecture intuitive de cette définition est la suivante : si un
+processus :math:`f` qui dépend d’une variable :math:`x` est continu
+autour d’une certaine valeur de :math:`x` qui vaut :math:`c`, alors je
+dois pouvoir approcher les valeurs de :math:`f(c)` autant que je le
+souhaite si je suis capable d’approcher la valeur de :math:`c` autant
+que nécessaire.
+Il est recommandé d’appliquer cette définition sur les deux exemples
+suivants afin d’analyser celle-ci en profondeur et comprendre en quoi
+elle formalise l’idée intutive de continuité.
+
+| 
+
+**Exemple 2.1.3.**
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+		\draw[thick] plot[domain=-4:3](\x,{((\x)*(\x)*(1/2)-4});
+		\draw (-4,4)node{$\bullet$};
+		\draw (3,0.5)node{$\bullet$};
+
+|  
+| Voici le graphe d’une fonction continue en :math:`-2` définie sur
+  :math:`[-4,3]`. En effet, quelle que soit l’erreur maximale autorisée
+  :math:`\epsilon >0`, quitte à sélectionner des valeurs pour :math:`x`
+  assez proche de :math:`-2` (à une distance de :math:`-2` d’au plus
+  :math:`\delta >0`), les valeurs :math:`f(x)` approcheront bien la
+  valeur :math:`f(-2)` avec une erreur plus petite ou égale à
+  :math:`\epsilon`.
+| Géométriquement, cela correspond au fait qu’il n’y a pas de saut
+  vertical en :math:`-2` et que le graphe peut être réalisé d’un seul
+  trait.
+
+**Exemple 2.1.4.**
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=-4:-2](\x,{((\x)*(\x)*(1/2)-4});
+		\draw[thick] plot[domain=-2:3](\x,{((\x)*(\x)*(1/2)-1});
+		\draw (-4,4)node{$\bullet$};
+		\draw (3,3.5)node{$\bullet$};
+		\draw (-2,1)node{$\bullet$};
+		\draw[thick, fill=white](-2,-2)circle(0.1);
+
+|  
+| Voici le graphe d’une fonction discontinue en :math:`-2` définie sur
+  :math:`[-4,3]`. En effet, en prenant comme erreur maximale autorisée
+  :math:`\epsilon =1`, il est impossible de trouver un :math:`\delta >0`
+  tel qu’à toutes les valeurs de :math:`x` possibles à une distance au
+  plus :math:`\delta` de :math:`-2`, la fonction :math:`f` associera un
+  nombre :math:`f(x)` dont la distance avec :math:`f(-2)` est plus
+  petite que :math:`1`. La raison étant que juste à gauche de :math:`-2`
+  , la fonction prend des valeurs strictement négative alors que
+  :math:`f(-2)=1`.
+| Géométriquement, cela correspond au fait qu’il y a un saut vertical en
+  :math:`-2` et que le graphe ne peut pas être réalisé d’un seul trait.
+
+**Remarque 2.1.5.** Une caractérisation intuitive des graphes de fonctions continues est
+qu’il s’agit des fonctions dont le graphe peut être tracé d’un seul
+trait. Néanmoins, celle-ci est imprécise et peut mener à des erreurs,
+puisque la continuité ne concerne que les sauts dans les valeurs d’une
+fonction (autrement dit : les sauts verticaux dans le graphe de la
+fonction) et non son domaine de définition (les sauts horizontaux dans
+le graphe de la fonction).
+Permettons-nous d’insister : il ne fait pas sens de parler de
+continuité d’une fonction en un point où elle n’est pas définie !
+Par exemple, la fonction inverse :
+
+.. tikz:: 
+
+    \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+    \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+  \draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+    \foreach \x in {1}
+  \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+    \foreach \y in {1}
+  \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+  \draw[thick] plot[domain=-5:-0.2](\x,{1/(\x)});
+  \draw[thick] plot[domain=0.2:5](\x,{1/(\x)});
+
+Cette fonction est bien partout continue ! Il ne fait pas sens
+d’affirmer qu’elle est discontinue en :math:`0`, puisqu’elle n’est même
+pas définie en :math:`0`.
+
+| 
+
+**Définition 2.1.6.** Soit :math:`I` un intervalle éventuellement privé d’un point. Soit :math:`f : I \to \mathbb{R}`.
+
+  On dit que :math:`f` est une fonction continue si elle est continue en
+  tous les points de son domaine de définition.
+
+| 
+
+**Exercice 2.1.7.** Donner le domaine de définition des fonctions dont les graphes sont les
+suivants, puis déterminer si elles sont continues ou non. Si elles ne
+sont pas continues, donner l’ensemble des points où elles sont
+discontinues.
+
+.. inginious:: cont1_1
+.. inginious:: cont1_2
+.. inginious:: cont1_3
+.. inginious:: cont1_4
+.. inginious:: cont1_5
+.. inginious:: cont1_6
+.. inginious:: cont1_7
+.. inginious:: cont1_8
+.. inginious:: cont1_9
+.. inginious:: cont1_10
+
+| 
+
+2.2 Continuité des fonctions de référence
+-------------------------------------
+
+| Les fonctions de référence servent de briques de base pour construire
+  des fonctions plus complexes. Il serait intéressant de déterminer si
+  les fonctions de références sont continues et si les fonctions créées
+  à partir de celles-ci héritent de cette propriété.
+| Pour commencer, nous avons le théorème :
+
+**Théorème 2.2.1.** Toutes les fonctions de référence sont continues.
+
+*Démonstration* Pas en math 4. [1]_
+
+**Remarque 2.2.2.** De toutes les fonctions de référence, seule la fonction inverse n’a pas
+un graphe qui peut être tracé d’un seul trait . À nouveau, il s’agit
+dans ce cas d’une question de domaine (la fonction inverse n’est pas
+définie en :math:`0` puisqu’il ne fait pas sens de diviser par
+:math:`0`) et non de continuité.
+
+| 
+
+**Exemple 2.2.3.** Par exemple, la fonction racine cubique est continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=0.01:5,samples=1000](\x,{(\x)^(1/3)});
+		\draw[thick] plot[domain=-5:-0.01,samples=1000](\x,{-(abs(\x))^(1/3)});
+
+| 
+
+2.3 Propriétés des fonctions continues
+----------------------------------
+
+Commençons avec un exemple :
+
+**Exemple 2.3.1.** Considérons les deux fonctions :
+
+.. math::
+
+   \begin{aligned}
+       f : [1,3] &\to \mathbb{R}\\
+       x &\mapsto (x-2)^2 - 1
+       \end{aligned}
+
+et
+
+.. math::
+
+   \begin{aligned}
+       g : [1,3] &\to \mathbb{R}\\
+       x &\mapsto -\frac{1}{2}x+\frac{1}{2}
+       \end{aligned}
+
+dont les graphes sont les suivants :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick,blue] plot[domain=1:3](\x,{-1+2*(\x-2)^(2)});
+		\draw[thick,red] plot[domain=1:3](\x,{1.5-(0.5)*(\x)});
+
+| Ces deux fonctions sont continues : leurs graphes peuvent être tracés
+  d’un seul trait, il n’y a pas de saut vertical.
+| Que se passe-t-il si on additionne ces deux fonctions, autrement dit
+  si on considère la fonction :math:`f+g` ? Au niveau des graphes, cela
+  revient à additionner les ordonnées des points des graphes de
+  :math:`f` et :math:`g` qui ont la même abscisse.
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=1:3](\x,{-1+2*(\x-2)^(2)+1.5-(0.5)*(\x)});
+
+Sans surprise, aucune discontinuité n’est apparue. En additionnant deux
+fonctions continues, on a obtenu une nouvelle fonction continue. Ce
+n’est pas un hasard, comme l’indique la proposition suivante.
+
+| 
+
+**Proposition 2.3.2.** Soit :math:`I` un intervalle éventuellement privé d’un point. Soient
+:math:`f : I \to \mathbb{R}` et :math:`g : I \to \mathbb{R}` deux
+fonctions continues. Alors :
+
+#. La fonction :math:`f+g : I \to \mathbb{R}` est continue.
+
+#. La fonction :math:`f-g : I \to \mathbb{R}` est continue.
+
+#. La fonction :math:`f.g : I \to \mathbb{R}` est continue.
+
+#. La fonction
+   :math:`\frac{f}{g} : \{x \in I ~|~ g(x) \neq 0\} \to \mathbb{R}` est
+   continue.
+
+*Démonstration* Pas en math 4. Voir annexe pour les curieux.
+
+De manière éventuellement plus surprenante, la composée de deux
+fonctions continues (compatibles) est également toujours une fonction
+continue :
+
+**Proposition 2.3.3.** Soit :math:`I,J` deux intervalles. Soient
+:math:`f : I \to \mathbb{R}` et :math:`g : J \to \mathbb{R}` deux
+fonctions continues telle que
+:math:`\mathop{\mathrm{im}}(g) \subseteq I`. Alors :
+:math:`f \circ g : J \to \mathbb{R}` est continue.
+
+*Démonstration* Pas en math 4.
+
+Une dernière opération qui conserve la continuité est la **restriction** :
+
+**Définition 2.3.4.** Soit :math:`I` un intervalle éventuellement privé d’un point. Soit
+:math:`f : I \to \mathbb{R}`.
+Soit :math:`A \subseteq I`. Alors la **restriction** de :math:`f` sur
+:math:`A` est la fonction :
+
+  .. math::
+
+     \begin{aligned}
+         f_{|A} : A &\to \mathbb{R}\\
+         x &\mapsto f(x)
+         \end{aligned}
+
+| 
+
+**Exemple 2.3.5.** Soit la fonction :
+
+  .. math::
+
+    \begin{aligned}
+        f : [-4,3] &\to \mathbb{R}\\
+        x &\mapsto x+1
+        \end{aligned}
+
+dont le graphe est :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=-4:3](\x,{1+ \x });
+
+La restriction de :math:`f` sur, par exemple,
+:math:`[-4,-3[ \cup \{-2\} \cup [-1,1]`, est la fonction :
+
+.. math::
+
+   \begin{aligned}
+       f_{[-4,-3[ \cup \{-2\} \cup [-1,1]} : [-4,-3[ \cup \{-2\} \cup [-1,1] &\to \mathbb{R}\\
+       x &\mapsto x+1
+       \end{aligned}
+
+et son graphe est :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw (-4,-3)node{$\bullet$};
+		\draw[thick] plot[domain=-4:-3.1](\x,{1+(\x)});
+		\draw (-2,-1)node{$\bullet$};
+		\draw[thick, fill=white](-3,-2)circle(0.2);
+		\draw (-1,0)node{$\bullet$};
+		\draw[thick] plot[domain=-1:1](\x,{1+(\x)});
+		\draw (1,2)node{$\bullet$};
+
+| 
+
+Comme annoncé, la restriction d’une fonction continue est toujours
+continue :
+
+**Proposition 2.3.6.** Soit :math:`I` un intervalle éventuellement privé d’un point.
+Soit :math:`f : I \to \mathbb{R}` une fonction continue. Soit
+:math:`A \subseteq I`.
+Alors la *restriction* de :math:`f` sur :math:`A` est continue.
+
+*Démonstration* Pas en math 4. Notons néanmoins que la démonstration est extrêment
+simple.
+
+Grâce au théorème 2.2.1, nous savons que toutes les
+fonctions de référence sont continues. 
+Or, les propositions
+2.3.2, 2.3.3 et 2.3.6 nous disent que
+lorsqu’on combine deux fonctions continues selon une des opérations
+sur les fonctions les plus simples, nous pouvons être certains que le
+résultat est lui aussi une fonction continue. 
+Ainsi, nous sommes à
+présent capables de justifier la continuité de nombreuses fonctions.  
+
+| 
+
+**Exercice 2.3.7.** Les fonctions suivantes sont-elles continues ? Si oui, justifier. Si
+non, faire le graphe de la fonction et donner l’ensemble des points de
+discontinuité.
+
+.. inginious:: cont2_1
+.. inginious:: cont2_2
+.. inginious:: cont2_3
+.. inginious:: cont2_4
+.. inginious:: cont2_5
+.. inginious:: cont2_6
+.. inginious:: cont2_7
+.. inginious:: cont2_8
+
+| 
+
+2.4 Grands théorèmes des fonctions continues (optionnel)
+----------------------------------------------------
+
+| Dans cette section, nous allons lister les grands résultats associés
+  aux fonctions continues.
+| Le premier est assez intuitif. Pour reprendre l’exemple de
+  l’introduction de la température dans une pièce, si on suppose que la
+  température de la pièce était de :math:`10°` à minuit et
+  qu’elle est de :math:`20°` à midi et qu’on choisit une
+  température en :math:`10°` et :math:`20°`, par exemple
+  :math:`15°`, on est intuitivement convaincu qu’il y a eu au
+  moins un court instant dans la matinée où la température de la pièce
+  était de :math:`15°` (puisque le phénomène est continu, on doit
+  bien passer par toutes les valeurs intermédiaires entre
+  :math:`10°` et :math:`20°` pour passer de
+  :math:`10°` à :math:`20°`). Cette intuition est
+  formalisée par le théorème suivant :
+
+**Théorème 2.4.1** (Théorème des valeurs intermédiaires). Soit :math:`I` un intervalle de la forme :math:`I=[a,b]`. Soit
+:math:`f : I \to \mathbb{R}` une fonction continue.
+Pour tout :math:`y \in \mathbb{R}` compris entre :math:`f(a)` et
+:math:`f(b)`, il existe :math:`x \in I` tel que :math:`f(x) = y`.
+
+*Démonstration* Pas en math 4. [2]_
+
+| 
+
+**Exemple 2.4.2.** Considérons la fonction suivante qui est la restriction de la fonction
+carrée sur :math:`[0,2]`.
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=0:2](\x,{(\x)^(2)});
+
+Puisque cette fonction est continue, :math:`f(0)=0`, :math:`f(2)=4` et
+:math:`0 \le \pi \le 4`, on peut être certain qu’il existe une abscisse
+:math:`x` entre :math:`0` et :math:`2` telle que la valeur de cette
+fonction en :math:`x` vaut exactement :math:`\pi` (dans ce cas-ci, il
+est possible de déterminer ce :math:`x` (qui est ici unique) :
+:math:`\sqrt{\pi}`).
+
+**Remarque 2.4.3.** Le théorème n’affirme pas que l’abscisse :math:`x` telle que
+:math:`f(x) = y` est unique ! Comme le montre l’exemple suivant (où on
+choisit pour :math:`y` l’ordonnée :math:`0`, qui se trouve entre
+:math:`f(-4)=-3` et :math:`f(4)=3`), il peut y avoir plusieurs abscisses
+de cette sorte :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=-4:4](\x,{(1/16)*(\x-2)*(\x)*(\x+2)});
+		\draw (4,3)node{$\bullet$};
+		\draw (-4,-3)node{$\bullet$};
+
+La fonction vaut :math:`0` en :math:`-2`, en :math:`0` et en :math:`2`.
+
+| Le théorème des valeurs intermédiaires a de nombreuses applications et
+  pas seulement des applications purement théoriques. Il permet par
+  exemple de justifier la validité d’une solution à un problème
+  relativement courant dans la vie de tous les jours : une table
+  bancale.
+| Nous renvoyons vers cette vidéo de l’excellente chaîne youtube
+  *Numberphile* de vulgarisation mathématique pour plus de détails à ce
+  sujet : https://www.youtube.com/watch?v=OuF-WB7mD6k. 
+  À présent, donnons l’autre fameux théorème concernant les fonctions continues :
+
+| 
+
+**Théorème 2.4.4.** Soit :math:`I` un intervalle de la forme :math:`I=[a,b]`. Soit
+:math:`f : I \to \mathbb{R}` une fonction continue.
+:math:`f` est nécessairement bornée et atteint ses bornes, autrement
+dit :math:`f` a un point de minimum et un point de maximum.
+
+*Démonstration* Pas en math 4. [3]_
+
+**Remarque 2.4.5.** Dans le prochain chapitre, nous nous intéresserons beaucoup aux (points
+de) minimum et maximum d’une fonction. Ce théorème des bornes atteintes
+nous dit que pour une fonction continue définie sur un intervalle fermé,
+nous pouvons être certain qu’un point de minimum et qu’un point de
+maximum existe, mais il ne nous dit pas comment les trouver.
+
+**Remarque 2.4.6.** La fonction dont le graphe est ci-dessous est définie sur un intervalle
+de la forme :math:`[a;b]` et est continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick, samples=50] plot[domain=-2:2](\x,{(15/16)*(\x-2)*(\x)*(\x+2)});
+		\draw (2,0)node{$\bullet$};
+		\draw (-2,-0)node{$\bullet$};
+
+Il s’agit de la fonction :
+
+.. math::
+
+   \begin{aligned}
+       f : [-2;2] &\to \mathbb{R}\\
+       x &\mapsto \frac{15}{16}.(x-2).(x).(x+2)
+       \end{aligned}
+
+Nous serions bien incapables (à ce stade) de déterminer quel est le
+(point de) maximum et le (point de) minimum de cette fonction, mais nous
+sommes certains que ceux-ci existent bel et bien (visuellement, on les
+identifie immédiatement sans pour autant être capable de les déterminer
+exactement).
+
+.. _procont:
+
+| 
+
+2.5 Prolongements continus
+----------------------
+
+**Exemple 2.5.1.** Voici le graphe d’une fonction définie sur
+:math:`[-4;4] \backslash \{1\}` qui est continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+			\draw (-4,-2.2)node{$\bullet$};
+			\draw[thick] plot[domain=-4:0.93,samples=50](\x,{-2.2-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw[thick, fill=white](1,-2)circle(0.176);
+			\draw[thick, fill=white](1,1)circle(0.176);
+			\draw[thick] plot[domain=1.13:4,samples=50](\x,{0.8-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw (4,0.8)node{$\bullet$};
+
+Il ne fait pas sens de dire qu’elle est discontinue (ou continue) en
+:math:`1` puisqu’elle n’est pas définie en :math:`1`.
+
+| 
+
+**Exemple 2.5.2.** Voici le graphe d’une autre fonction définie sur
+:math:`[-4;4] \backslash \{1\}` qui est continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+			\draw (-4,-2.2)node{$\bullet$};
+			\draw[thick] plot[domain=-4:0.93,samples=50](\x,{-2.2-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw[thick, fill=white](1,-2)circle(0.176);
+			\draw[thick] plot[domain=1.13:4,samples=50](\x,{-2.2-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw (4,-2.2)node{$\bullet$};
+
+Il ne fait pas sens de dire qu’elle est continue (ou discontinue) en
+:math:`1` puisqu’elle n’est pas définie en :math:`1`.
+
+|  
+| Dans les deux cas, nous avons une fonction continue. Néanmoins,
+  intuitivement, il y a une différence de ces deux situations. Pour la
+  première fonction, il n’est pas possible de la prolonger en une
+  fonction continue, c’est-à-dire d’étendre la fonction en la
+  définissant en :math:`1` de sorte que le résultat final soit continu,
+  même en :math:`1`. Par contre, pour la deuxième fonction, il est
+  possible de trouver un tel prolongement continu : il suffit d’étendre
+  la fonction en la définissant en :math:`1` en décidant que le
+  prolongement de la fonction vaut :math:`-2` en :math:`1`. Cette
+  intuition correspond au fait que la deuxième fonction possède un
+  prolongement continu tandis que la première non.
+| Donnons la définition de prolongement continu d’une fonction.
+
+| 
+
+**Définition 2.5.3.** Soit un intervalle :math:`I` et soit :math:`c \in I`. Soit :math:`f : I \backslash \{c\} \to \mathbb{R}`.
+
+  Un *prolongement continu* de :math:`f` sur :math:`I` est une fonction
+  :math:`g : I \to \mathbb{R}` qui est continue (y compris en :math:`c`)
+  et telle que pour tout :math:`x \in I \backslash \{c\}`, on a
+  :math:`g(x)=f(x)`.
+
+| 
+
+**Exemple 2.5.4.** La fonction de l’exemple 2.5.1 ne possède pas de
+prolongement continu. Par contre, la fonction de l’exemple
+2.5.2 possède un prolongement continu dont le graphe
+est le suivant :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+			\draw (-4,-2.2)node{$\bullet$};
+			\draw[thick] plot[domain=-4:4,samples=100](\x,{-2.2-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw (4,-2.2)node{$\bullet$};
+
+Dans le cas de cet exemple, puisque nous possédions déjà le graphe de la
+fonction, ce prolongement continu n’était pas très difficile à trouver.
+
+|  
+| Mais plus généralement, comment savoir si pour une fonction
+  :math:`f : I \backslash \{c\} \to \mathbb{R}` (où :math:`I` est un
+  intervalle et :math:`c \in I`) donnée, cette fonction admet un
+  prologement continu ? Intuitivement, il n’est pas très difficle de
+  répondre à cette question : il faut que la fonction :math:`f` se
+  rapproche d’une certaine valeur lorsqu’on se rapproche de :math:`c`,
+  et ce de manière uniforme (il faut que la valeur de laquelle :math:`f`
+  se rapproche par la gauche soit la même que celle de laquelle
+  :math:`f` se rapproche par la droite ). Néanmoins, cette réponse
+  intuitive soulève au moins trois questions.
+
+#. Que signifie rigoureusement que la fonction :math:`f` se rapproche
+   d’une valeur lorsqu’on se rapproche de :math:`c` ?
+
+#. Comment savoir si la fonction :math:`f` se rapproche bien d’une
+   certaine valeur de manière uniforme et définitive lorsqu’on se
+   rapproche de :math:`c` ?
+
+#. Si :math:`f` se rapproche bien d’une certaine valeur de manière
+   uniforme et définitive lorsqu’on se rapproche de :math:`c`, comment
+   calculer cette valeur ?
+
+Pour répondre à ces questions, nous avons besoin d’une nouvelle notion :
+celle de limite de fonction.
+
+| 
+
+
+.. [1]
+   Remarque : pour la plupart des fonctions de référence, la
+   démonstration n’est pas très compliquée. N’hésitez pas à essayer de
+   faire vous-même la preuve par exemple pour une fonction constante ou
+   pour la fonction identité.
+
+.. [2]
+   La démonstration de ce théorème est en fait assez compliquée et
+   nécessite de bien comprendre les propriétés fondamentales des nombres
+   réels. Heureusement, son énoncé est très intuitif.
+
+.. [3]
+   La démonstration de ce théorème est aussi assez compliquée.

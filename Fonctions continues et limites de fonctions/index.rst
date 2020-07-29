@@ -3,17 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Fonctions continues et limites de fonctions's documentation!
+Bienvenue sur ce syllabus interactif sur les fonctions continues et limites de fonctions
 =======================================================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Chapitres:
 
-   Fonctions continues et limites de fonctions
+   1.Introduction
+   2.Fonctions continues
+   3.Limites de fonctions
+   4.Annexes
 
 
-Indices and tables
+
+Index et Tables
 ==================
 
 * :ref:`genindex`
