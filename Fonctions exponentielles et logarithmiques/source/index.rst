@@ -3,16 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Fonctions exponentielles et logarithmiques's documentation!
+Bienvenue sur ce syllabus interactif sur les fonctions exponentielles et logarithmiques
 ======================================================================
 
 .. toctree::
    :maxdepth: 2
    :caption:  Contents:
 
-   Fonctions exponentielles et logarithmiques
+   1.Introduction
+   2.Fonctions exponentielles
+   3.Fonctions réciproques
+   4.Fonctions logarithmes
+   5.Retour sur l'introduction et applications
 
-Indices and tables
+
+Index et Tables
 ==================
 
 * :ref:`genindex`

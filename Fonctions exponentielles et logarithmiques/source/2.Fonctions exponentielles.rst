@@ -1,0 +1,602 @@
+
+2 Fonctions exponentielles
+========================
+
+2.1 Définition
+----------
+
+| Pour une base strictement positive
+  :math:`a \in {{\mathbb{R}}_{0}}^{+}`, les exposants naturels, entiers
+  et rationnels sont déjà définis. On peut donc déjà construire des
+  fonctions exponentielles sur :math:`\mathbb{Q}`. Par exemple, si
+  :math:`a=2`, on peut considérer la fonction :
+
+  .. math::
+
+     \begin{aligned}
+     f : \mathbb{Q}\to& \mathbb{R}\\
+     x \mapsto& 2^x\end{aligned}
+
+  Dont le graphe est une succession de points non continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+      \foreach \x in {-200,...,-150} \draw[thick,blue] (0.025*\x,2^0.025^\x)node{.};
+      \foreach \x in {-150,...,-100} \draw[thick,blue] (0.025*\x,2^0.025^\x)node{.};
+      \foreach \x in {-100,...,-50} \draw[thick,blue] (0.025*\x,2^0.025^\x)node{.};
+      \foreach \x in {-50,...,0} \draw[thick,blue] (0.025*\x,2^0.025^\x)node{.};
+      \foreach \x in {0,...,100} \draw[thick,blue] (0.0125*\x,2^0.0125^\x)node{.};
+      \foreach \x in {100,...,186} \draw[thick,blue] (0.0125*\x,2^0.0125^\x)node{.};
+
+
+Nous aimerions étendre cette fonction sur :math:`\mathbb{R}`. Mais pas
+de n’importe quelle manière. Un prolongement tel que la fonction :
+
+.. math::
+
+   \begin{aligned}
+   g : \mathbb{R}\to& \mathbb{R}\\
+   x \mapsto& \begin{cases}
+       2^x & \text{si } x \in \mathbb{Q}\\
+       0 & \text{si } x \notin \mathbb{Q}
+     \end{cases}\end{aligned}
+
+dont le graphe ressemble à :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+      \draw[very thick,blue] plot[domain=-5:5](\x,{0*\x});
+      \foreach \x in {-200,...,-150} \draw[thick,blue] (0.025*\x,2^0.025^\x)node{.};
+      \foreach \x in {-150,...,-100} \draw[thick,blue] (0.025*\x,2^0.025^\x)node{.};
+      \foreach \x in {-100,...,-50} \draw[thick,blue] (0.025*\x,2^0.025^\x)node{.};
+      \foreach \x in {-50,...,0} \draw[thick,blue] (0.025*\x,2^0.025^\x)node{.};
+      \foreach \x in {0,...,100} \draw[thick,blue] (0.0125*\x,2^0.0125^\x)node{.};
+      \foreach \x in {100,...,186} \draw[thick,blue] (0.0125*\x,2^0.0125^\x)node{.};
+
+
+| n’est certainement pas très intéressant.
+|  
+| Intuitivement, nous aimerions obtenir un prolongement de la fonction
+  :math:`f` qui suit le tracé formé par les points déjà définis . Plus
+  rigoureusement, nous aimerions que le résultat soit continu, nous
+  aimerions donc prolonger :math:`f` de façon continue.
+| C’est ici qu’intervient un théorème dont la démonstration n’est
+  absolument pas à notre portée mais qui va nous garantir qu’un tel
+  prolongement existe et de plus est unique.
+
+**Théorème 2.1.1** (Théorème de prologement par densité). 
+
+  Soit :math:`f : \mathbb{Q}\to \mathbb{R}` une fonction qui est
+  Cauchy-continue.
+
+  Alors il existe une unique fonction
+  :math:`g : \mathbb{R}\to \mathbb{R}` qui est un prolongement continu
+  de :math:`f` sur :math:`\mathbb{R}`.
+
+| 
+  La notion de Cauchy-continuité est une notion un peu plus forte que
+  celle de continuité et nous ne rentrerons pas dans les détails. Ce
+  qu’il faut retenir est que pour tout
+  :math:`a \in {{\mathbb{R}}_{0}}^{+}`, la fonction :
+
+  .. math::
+
+     \begin{aligned}
+     f_a : \mathbb{Q}\to& \mathbb{R}\\
+     x \mapsto& a^x\end{aligned}
+
+  est Cauchy-continue, ce qui implique que le théorème de prolongement
+  par densité garantit l’existence d’un unique prolongement continu
+  :math:`g_a : \mathbb{R}\to \mathbb{R}` de :math:`f_a` sur
+  :math:`\mathbb{R}`.
+|  
+| Fantastique ! Nous pouvons donc définir les fonctions exponentielles
+  pour toute base :math:`a \in {{\mathbb{R}}_{0}}^{+}` sur
+  :math:`\mathbb{R}` :
+
+**Définition 2.1.2.** Soit :math:`a \in {{\mathbb{R}}_{0}}^{+}`.
+
+  La fonction exponentielle de base :math:`a`, notée
+  :math:`{\exp}_a : \mathbb{R}\to \mathbb{R}`, est l’unique prolongement
+  continu sur :math:`\mathbb{R}` de la fonction :
+
+  .. math::
+
+     \begin{aligned}
+     f_a : \mathbb{Q}\to& \mathbb{R}\\
+     x \mapsto& a^x\end{aligned}
+
+**Remarque 2.1.3.** Par continuité, le graphe de la fonction
+:math:`{\exp}_2 : \mathbb{R}\to \mathbb{R}` ressemble par exemple à :
+
+.. tikz::
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+      \draw[very thick,blue] plot[domain=-5:2.34](\x,{2^\x});
+
+Cette fois-ci, comme la fonction
+:math:`{\exp}_2 : \mathbb{R}\to \mathbb{R}` est bien définie sur tout
+:math:`\mathbb{R}` et pas seulement sur :math:`\mathbb{Q}`, le graphe de
+la fonction est bien un tracé continu.
+
+**Remarque 2.1.4.** Pour tout :math:`a \in {{\mathbb{R}}_{0}}^{+}`, nous sommes déjà
+capables d’évaluer les fonctions :math:`{\exp}_a` en tout nombre
+rationnel. En effet, puisque les fonctions :math:`{\exp}_a` sont les
+prolongements continus des fonctions exponentielles sur
+:math:`\mathbb{Q}`, si :math:`x \in \mathbb{Q}`, le nombre
+:math:`{\exp}_a (x)` est tout simplement :math:`a^x` au sens des
+exposants rationnels. En particulier, pour tout
+:math:`a \in {{\mathbb{R}}_{0}}^{+}`, le nombre :math:`{\exp}_a (0)` est
+:math:`a^0` c’est-à-dire :math:`1` et le nombre :math:`{\exp}_a (1)` est
+:math:`a^1` c’est-à-dire :math:`a`. Géométriquement, cela correspond au
+fait que le graphe de toute fonction exponentielle :math:`{\exp}_a`
+passe par les point :math:`(0;1)` et :math:`(1;a)`.
+
+**Notation.** Même si elle est au moins dans un premier temps un peu abusive, la
+notation suivante est utilisée pour désigner les images des fonctions
+:math:`{\exp}_a` pour :math:`a \in {{\mathbb{R}}_{0}}^{+}` :
+
+Pour tout :math:`x \in \mathbb{R}` (même quand :math:`x` n’est pas un
+nombre rationnel), on note :
+
+.. math:: {\exp}_a (x) = a^x
+
+Comme les fonctions exponentielles :math:`{\exp}_a` sont les
+prolongements continus des fonctions exponentielles sur
+:math:`\mathbb{Q}`, il n’est pas étonnant que l’on reprend la notation
+des expressions formelles de ces fonctions. Nous verrons que cet abus de
+notation prend tout son sens en étudiant les propriétés des fonctions
+exponentielles :math:`{\exp}_a` dans la prochaine section.
+
+**Remarque 2.1.4.** Le sens d’une notation telle que :math:`2^{\pi}` ne vous est donc plus
+inconnu. Il s’agit tout simplement de :math:`{\exp}_2 (\pi)`.
+Malheureusement, le théorème de prolongement par densité ne nous dit
+absolument pas comment calculer cette quantité. Sans la démonstration de
+ce théorème, nous ne pouvons même pas estimer ce nombre et cette
+nouvelle connaissance du sens de la notation :math:`2^{\pi}` est
+honnêtement assez insatisfaisante. Malheureusement, nous ne pourrons pas
+remédier à cela dans ce cours.
+
+2.2 Propriétés élémentaires
+-----------------------
+
+Listons à présent les propriétés élémentaires de nos nouvelles fonctions
+de référence : les fonctions exponentielles. Toutes ces propriétés
+découlent directement du fait que les fonctions exponentielles sont
+définis comme prolongements continus des fonctions exponentielles sur
+:math:`\mathbb{Q}`. Malheureusement, nous n’en démontrerons aucune dans
+le cadre de ce cours.
+
+**Proposition 2.2.1.** Soit :math:`a \in {\mathbb{R}}_{0}^{+}`.
+Le domaine de définition de la fonction :math:`{\exp}_a` est :math:`\mathbb{R}`.
+
+**Proposition 2.2.2.** Soit :math:`a \in {\mathbb{R}}_{0}^{+}`.
+
+Si :math:`a=1`, l’image de la fonction :math:`{\exp}_a` est
+:math:`\{1\}`.
+
+Si :math:`a \neq 1`, l’image de la fonction :math:`{\exp}_a` est
+:math:`{\mathbb{R}}_{0}^{+}`.
+
+**Proposition 2.2.3.** Soit :math:`a \in {\mathbb{R}}_{0}^{+}`.
+
+Si :math:`a<1`, la fonction :math:`{\exp}_a` est strictement
+décroissante.
+
+Si :math:`a = 1`, la fonction :math:`{\exp}_a` est constante.
+
+Si :math:`a<1`, la fonction :math:`{\exp}_a` est strictement
+croissante.
+
+**Exemple 2.2.4.** Par exemple, si :math:`a=\frac{1}{3}`, la fonction
+:math:`{\exp}_{\frac{1}{4}}` est strictement décroissante :
+
+.. tikz::
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+
+      \draw[very thick,blue] plot[domain=-1.158:5](\x,{0.25^\x});
+
+
+Si :math:`a=1`, la fonction :math:`{\exp}_{1}` est constante :
+
+.. tikz::
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+      \draw[very thick,blue] plot[domain=-5:5](\x,{1^\x});
+
+Si :math:`a=4`, la fonction :math:`{\exp}_{4}` est strictement
+croissante :
+
+.. tikz::
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+      \draw[very thick,blue] plot[domain=-5:1.158](\x,{4^\x});
+
+**Remarque 2.2.5.** Le "type de croissance" des fonctions exponentielles est différent de tous
+ceux des autres fonctions que vous connaissez. Par exemple, si
+:math:`a > 1`, la fonction :math:`{\exp}_{a}` est strictement croissante
+et cette croissance est de plus en plus forte au fur et à mesure que
+:math:`x \in \mathbb{R}` augmente. Pour passer de :math:`{\exp}_{a}(x)`
+à :math:`{\exp}_{a}(x+1)`, on multiplie toujours par :math:`a`, ce qui
+donne une croissance explosive de plus en plus rapide qui finira
+toujours par dépasser celle de n’importe quelle fonction polynomiale. On
+appelle ce type de croissance une croissance *exponentielle* (je vous
+laisse deviner pourquoi).
+
+Puisque les fonctions exponentielles sont définies comme les
+prolongements continus des fonctions exponentielles sur
+:math:`\mathbb{Q}`, on peut être certain qu’elles sont... continues :
+
+**Proposition 2.2.6.** Soit :math:`a \in {\mathbb{R}}_{0}^{+}`.
+La fonction :math:`{\exp}_a` est continue.
+
+La limite en un point :math:`c \in \mathbb{R}` d’une fonction
+exponentielle est donc toujours égale à son image en ce point. Par
+ailleurs, on a :
+
+**Proposition 2.2.7.** Soit :math:`a \in {\mathbb{R}}_{0}^{+}`.
+
+Si :math:`a<1`, on a :math:`\lim\limits_{x \to -\infty} {\exp}_a(x) = +\infty` et :math:`\lim\limits_{x \to +\infty} {\exp}_a(x) = 0`.
+
+Si :math:`a = 1`, on a :math:`\lim\limits_{x \to -\infty} {\exp}_a(x) = 1` et :math:`\lim\limits_{x \to +\infty} {\exp}_a(x) = 1`.
+
+Si :math:`a>1`, on a :math:`\lim\limits_{x \to -\infty} {\exp}_a(x) = 0` et :math:`\lim\limits_{x \to +\infty} {\exp}_a(x) = +\infty`.
+
+Vient à présent un des résultats les plus importants au sujet des
+fonctions exponentielles. Celui-ci correspond à la bonne nouvelle selon
+laquelle notre définition des fonctions exponentielles comme
+prolongements continus des fonctions exponentielles sur
+:math:`\mathbb{Q}` permet de démontrer que les règles de calcul des
+exposants que nous avions pour les exposants rationnels fonctionnent
+également pour tous les exposants réels (même ceux qui ne sont pas
+rationnels). C’est également cette proposition qui permet de justifier
+la notation quelque peu abusive utilisée pour dénoter les images des
+fonctions exponentielles.
+
+**Proposition 2.2.8.** Soient :math:`a,b \in {\mathbb{R}}_{0}^{+}`.
+
+#. Pour tout :math:`x,y \in \mathbb{R}`, on a :
+
+   .. math:: {\exp}_a(x+y)={\exp}_a(x) . {\exp}_a(y)
+
+   .. math:: a^{x+y} = a^x . a^y
+
+#. Pour tout :math:`x \in \mathbb{R}`, on a :
+
+   .. math:: {\exp}_{ab}(x) = {\exp}_a(x) . {\exp}_b(x)
+
+   .. math:: (a.b)^x = a^x.b^x
+
+#. Pour tout :math:`x \in \mathbb{R}`, on a :
+
+   .. math:: {\exp}_{{\exp}_a(x)}(y)  = {\exp}_a(x.y)
+
+   .. math:: (a^x)^y  = a^{x.y}
+
+#. Pour tout :math:`x,y \in \mathbb{R}`, on a :
+
+   .. math:: {\exp}_a(x-y)  = \frac{{\exp}_a(x)}{{\exp}_a(y)}
+
+   .. math:: a^{x-y}  = \frac{a^{x}}{a^{y}}
+
+#. Pour tout :math:`x \in \mathbb{R}`, on a :
+
+   .. math:: {\exp}_{\frac{a}{b}}(x)  = \frac{{\exp}_a(x)}{{\exp}_b(x)}
+
+   .. math:: {\left(\frac{a}{b}\right)}^x  = \frac{a^{x}}{b^{x}}
+
+Avec cette dernière proposition, la notation pour les images des
+fonctions exponentielles prend tout son sens. En effet, on sait à
+présent qu’en plus de coincider avec les fonctions exponentielles sur
+:math:`\mathbb{Q}`, les fonctions exponentielles :math:`{\exp}_a` (pour
+:math:`a \in {\mathbb{R}}_{0}^{+}`) possèdent les mêmes propriétés
+calculatoires que ces fonctions exponentielles sur :math:`\mathbb{Q}`.
+En fait, ce sont ces propriétés qui sont fondamentales et qui
+caractérisent principalement les fonctions exponentielles, en
+particulier la première : les fonctions exponentielles sont des
+fonctions définies sur :math:`\mathbb{R}` qui transforment des sommes en
+produits !
+
+2.3 La fonction exponentielle :math:`\exp` et le nombre :math:`e`
+-------------------------------------------------------------
+
+| Les fonctions exponentielles
+  :math:`{\exp}_a : \mathbb{R}\to \mathbb{R}` (pour
+  :math:`a \in {\mathbb{R}}_{0}^{+}`) sont continues, mais sont-elles
+  dérivables ?
+| Si :math:`a=1`, la fonction :math:`{\exp}_1` est la fonction constante
+  de constante :math:`1`. Elle est évidemment dérivable.
+| Mais qu’en est-il si :math:`a \neq 1` ? Géométriquement, étant donné
+  les graphes de ces fonctions, nous aurions tendance à dire que oui (il
+  n’y a pas de cassure dans le graphe). Nous allons voir que les
+  fonctions exponentielles :math:`{\exp}_a : \mathbb{R}\to \mathbb{R}`
+  (pour :math:`a \in {\mathbb{R}}_{0}^{+}\backslash \{1\}`) ont une
+  propriété intéressante : si elles sont dérivables en :math:`0`, alors
+  elles sont automatiquement dérivables partout.
+| En effet, soit :math:`a \in {\mathbb{R}}_{0}^{+}\backslash \{1\}`, que
+  signifie que la fonction :math:`{\exp}_a : \mathbb{R}\to \mathbb{R}`
+  est dérivable en :math:`0` ? Cela signifie que la limite suivante
+  existe :
+
+  .. math:: \lim\limits_{x \to 0} \frac{{\exp}_a(x)-{\exp}_a(0)}{x-0}
+
+  .. math:: \lim\limits_{x \to 0} \frac{a^x-a^0}{x}
+
+  .. math:: \lim\limits_{x \to 0} \frac{a^x-1}{x}
+
+  Si cette limite existe, alors par linéarité des limites, pour tout
+  :math:`c \in \mathbb{R}`, les limites suivantes existent également :
+
+  .. math:: a^c \lim\limits_{x \to 0} \frac{a^x-1}{x}
+
+  .. math:: \lim\limits_{x \to 0} a^c.\frac{a^x-1}{x}
+
+  .. math:: \lim\limits_{x \to 0} \frac{a^{x+c}-a^c}{x}
+
+  .. math:: \lim\limits_{x \to c} \frac{a^{(x-c)+c}-a^c}{(x-c)}
+
+  .. math:: \lim\limits_{x \to c} \frac{a^{x}-a^c}{x-c}
+
+  .. math:: \lim\limits_{x \to c} \frac{{\exp}_a(x)-{\exp}_a(c)}{x-c}
+
+  Et donc la fonction :math:`{\exp}_a` est aussi dérivable en tout
+  :math:`c \in \mathbb{R}`. De plus, on remarque que si la fonction
+  :math:`{\exp}_a` est dérivable en :math:`0`, alors pour tout
+  :math:`c \in \mathbb{R}` on a :
+
+  .. math:: ({\exp}_a)'(c) = {\exp}_a (c) . ({\exp}_a)' (0)
+
+  Si les fonctions :math:`{\exp}_a` sont dérivables, alors pour tout
+  :math:`a \in {\mathbb{R}}_{0}^{+}\backslash \{1\}` la dérivée de
+  :math:`{\exp}_a` est elle-même fois une constante et cette constante
+  est le nombre dérivée de :math:`{\exp}_a` en :math:`0`.
+|  
+| Mais alors, si on peut trouver un nombre
+  :math:`\textbf{a} \in {\mathbb{R}}_{0}^{+}\backslash \{1\}` tel que :
+
+  .. math:: \lim\limits_{x \to 0} \frac{{\textbf{a}}^x-1}{x} = 1
+
+  La fonction :math:`{\exp}_{\textbf{a}} : \mathbb{R}\to \mathbb{R}`
+  sera une fonction qui est dérivable et qui est égale à sa propre
+  dérivée ! Un tel nombre existe-t-il ? Oui : c’est le nombre dénoté
+  habituellement par la lettre :math:`e`.
+
+**Théorème 2.3.1.** (Théorème du nombre *e*)
+
+  Il existe un unique nombre
+  :math:`\textbf{a} \in {\mathbb{R}}_{0}^{+}\backslash \{1\}` tel que :
+
+  .. math:: \lim\limits_{x \to 0} \frac{{\textbf{a}}^x-1}{x} = 1
+
+  Ce nombre est noté :math:`e` et vaut approximativement :
+
+  .. math:: e \simeq 2.71828182846
+
+| Malheureusement, la démonstration de ce théorème dépasse une fois de
+  plus le cadre de ce cours.
+|  
+| La fonction exponentielle de base :math:`e` a un nom spécifique et une
+  notation spécifique.
+
+**Définition 2.3.2.** La fonction *exponentielle (naturelle)* est la fonction
+:math:`{\exp}_{e} : \mathbb{R}\to \mathbb{R}` et elle est généralement
+notée :math:`\exp : \mathbb{R}\to \mathbb{R}`.
+
+Étant donné l’existence (et l’unicité) du nombre :math:`e`, nous pouvons
+démontrer que la fonction exponentielle (de base :math:`e`) est
+dérivable et égale à sa propre dérivée.
+
+**Proposition 2.3.3.** La fonction exponentielle de base :math:`e` est dérivable et sa dérivée
+est égale à elle-même.
+
+Soit :math:`c \in \mathbb{R}` quelconque. Montrons que la fonction
+:math:`\exp : \mathbb{R}\to \mathbb{R}` est dérivable en :math:`c` et
+que le nombre dérivée de :math:`\exp` en :math:`c` vaut :math:`\exp(c)`.
+Il faut donc montrer que :
+
+.. math:: \lim\limits_{x \to c}  \frac{\exp(x)- \exp(c)}{x-c} = \exp(c)
+
+.. math:: \lim\limits_{x \to c}  \frac{e^{x}-e^c}{x-c} = \exp(c)
+
+Or, par le théorème du nombre :math:`e`, on sait que :
+
+.. math:: \lim\limits_{x \to 0} \frac{e^x-1}{x} = 1
+
+On a donc :
+
+.. math:: \exp(c) \lim\limits_{x \to 0} \frac{e^x-1}{x} = \exp(c)
+
+.. math:: e^c \lim\limits_{x \to 0} \frac{e^x-1}{x} = \exp(c)
+
+Par linéarité des limites, on a :
+
+.. math:: \lim\limits_{x \to 0} e^c \frac{e^x-1}{x} = \exp(c)
+
+.. math:: \lim\limits_{x \to 0}  \frac{e^{x+c}-e^c}{x} = \exp(c)
+
+.. math:: \lim\limits_{x \to c}  \frac{e^{(x-c)+c}-e^c}{(x-c)} = \exp(c)
+
+.. math:: \lim\limits_{x \to c}  \frac{e^{x}-e^c}{x-c} = \exp(c)
+
+**Remarque 2.3.4.** C’est cette dernière proposition qui rend le nombre :math:`e` aussi
+incroyable : il s’agit de l’unique nombre réel strictement positif tel
+que l’exponentielle ayant pour base ce nombre est dérivable et égale à
+sa dérivée. Cette propriété du nombre :math:`e` fait qu’il possède un
+statut aussi important dans les mathématiques qu’une autre constante
+remarquable que vous connaissez bien : :math:`\pi`.
+
+**Remarque 2.3.5.** La fonction exponentielle est une fonction extrêmement importante en
+analyse mathématique, en particulier dans la théorie des équations
+différentielles. Une équation différentielle est une équation dont la
+ou les inconnues ne sont pas des nombres mais des fonctions
+dérivables. L’exponentielle est l’unique solution qui vaut :math:`1`
+en :math:`0` à ce qui est peut-être la plus simple des équations
+différentielles intéressantes :
+.. math:: f=f'
+Effectivement, l’exponentielle est bien une fonction égale à sa propre
+dérivée.
+Les équations différentielles sont extrêmement importantes en
+sciences. La formalisation de la plupart des phénomènes naturels passe
+par des équations différentielles.
+
+Bien, nous avons donc montré que l’exponentielle de base :math:`e` est
+dérivable et nous nous sommes rendus compte qu’il s’agissait d’une
+fonction dérivable égale à sa propre dérivée. Qu’en est-il des autres
+fonctions exponentielles ? Pour le savoir, nous allons d’abord devoir
+parler des logarithmes qui sont les fonctions réciproques des fonctions
+exponentielles. Néanmoins, chaque chose en son temps : entraînons-nous
+d’abord à manipuler nos nouvelles fonctions de référence, les fonctions
+exponentielles.
+
+2.4 Exercices
+---------
+
+**Exercice 2.4.1.** En utilisant les propriétés élémentaires des fonctions exponentielles,
+calculer les nombres suivants sans avoir recours à une calculatrice.
+
+.. inginious:: foncExp1_1
+.. inginious:: foncExp1_2
+.. inginious:: foncExp1_3
+.. inginious:: foncExp1_4
+
+**Exercice 2.4.2.** Donner les domaines de définition réels maximaux pour les fonctions dont
+les expressions sont les suivantes :
+
+.. inginious:: foncExp2_1
+.. inginious:: foncExp2_2
+.. inginious:: foncExp2_3
+.. inginious:: foncExp2_4
+
+**Exercice 2.4.3.** En utilisant les règles de transformations des graphes et les propriétés
+des fonctions exponentielles, tracer les graphes des fonctions
+suivantes.
+
+.. inginious:: foncExp3_1
+.. inginious:: foncExp3_2
+.. inginious:: foncExp3_3
+.. inginious:: foncExp3_4
+
+
+**Exercice 2.4.4** Pour les fonctions suivantes, déterminer si elles convergent ou
+divergent pour :math:`x \to -\infty` et :math:`x \to +\infty`.
+
+.. inginious:: foncExp4_1
+.. inginious:: foncExp4_2
+.. inginious:: foncExp4_3
+.. inginious:: foncExp4_4
+.. inginious:: foncExp4_5
+.. inginious:: foncExp4_6
+.. inginious:: foncExp4_7
+.. inginious:: foncExp4_8
+
+**Exercice 2.4.5.** Calculer les dérivées des fonctions dérivables suivantes.
+
+.. inginious:: foncExp5_1
+.. inginious:: foncExp5_2
+.. inginious:: foncExp5_3
+.. inginious:: foncExp5_4
+.. inginious:: foncExp5_5
+.. inginious:: foncExp5_6
+.. inginious:: foncExp5_7
+.. inginious:: foncExp5_8
+
+
+**Exercice 2.4.6.** Donner l’équation cartésienne de la tangente au graphe de la fonction
+:math:`f` donnée ci-dessous au point d’abscisse :math:`1`.
+
+.. math::
+
+   \begin{aligned}
+   f : \mathbb{R}&\to \mathbb{R}\\
+   x \mapsto & e^{-x}.(x+1)\end{aligned}
+
+.. inginious:: foncExp6
+
+**Exercice 2.4.7. et Exercice 2.4.8.** 
+
+.. inginious:: foncExp7
+
+**Exercice 2.4.9.** La fonction suivante possède-t-elle un maximum ? Si oui, quel est-il et
+quel est le point de maximum associé ?
+
+.. math::
+
+   \begin{aligned}
+   f : [0;1] &\to \mathbb{R}\\
+   x \mapsto & e^{3x}  (x-1)^2\end{aligned}
+
+.. inginious:: foncExp8
+
+**Exercice 2.4.10.** Donner une primitive de la fonction exponentielle.
+
+**Solution.** La fonction exponentielle.
+
+**Exercice 2.4.11.** Calculer les intégrales des fonctions intégrables suivantes.
+
+.. inginious:: foncExp9_1
+.. inginious:: foncExp9_2
+.. inginious:: foncExp9_3
+.. inginious:: foncExp9_4
+.. inginious:: foncExp9_5
+.. inginious:: foncExp9_6
+.. inginious:: foncExp9_7
+.. inginious:: foncExp9_8

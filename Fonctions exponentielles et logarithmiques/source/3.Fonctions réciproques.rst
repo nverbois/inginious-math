@@ -1,0 +1,261 @@
+
+3 Fonctions réciproques
+=====================
+
+Dans cette section, nous allons découvrir les notions et les résultats
+qui nous permettront de définir les fonctions logarithmes.
+
+3.1 Bijections
+----------
+
+Dans un premier temps, intéressons-nous aux fonctions injectives.
+Grossièrement, les fonctions injectives sont les fonctions qui ne
+donnent jamais deux fois le même résulat .
+
+**Définition 3.1.1.** Soit :math:`f : \mathop{\mathrm{dom}}(f) \to \mathbb{R}` une fonction
+réelle.
+On dit que :math:`f` est *injective* si pour tout
+:math:`x_1,x_2 \in \mathop{\mathrm{dom}}(f)`, si
+:math:`f(x_1)=f(x_2)`, alors :math:`x_1=x_2`.
+
+**Remarque 3.1.2.** Géométriquement, dire qu’une fonction réelle
+:math:`f : \mathop{\mathrm{dom}}(f) \to \mathbb{R}` est injective
+revient à dire que son graphe a toujours au plus une intersection avec
+n’importe quelle droite horizontale.
+
+**Exemple 3.1.3.** La fonction cubique est injective. En effet, si on a deux nombres
+:math:`x,y \in \mathbb{R}` tels que :math:`x^3=y^3`, cela implique que
+:math:`x=y`. Ils n’existent pas deux nombres différents qui ont le même
+cube.
+
+**Contre-exemple 3.1.4.** La fonction carrée n’est pas injective. En effet, si on a deux nombres
+:math:`x,y \in \mathbb{R}` tels que :math:`x^2=y^2`, cela n’implique pas
+nécessairement que :math:`x=y`. Par exemple, si :math:`x=2` et
+:math:`y=-2`, on a :math:`2^2=(-2)^2` sans avoir :math:`2=-2`.
+
+Donnons à présent la définition de fonction surjective (sur un
+ensemble). Intuitivement, dire qu’une fonction est surjective sur un
+ensemble revient à dire que cette fonction parvient à atteindre tous les
+éléments de cet ensemble.
+
+**Définition 3.1.5.** Soit :math:`f : \mathop{\mathrm{dom}}(f) \to \mathbb{R}` une fonction
+réelle. Soit :math:`A \subseteq \mathbb{R}`.
+On dit que :math:`f` est *surjective* (sur :math:`A`) si pour tout
+:math:`y \in A`, il existe au moins un
+:math:`x \in \mathop{\mathrm{dom}}(f)` tel que :math:`f(x)=y`.
+
+**Remarque 3.1.6.** Par définition de l’image d’une fonction, toute fonction est surjective
+sur son image.
+
+**Exemple 3.1.7.** La fonction cubique est surjective sur :math:`\mathbb{R}`. En effet, si
+on prend :math:`y \in \mathbb{R}`, on peut trouver un :math:`x` dans le
+domaine de la fonction cubique (c’est-à-dire :math:`\mathbb{R}`) tel que
+:math:`x^3=y` : il suffit de prendre :math:`x=\sqrt[3]{y}`.
+
+**Contre-exemple 3.1.8.** La fonction carrée n’est pas surjective sur :math:`\mathbb{R}`. En
+effet, si on prend :math:`y \in \mathbb{R}`, on ne peut pas
+nécessairement trouver un :math:`x` dans le domaine de la fonction
+cubique (c’est-à-dire :math:`\mathbb{R}`) tel que :math:`x^2=y` : si
+par exemple :math:`y=-4`, il est impossible de trouver un nombre réel
+dont le carré vaut :math:`-4`.
+Par contre, la fonction carrée est bien surjective sur son image,
+c’est-à-dire :math:`{\mathbb{R}}^{+}`.
+
+En combiant les notions de fonctions injectives et bijectives, on
+obtient la notion de bijection.
+
+**Définition 3.1.9.** Soit :math:`f : \mathop{\mathrm{dom}}(f) \to \mathbb{R}` une fonction
+réelle. Soit :math:`A \subseteq \mathbb{R}`.
+On dit que :math:`f` est une *bijective* (sur :math:`A`) si elle est
+injective et qu’elle est surjective (sur :math:`A`). On dit alors que
+:math:`f` est une *bijection* (sur :math:`A`).
+
+**Remarque 3.1.10.** Une bijection est une fonction qui associe à tout élément de l’ensemble
+de départ un unique élément de l’ensemble d’arrivée (comme toute
+fonction) mais qui réalise également l’inverse : à tout élément de
+l’ensemble d’arrivée correspond un unique élément de l’ensemble de
+départ. Une bijection correspond intuitivement à relier chaque élément
+d’un ensemble avec un élément d’un autre ensemble de sorte que tout
+élément d’un des deux ensembles ait un unique compagnon dans l’autre
+ensemble.
+
+|image1| 
+
+Un exemple graphique de bijection.
+
+**Exemple 3.1.11.** La fonction cubique est une bijection sur :math:`\mathbb{R}`.
+
+**Contre-exemple 3.1.12.** La fonction carrée n’est pas une bijection sur :math:`\mathbb{R}` car
+elle n’est pas surjective sur :math:`\mathbb{R}`, mais elle n’est même
+pas une bijection sur son image, c’est-à-dire :math:`{\mathbb{R}}^{+}`,
+car elle n’est pas injective.
+
+.. _fonctions-réciproques-1:
+
+3.2 Fonctions réciproques
+---------------------
+
+Nous pouvons à présent donner la notion qui nous permettra de définir
+les fonctions logarithmes : celle de fonction réciproque.
+
+**Définition 3.2.1.** Soit :math:`f : \mathop{\mathrm{dom}}(f) \to \mathbb{R}` une fonction
+réelle.
+Une *(fonction) réciproque* de la fonction :math:`f` est une fonction
+:math:`g : \mathop{\mathrm{dom}}(g) \to \mathbb{R}` telle que
+:math:`\mathop{\mathrm{dom}}(g) = \mathop{\mathrm{im}}(f)` et telle
+que :
+
+#. Pour tout :math:`x \in \mathop{\mathrm{dom}}(f)` :
+
+   .. math:: (g \circ f) (x) = g(f(x)) = x
+
+#. Pour tout :math:`y \in \mathop{\mathrm{dom}}(g)` :
+
+   .. math:: (f \circ g) (y) = f(g(y)) = y
+
+**Exemple 3.2.2.** La fonction cubique possède une fonction réciproque : la fonction racine
+cubique. En effet, les domaines de définition et les images de ces deux
+fonctions sont tous égaux à :math:`\mathbb{R}` et on a :
+
+Pour tout :math:`x \in \mathbb{R}` :
+
+.. math:: \sqrt[3]{x^3}=x
+
+Pour tout :math:`y \in \mathbb{R}` :
+
+.. math:: (\sqrt[3]{y})^3=y
+
+**Remarque 3.2.3.** D’un point de vue géométrique, trouver une réciproque d’une fonction
+réelle (qui en possède une) revient à échanger les rôles des abscisses
+et des ordonnées dans le graphe de la fonction. Autrement dit, le graphe
+d’une fonction réciproque est toujours le symétrique du graphe de la
+fonction réelle initiale par la droite d’équation cartésienne
+:math:`y=x` (symétrie orthogonale).
+
+Viennent à présent deux résultats que nous ne pourrons tristement pas
+démontrer dans ce cours (même si leurs démonstrations ne sont pas
+difficiles) qui permettent de garantir l’existence d’une réciproque
+d’une fonction donnée à condition que celle-ci soit une bijection, ainsi
+que son unicité.
+
+**Proposition 3.2.4.** Soit :math:`f : \mathop{\mathrm{dom}}(f) \to \mathbb{R}` une
+fonction réelle.
+Alors il existe une réciproque à :math:`f` si et seulement si
+:math:`f` est une bijection sur son image.
+
+**Proposition 3.2.5.** Soit :math:`f : \mathop{\mathrm{dom}}(f) \to \mathbb{R}` une
+fonction réelle.
+Si :math:`f` a une réciproque, alors cette réciproque est unique.
+
+**Remarque 3.2.6.** Étant donné la dernière proposition, on peut parler de LA réciproque
+d’une fonction réelle
+:math:`f : \mathop{\mathrm{dom}}(f) \to \mathbb{R}` sans équivoque. En
+général, on note cette fonction réciproque :math:`f^{-1}`, mais nous
+éviterons d’utiliser cette notation dans ce cours afin d’éviter la
+confusion avec la notation des exposants.
+
+Il suffit donc qu’une fonction soit une bijection pour qu’elle possède
+une réciproque. On peut se demander si cette réciproque hérite alors de
+certaines des propriétés de la fonction de départ. La réponse est donnée
+par le théorème suivant, que nous ne pourrons pas démontrer dans ce
+cours.
+
+**Définition 3.2.7.** (Théorème de la bijection)
+
+  Soit :math:`I` un intervalle et soit :math:`f : I \to \mathbb{R}` une
+  fonction réelle.
+
+  Si :math:`f` est strictement monotone (c’est-à-dire strictement
+  croissante ou strictement décroissante) et continue, alors :math:`f`
+  est une bijection sur son image et sa fonction réciproque est
+  nécessairement continue. De plus, si :math:`f` est dérivable et que sa
+  dérivée ne s’annule jamais, alors sa fonction réciproque est aussi
+  dérivable.
+
+Ce théorème est la clé qui va nous permettre de définir les fonctions
+logarithmes. En effet, comme pour tout
+:math:`a \in {\mathbb{R}}_{0}^{+}\backslash \{1\}`, la fonction
+:math:`{\exp}_a : \mathbb{R}\to \mathbb{R}` est une fonction strictement
+monotone et continue de :math:`\mathbb{R}` dans
+:math:`{\mathbb{R}}_{0}^{+}`, le théorème de la bijection et les
+propositions 3.2.4 et 3.2.5 nous
+assurent qu’il existe une unique fonction réciproque à la fonction
+:math:`{\exp}_a`. Cette réciproque porte un nom : le logarithme en base
+:math:`a`.
+
+**Exercice 3.2.8.** Le fait que pour :math:`a \in {\mathbb{R}}_{0}^{+}\backslash \{1\}`, la
+fonction :math:`{\exp}_a : \mathbb{R}\to \mathbb{R}` soit une bijection
+et donc est injective est très utile pour résoudre des équations qui
+font intervenir des fonctions exponentielles. En effet, de manière
+générale, si on a une équation de la forme suivante.
+
+.. math:: a^x=a^y
+
+.. math:: {\exp}_a(x)={\exp}_a(y)
+
+Par injectivité, il suffit alors de résoudre l’équation :
+
+.. math:: x=y
+
+Avant de définir les fonctions logarithmes, familiarisons-nous un peu
+avec les nouvelles notions de cette section et entraînons-nous à
+résoudre des équations qui font intervenir des fonctions exponentielles
+en utilisant l’injectivité de ces fonctions.
+
+.. _exercices-1:
+
+3.3 Exercices
+---------
+
+**Exercice 3.3.1.** La fonction inverse est-elle injective ? Si oui, sur quel ensemble
+est-elle surjective ? Si elle en possède une, quelle est sa fonction
+réciproque ?
+
+**Solution.** Oui, elle est injective. Elle est surjective sur
+:math:`{\mathbb{R}}_{0}`. Sa fonction réciproque est elle-même.
+
+**Exercice 3.3.2.** Démontrer que la composée de deux fonctions injectives définies sur
+:math:`\mathbb{R}` est aussi une fonction injective.
+
+**Solution.** Soient :math:`f : \mathbb{R}\to \mathbb{R}` et
+:math:`g : \mathbb{R}\to \mathbb{R}` deux fonctions injectives.
+Montrons que la fonction :math:`f \circ g : \mathbb{R}\to \mathbb{R}`
+est aussi injective.
+Soient :math:`x,y \in \mathbb{R}`. Supposons que
+:math:`f(g(x)) = f(g(y))`. Comme :math:`f` est injective, cela
+implique que :math:`g(x) = g(y)`. Comme :math:`g` est injective, cela
+implique que :math:`x=y`. Donc la fonction :math:`f \circ g` est
+injective.
+
+**Exercice 3.3.3.** Les fonctions suivantes sont des bijections de :math:`\mathbb{R}` dans
+:math:`\mathbb{R}`. Pour chacune d’entre elles, trouver la fonction
+réciproque.
+
+.. inginious:: foncReci1_1
+.. inginious:: foncReci1_2
+.. inginious:: foncReci1_3
+.. inginious:: foncReci1_4
+
+**Exercice 3.3.4.** En utilisant l’injectivité des fonctions exponentielles,
+résoudre les équations suivantes dans :math:`\mathbb{R}`.
+
+.. inginious:: foncReci2_1
+.. inginious:: foncReci2_2
+.. inginious:: foncReci2_3
+.. inginious:: foncReci2_4
+.. inginious:: foncReci2_5
+.. inginious:: foncReci2_6
+.. inginious:: foncReci2_7
+.. inginious:: foncReci2_8
+.. inginious:: foncReci2_9
+.. inginious:: foncReci2_10
+
+**Remarque 3.3.5.** Il n’y a pas d’inéquation avec des fonctions exponentielles au programme
+du cours de mathématiques de 4 heures par semaine. Néanmoins, il est
+possible que vous ayez à résoudre une telle inéquation ultérieurement,
+par exemple dans un cours de physique. Si vous souhaitez vous entraîner,
+prenez les équations de l’exercice 3.3.4 et
+remplacez les égalités par des inégalités.
+
+
+.. |image1| image:: bijection.png
