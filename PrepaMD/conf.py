@@ -18,8 +18,8 @@ import sphinx_bootstrap_theme
 # -- Project information -----------------------------------------------------
 
 project = 'PrepaMD'
-copyright = '2020, Manon Oreins'
-author = 'Manon Oreins'
+copyright = '2020, Edmond Sahyoun'
+author = 'Edmond Sahyoun'
 
 
 # -- General configuration ---------------------------------------------------
