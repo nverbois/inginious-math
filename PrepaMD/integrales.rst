@@ -5,7 +5,7 @@ Primitives et intégrales
 Carte mentale
 -------------
 
-
+.. image:: png/primitives.png
 
 
 

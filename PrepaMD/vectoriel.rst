@@ -4,7 +4,7 @@ Calcul vectoriel
 Carte mentale
 -------------
 
-
+.. image:: png/vectoriel.png
 
 
 

@@ -5,7 +5,7 @@ Les dérivées
 Carte mentale
 -------------
 
-
+.. image:: png/derivees.png
 
 
 

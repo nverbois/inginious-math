@@ -5,7 +5,7 @@ Les fonctions
 Carte mentale
 -------------
 
-
+.. image:: png/fct.png
 
 
 

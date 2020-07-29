@@ -4,7 +4,7 @@ Trigonométrie
 Carte mentale
 -------------
 
-
+.. image:: png/trigo.png
 
 
 

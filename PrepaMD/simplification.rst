@@ -4,7 +4,8 @@ Simplification d'expression
 Carte mentale
 -------------
 
-
+.. image:: png/simplification.png
+	   
 
 
 

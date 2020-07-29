@@ -6,7 +6,7 @@ Carte mentale
 -------------
 
 
-
+.. image:: png/stat.png
 
 
 Exercices

@@ -4,7 +4,7 @@
 Carte mentale
 -------------
 
-
+.. image:: png/inequations.png
 
 
 

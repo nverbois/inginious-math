@@ -4,7 +4,7 @@ Géométrie
 Carte mentale
 -------------
 
-
+.. image:: png/geometrie.png
 
 
 
