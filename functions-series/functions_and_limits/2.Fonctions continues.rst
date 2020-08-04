@@ -1,9 +1,9 @@
 
 2 Fonctions continues
-===================
+=====================
 
 2.1 Définition et exemples
-----------------------
+--------------------------
 
 | L’idée de continuité est déjà présente dans le langage courant. Par
   exemple, on dira que la température d’une pièce (qui n’est chauffée
@@ -167,7 +167,7 @@ discontinues.
 | 
 
 2.2 Continuité des fonctions de référence
--------------------------------------
+-----------------------------------------
 
 | Les fonctions de référence servent de briques de base pour construire
   des fonctions plus complexes. Il serait intéressant de déterminer si
@@ -207,7 +207,7 @@ définie en :math:`0` puisqu’il ne fait pas sens de diviser par
 | 
 
 2.3 Propriétés des fonctions continues
-----------------------------------
+--------------------------------------
 
 Commençons avec un exemple :
 
@@ -415,7 +415,7 @@ discontinuité.
 | 
 
 2.4 Grands théorèmes des fonctions continues (optionnel)
-----------------------------------------------------
+--------------------------------------------------------
 
 | Dans cette section, nous allons lister les grands résultats associés
   aux fonctions continues.
@@ -553,7 +553,7 @@ exactement).
 | 
 
 2.5 Prolongements continus
-----------------------
+--------------------------
 
 **Exemple 2.5.1.** Voici le graphe d’une fonction définie sur
 :math:`[-4;4] \backslash \{1\}` qui est continue :

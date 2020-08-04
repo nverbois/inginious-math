@@ -1,6 +1,6 @@
 
 3 Introduction aux limites de suites (optionnel)
-==============================================
+================================================
 
 L’infini est une notion qui a intéressé et effrayé les hommes depuis
 au moins la Grèce Antique. Manipulée de façon intuitive, cette notion
@@ -25,7 +25,7 @@ jouer un rôle et où un point de vue purement naïf et intuitif de cette
 notion nous mène à de mystérieuses considérations.
 
 3.1 0,999999... = 1 ?
------------------
+---------------------
 
 | Comment comparer les deux nombres :math:`0,99999...` (avec une
   infinité de chiffres :math:`9` derrière la virgule) et :math:`1`. Si
@@ -72,7 +72,7 @@ notion nous mène à de mystérieuses considérations.
   entendons par cette infinité de chiffres après la virgule.
 
 3.2 La division par 0
------------------
+---------------------
 
 | L’impossibilité de diviser par :math:`0` est parfois présentée comme
   une règle d’or des mathématiques. Mais finalement, pourquoi ne peut-on
@@ -124,7 +124,7 @@ notion nous mène à de mystérieuses considérations.
   un nombre (réel) nous mène à d’étranges résultats.
 
 3.3 Le paradoxe de la flèche
-------------------------
+----------------------------
 
 Ce paradoxe date d’il y a plus de :math:`2000` ans et est généralement
 associé à Zénon, un Grec de la Grèce antique qui collectionnait les
@@ -167,7 +167,7 @@ la flèche touchera la cible. C’est un paradoxe.
   confusion.
 
 3.4 Des sommes infinies
--------------------
+-----------------------
 
 | À la section précédente, nous avons rencontré notre première somme
   infinie , autrement dit une somme avec une infinité de termes :

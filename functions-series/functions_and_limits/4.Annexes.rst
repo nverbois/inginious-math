@@ -1,6 +1,6 @@
 
 4 Annexe
-======
+========
 
 | Cette section facultative contient une démonstration du fait que la
   somme de deux fonctions continues est toujours une fonction continue.

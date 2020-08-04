@@ -1,12 +1,12 @@
 
 5 Conclusion : retour sur les problèmes de l’introduction (optionnel)
-===================================================================
+=====================================================================
 
 Finalement, rassemblons tout ce que nous avons appris dans ce chapitre
 pour résoudre certains des problèmes de l’introduction.
 
 5.1 Paradoxe de la flèche : la solution
------------------------------------
+---------------------------------------
 
 | Selon Zénon, la distance que doit parcourir la flèche pour atteindre
   la cible,
@@ -42,7 +42,7 @@ pour résoudre certains des problèmes de l’introduction.
 | 
 
 5.2 0,999... < 1 ou 0,999... = 1 ?
-------------------------------
+----------------------------------
 
 | Nous allons à présent pouvoir trancher : a-t-on :math:`0,999... < 1`
   ou :math:`0,999... = 1` ?

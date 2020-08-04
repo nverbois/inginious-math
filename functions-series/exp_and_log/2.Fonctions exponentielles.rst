@@ -1,9 +1,9 @@
 
 2 Fonctions exponentielles
-========================
+==========================
 
 2.1 Définition
-----------
+--------------
 
 | Pour une base strictement positive
   :math:`a \in {{\mathbb{R}}_{0}}^{+}`, les exposants naturels, entiers
@@ -111,7 +111,8 @@ dont le graphe ressemble à :
   par densité garantit l’existence d’un unique prolongement continu
   :math:`g_a : \mathbb{R}\to \mathbb{R}` de :math:`f_a` sur
   :math:`\mathbb{R}`.
-|  
+
+	
 | Fantastique ! Nous pouvons donc définir les fonctions exponentielles
   pour toute base :math:`a \in {{\mathbb{R}}_{0}}^{+}` sur
   :math:`\mathbb{R}` :
@@ -189,7 +190,7 @@ honnêtement assez insatisfaisante. Malheureusement, nous ne pourrons pas
 remédier à cela dans ce cours.
 
 2.2 Propriétés élémentaires
------------------------
+---------------------------
 
 Listons à présent les propriétés élémentaires de nos nouvelles fonctions
 de référence : les fonctions exponentielles. Toutes ces propriétés
@@ -357,7 +358,7 @@ fonctions définies sur :math:`\mathbb{R}` qui transforment des sommes en
 produits !
 
 2.3 La fonction exponentielle :math:`\exp` et le nombre :math:`e`
--------------------------------------------------------------
+-----------------------------------------------------------------
 
 | Les fonctions exponentielles
   :math:`{\exp}_a : \mathbb{R}\to \mathbb{R}` (pour
@@ -409,7 +410,8 @@ produits !
   :math:`a \in {\mathbb{R}}_{0}^{+}\backslash \{1\}` la dérivée de
   :math:`{\exp}_a` est elle-même fois une constante et cette constante
   est le nombre dérivée de :math:`{\exp}_a` en :math:`0`.
-|  
+
+  
 | Mais alors, si on peut trouver un nombre
   :math:`\textbf{a} \in {\mathbb{R}}_{0}^{+}\backslash \{1\}` tel que :
 
@@ -508,7 +510,7 @@ d’abord à manipuler nos nouvelles fonctions de référence, les fonctions
 exponentielles.
 
 2.4 Exercices
----------
+-------------
 
 **Exercice 2.4.1.** En utilisant les propriétés élémentaires des fonctions exponentielles,
 calculer les nombres suivants sans avoir recours à une calculatrice.

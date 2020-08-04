@@ -4,7 +4,7 @@
 | Lycée Martin V
 
 1. Introduction
-============
+===============
 
 | 
 
@@ -62,14 +62,14 @@
   invite vivement à la lire durant les vacances de Toussaint.
 
 2 Suites
-======
+========
 
 Dans cette section, nous allons introduire la notion de suite. Une suite
 (de nombres) n’est rien d’autre qu’une succession infinie indexée (par
 les nombres naturels) de nombres.
 
 2.1 Définitions
------------
+---------------
 
 .. |nbsp| unicode:: 0xA0 
    :trim:
@@ -262,7 +262,7 @@ Pour chacune de ces possibilités :
 | 
 
 2.2 Suites arithmétiques
---------------------
+------------------------
 
 | Considérons les trois suites dont les premiers termes sont :
 
@@ -389,7 +389,7 @@ arithmétique.
 | 
 
 2.3 Suites géométriques
--------------------
+-----------------------
 
 | Considérons les trois suites dont les premiers termes sont :
 
@@ -516,7 +516,7 @@ géométrique.
 | 
 
 2.4 Intérêts simples et intérêts composés
--------------------------------------
+-----------------------------------------
 
 **Problème** Considérons le problème suivant : nous disposons de :math:`100`\ € et
 nous avons la possibilité de déposer ces :math:`100`\ € sur un compte
@@ -571,7 +571,7 @@ géométrique.
 .. inginious:: suite8
 
 2.5 Sommes de suites
-----------------
+--------------------
 
 Dans cette section, nous allons découvrir les méthodes et formules pour
 la somme des :math:`k` premiers termes d’une suite arithmétique ou
@@ -728,7 +728,7 @@ une suite :math:`{(s_n)}_{n \in \mathbb{N}}`, on a :
 | 
 
 3 Introduction aux limites de suites (optionnel)
-==============================================
+================================================
 
 L’infini est une notion qui a intéressé et effrayé les hommes depuis
 au moins la Grèce Antique. Manipulée de façon intuitive, cette notion
@@ -753,7 +753,7 @@ jouer un rôle et où un point de vue purement naïf et intuitif de cette
 notion nous mène à de mystérieuses considérations.
 
 3.1 0,999999... = 1 ?
------------------
+---------------------
 
 | Comment comparer les deux nombres :math:`0,99999...` (avec une
   infinité de chiffres :math:`9` derrière la virgule) et :math:`1`. Si
@@ -800,7 +800,7 @@ notion nous mène à de mystérieuses considérations.
   entendons par cette infinité de chiffres après la virgule.
 
 3.2 La division par 0
------------------
+---------------------
 
 | L’impossibilité de diviser par :math:`0` est parfois présentée comme
   une règle d’or des mathématiques. Mais finalement, pourquoi ne peut-on
@@ -852,7 +852,7 @@ notion nous mène à de mystérieuses considérations.
   un nombre (réel) nous mène à d’étranges résultats.
 
 3.3 Le paradoxe de la flèche
-------------------------
+----------------------------
 
 Ce paradoxe date d’il y a plus de :math:`2000` ans et est généralement
 associé à Zénon, un Grec de la Grèce antique qui collectionnait les
@@ -895,7 +895,7 @@ la flèche touchera la cible. C’est un paradoxe.
   confusion.
 
 3.4 Des sommes infinies
--------------------
+-----------------------
 
 | À la section précédente, nous avons rencontré notre première somme
   infinie , autrement dit une somme avec une infinité de termes :
@@ -933,7 +933,7 @@ la flèche touchera la cible. C’est un paradoxe.
    :math:`\frac{1}{2^2}+\frac{1}{1^2}+\frac{1}{2^2}+\frac{1}{3^2}+\frac{1}{4^2}+...=\frac{{\pi}^2}{6}`.
 
 4 Limites de suites (optionnel)
-=============================
+===============================
 
 | Dans cette section, nous allons présenter une notion qui nous
   accompagnera tout au long des deux prochains chapitres : la notion de
@@ -943,7 +943,7 @@ la flèche touchera la cible. C’est un paradoxe.
   section ne pourront être données dans le cadre de ce cours.
 
 4.1 Définition
-----------
+--------------
 
 Dans l’introduction, nous avons discuté des problèmes qui surgissent
 rapidement si l’on considère l’infini comme un nombre réel tel que
@@ -1143,7 +1143,7 @@ donc :math:`| s_n - 0 | < \frac{1}{N+1} < \frac{1}{N} < \epsilon`.
 | 
 
 4.2 Propriétés des limites
-----------------------
+--------------------------
 
 Donnons à présent plusieurs résultats importants concernant les limites.
 Commençons par une proposition qui décrit comment se combinent les
@@ -1213,7 +1213,7 @@ minorants .
 | 
 
 4.3 Divergence vers :math:`+ \infty` et :math:`- \infty`
-----------------------------------------------------
+--------------------------------------------------------
 
 De la même manière que la notion de limite nous permet d’exprimer
 clairement l’idée que la suite qui provient de la fonction inverse se
@@ -1462,13 +1462,13 @@ a-t-il mal utilisé ? Où se situe son erreur ?
 | 
 
 5 Conclusion : retour sur les problèmes de l’introduction (optionnel)
-===================================================================
+=====================================================================
 
 Finalement, rassemblons tout ce que nous avons appris dans ce chapitre
 pour résoudre certains des problèmes de l’introduction.
 
 5.1 Paradoxe de la flèche : la solution
------------------------------------
+---------------------------------------
 
 | Selon Zénon, la distance que doit parcourir la flèche pour atteindre
   la cible,
@@ -1504,7 +1504,7 @@ pour résoudre certains des problèmes de l’introduction.
 | 
 
 5.2 0,999... < 1 ou 0,999... = 1 ?
-------------------------------
+----------------------------------
 
 | Nous allons à présent pouvoir trancher : a-t-on :math:`0,999... < 1`
   ou :math:`0,999... = 1` ?

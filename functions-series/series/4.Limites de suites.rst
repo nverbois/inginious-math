@@ -1,6 +1,6 @@
 
 4 Limites de suites (optionnel)
-=============================
+===============================
 
 | Dans cette section, nous allons présenter une notion qui nous
   accompagnera tout au long des deux prochains chapitres : la notion de
@@ -10,7 +10,7 @@
   section ne pourront être données dans le cadre de ce cours.
 
 4.1 Définition
-----------
+--------------
 
 Dans l’introduction, nous avons discuté des problèmes qui surgissent
 rapidement si l’on considère l’infini comme un nombre réel tel que
@@ -210,7 +210,7 @@ donc :math:`| s_n - 0 | < \frac{1}{N+1} < \frac{1}{N} < \epsilon`.
 | 
 
 4.2 Propriétés des limites
-----------------------
+--------------------------
 
 Donnons à présent plusieurs résultats importants concernant les limites.
 Commençons par une proposition qui décrit comment se combinent les
@@ -280,7 +280,7 @@ minorants .
 | 
 
 4.3 Divergence vers :math:`+ \infty` et :math:`- \infty`
-----------------------------------------------------
+--------------------------------------------------------
 
 De la même manière que la notion de limite nous permet d’exprimer
 clairement l’idée que la suite qui provient de la fonction inverse se

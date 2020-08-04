@@ -1,13 +1,13 @@
 
 2 Suites
-======
+========
 
 Dans cette section, nous allons introduire la notion de suite. Une suite
 (de nombres) n’est rien d’autre qu’une succession infinie indexée (par
 les nombres naturels) de nombres.
 
 2.1 Définitions
------------
+---------------
 
 .. |nbsp| unicode:: 0xA0 
    :trim:
@@ -200,7 +200,7 @@ Pour chacune de ces possibilités :
 | 
 
 2.2 Suites arithmétiques
---------------------
+------------------------
 
 | Considérons les trois suites dont les premiers termes sont :
 
@@ -327,7 +327,7 @@ arithmétique.
 | 
 
 2.3 Suites géométriques
--------------------
+-----------------------
 
 | Considérons les trois suites dont les premiers termes sont :
 
@@ -454,7 +454,7 @@ géométrique.
 | 
 
 2.4 Intérêts simples et intérêts composés
--------------------------------------
+-----------------------------------------
 
 **Problème** Considérons le problème suivant : nous disposons de :math:`100`\ € et
 nous avons la possibilité de déposer ces :math:`100`\ € sur un compte
@@ -509,7 +509,7 @@ géométrique.
 .. inginious:: suite8
 
 2.5 Sommes de suites
-----------------
+--------------------
 
 Dans cette section, nous allons découvrir les méthodes et formules pour
 la somme des :math:`k` premiers termes d’une suite arithmétique ou

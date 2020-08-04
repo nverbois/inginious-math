@@ -5,7 +5,7 @@
 | Lycée Martin V
 
 1 Introduction
-============
+==============
 
 | Ce chapitre est probablement le plus difficile de ce cours, au moins
   sur le plan conceptuel. Nous allons y introduire la notion de fonction
@@ -46,10 +46,10 @@
   rendue encore plus difficile par un manque de maîtrise des prérequis.
 
 2 Fonctions continues
-===================
+=====================
 
 2.1 Définition et exemples
-----------------------
+--------------------------
 
 | L’idée de continuité est déjà présente dans le langage courant. Par
   exemple, on dira que la température d’une pièce (qui n’est chauffée
@@ -213,7 +213,7 @@ discontinues.
 | 
 
 2.2 Continuité des fonctions de référence
--------------------------------------
+-----------------------------------------
 
 | Les fonctions de référence servent de briques de base pour construire
   des fonctions plus complexes. Il serait intéressant de déterminer si
@@ -253,7 +253,7 @@ définie en :math:`0` puisqu’il ne fait pas sens de diviser par
 | 
 
 2.3 Propriétés des fonctions continues
-----------------------------------
+--------------------------------------
 
 Commençons avec un exemple :
 
@@ -461,7 +461,7 @@ discontinuité.
 | 
 
 2.4 Grands théorèmes des fonctions continues (optionnel)
-----------------------------------------------------
+--------------------------------------------------------
 
 | Dans cette section, nous allons lister les grands résultats associés
   aux fonctions continues.
@@ -599,7 +599,7 @@ exactement).
 | 
 
 2.5 Prolongements continus
-----------------------
+--------------------------
 
 **Exemple 2.5.1.** Voici le graphe d’une fonction définie sur
 :math:`[-4;4] \backslash \{1\}` qui est continue :
@@ -730,12 +730,12 @@ celle de limite de fonction.
 | 
 
 3 Limites de fonctions
-====================
+======================
 
 .. _définition-et-exemples-1:
 
 3.1 Définition et exemples
-----------------------
+--------------------------
 
 Pour découvrir la notion de limite qui est la formalisation de l’idée
 intuitive se rapprocher de (de façon définitive et uniforme) ,
@@ -1122,7 +1122,7 @@ suivantes existent. Si oui, donner les valeurs de celles-ci.
 | 
 
 3.2 Lien entre la continuité et les limites de fonctions
-----------------------------------------------------
+--------------------------------------------------------
 
 Dans la section précédente, nous avons pu observer que dans certains
 cas, la limite d’une fonction en un point où cette fonction est définie
@@ -1189,7 +1189,7 @@ affirmer que la limite :math:`\lim\limits_{x \to 2}` existe et vaut
 .. inginious:: limite13_4
 
 3.3 Lien entre les prolongements continus et les limites de fonctions
------------------------------------------------------------------
+---------------------------------------------------------------------
 
 Dans la section précédente, nous avons vu que calculer la limite d’une
 fonction en un point où elle est définie et continue est on ne peut plus
@@ -1330,7 +1330,7 @@ de faire.
 |
 
 3.4 Divergence de fonctions en un point
------------------------------------
+---------------------------------------
 
 | Lorsqu’une fonction possède une limite en un point, on dit qu’elle
   *converge* en ce point. Que peut-il se passer lorsque qu’une fonction
@@ -2071,7 +2071,7 @@ type de divergence (vers :math:`+\infty` ou vers :math:`-\infty`).
 |
 
 3.5 Limites à gauche et limites à droite
-------------------------------------
+----------------------------------------
 
 | Dans certains cas, il peut être intéressant d’étudier le comportement
   d’une fonction au fur et à mesure que l’on se rapproche d’un point où
@@ -2668,7 +2668,7 @@ donner le type de divergence (vers :math:`+\infty` ou vers
 |
 
 3.6 Limites et divergence de fonctions en :math:`+\infty` et :math:`-\infty`
-------------------------------------------------------------------------
+----------------------------------------------------------------------------
 
 | Jusqu’à présent, nous avons toujours parlé de limite ou de divergence
   d’une fonction :math:`f : I \to \mathbb{R}` en un point
@@ -3331,7 +3331,7 @@ temps passe ? Risque-t-il de s’écraser ?
 |
 
 3.7 Asymptotes
-----------
+--------------
 
 | Il existe une autre manière d’interpréter et de visualiser certaines
   limites. Ce point de vue plus géométrique des limites que sont les
@@ -3559,7 +3559,7 @@ toutes les asymptotes horizontales et verticales.
 |
 
 3.8 Propriétés des limites de fonctions
------------------------------------
+---------------------------------------
 
 | Dans cette dernière section de ce long chapitre sur les limites, nous
   allons apprendre à calculer des limites de fonctions de façon
@@ -4418,7 +4418,7 @@ les limites ou les divergences suivantes.
 |
 
 4 Annexe
-======
+========
 
 | Cette section facultative contient une démonstration du fait que la
   somme de deux fonctions continues est toujours une fonction continue.
