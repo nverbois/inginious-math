@@ -17,9 +17,9 @@ import sphinx_bootstrap_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'PrepaMD'
-copyright = '2020, Edmond Sahyoun'
-author = 'Edmond Sahyoun'
+project = 'Syllabus interactif : Mathématiques'
+copyright = '2020, Maxime Parmentier'
+author = 'Maxime Parmentier'
 
 
 # -- General configuration ---------------------------------------------------
@@ -27,8 +27,12 @@ author = 'Edmond Sahyoun'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.tikz']
-
+extensions = ['sphinxcontrib.tikz', 'sphinx.ext.imgmath']
+imgmath_add_tooltips = False
+imgmath_latex_preamble = '''
+\\usepackage[utf8]{inputenc}
+\\usepackage{gensymb}
+'''
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -50,10 +54,6 @@ html_theme = 'bootstrap'
 html_theme_options = {
     
     'bootswatch_theme' : "lumen",
-    'navbar_links': [
-            ("{% if logged_in is not none %}Log out ({{ logged_in['username'] }}){% else %}Log in{% endif %}", "{% if logged_in is not none %}/logout{% else %}/login{% endif %}", True),
-        ]
-
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
