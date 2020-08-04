@@ -143,7 +143,7 @@ dont le graphe ressemble à :
 
       \foreach \y in {1}
 		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-5:2.34](\x,{2^\x});
+      \draw[very thick,blue] plot[domain=-5:2.34](\x,{exp(ln(2)*\x)});
 
 Cette fois-ci, comme la fonction
 :math:`{\exp}_2 : \mathbb{R}\to \mathbb{R}` est bien définie sur tout
@@ -235,7 +235,7 @@ croissante.
       \foreach \y in {1}
 		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
 
-      \draw[very thick,blue] plot[domain=-1.158:5](\x,{0.25^\x});
+      \draw[very thick,blue] plot[domain=-1.158:5](\x,{exp(ln(0.25)*\x)});
 
 
 Si :math:`a=1`, la fonction :math:`{\exp}_{1}` est constante :
@@ -269,7 +269,7 @@ croissante :
 
       \foreach \y in {1}
 		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
-      \draw[very thick,blue] plot[domain=-5:1.158](\x,{4^\x});
+      \draw[very thick,blue] plot[domain=-5:1.158](\x,{exp(ln(4)*\x)});
 
 **Remarque 2.2.5.** Le "type de croissance" des fonctions exponentielles est différent de tous
 ceux des autres fonctions que vous connaissez. Par exemple, si
