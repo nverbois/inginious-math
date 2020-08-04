@@ -54,6 +54,9 @@ html_theme = 'bootstrap'
 html_theme_options = {
     
     'bootswatch_theme' : "lumen",
+    'navbar_links': [
+            ("{% if logged_in is not none %}Log out ({{ logged_in['username'] }}){% else %}Log in{% endif %}", "{% if logged_in is not none %}/logout{% else %}/login{% endif %}", True),
+        ]
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
