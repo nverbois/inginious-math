@@ -1,0 +1,47 @@
+
+2.2 Continuité des fonctions de référence
+-----------------------------------------
+
+| Les fonctions de référence servent de briques de base pour construire
+  des fonctions plus complexes. Il serait intéressant de déterminer si
+  les fonctions de références sont continues et si les fonctions créées
+  à partir de celles-ci héritent de cette propriété.
+| Pour commencer, nous avons le théorème :
+
+**Théorème 2.2.1.** Toutes les fonctions de référence sont continues.
+
+*Démonstration* Pas en math 4. [1]_
+
+**Remarque 2.2.2.** De toutes les fonctions de référence, seule la fonction inverse n’a pas
+un graphe qui peut être tracé d’un seul trait . À nouveau, il s’agit
+dans ce cas d’une question de domaine (la fonction inverse n’est pas
+définie en :math:`0` puisqu’il ne fait pas sens de diviser par
+:math:`0`) et non de continuité.
+
+| 
+
+**Exemple 2.2.3.** Par exemple, la fonction racine cubique est continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=0.01:5,samples=1000](\x,{(\x)^(1/3)});
+		\draw[thick] plot[domain=-5:-0.01,samples=1000](\x,{-(abs(\x))^(1/3)});
+
+
+
+
+.. [1]
+   Remarque : pour la plupart des fonctions de référence, la
+   démonstration n’est pas très compliquée. N’hésitez pas à essayer de
+   faire vous-même la preuve par exemple pour une fonction constante ou
+   pour la fonction identité.		

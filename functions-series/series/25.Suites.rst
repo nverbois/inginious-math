@@ -1,0 +1,157 @@
+
+2.5 Sommes de suites
+--------------------
+
+Dans cette section, nous allons découvrir les méthodes et formules pour
+la somme des :math:`k` premiers termes d’une suite arithmétique ou
+géométrique donnée, où :math:`k` est un nombre naturel choisi. Mais
+commençons par l’exemple de l’introduction :
+
+| **Exemple 2.5.1.** Que vaut :math:`1+2+3+...+49+50+51+...+98+99+100` ?
+| Bien entendu, nous pourrions commencer à calculer cette somme en
+  additionnant successivement tous les termes. Néanmoins, cette méthode
+  serait quelque peu longue et pénible. Voici une autre méthode : on
+  peut grouper les termes de la sommes deux-à-deux, :math:`1` avec
+  :math:`100`, :math:`2` avec :math:`99`, :math:`3` avec :math:`98`, ...
+  , :math:`50` avec :math:`51`. Toutes ces paires donnent :math:`101` et
+  il y a :math:`50` paires. On en déduit que :
+
+  .. math:: 1+2+3+...+49+50+51+...+98+99+100  = 101 . 50 = 5050
+
+  Cette simple idée va nous permettre de démontrer la formule pour la
+  somme des :math:`k` (:math:`k\in \mathbb{N}`) premiers termes d’une
+  suite arithmétique.
+
+| 
+
+**Proposition 2.5.2.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite
+arithmétique de terme initial :math:`a \in \mathbb{R}` et de raison
+:math:`r \in \mathbb{R}`. Choisissons un nombre
+:math:`k \in \mathbb{N}`. Notons la somme des termes de la suite
+:math:`{(s_n)}_{n \in \mathbb{N}}` pour les rangs de :math:`0` à
+:math:`k` de la façon suivante :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = s_0 + s_1 + s_2 + ... + s_{k-2} + s_{k-1} + s_k
+
+Alors on a :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = \frac{(2a + k r)(k+1)}{2}
+
+*Démonstration* Puisque :math:`{(s_n)}_{n \in \mathbb{N}}` une suite arithmétique de
+terme initial :math:`a \in \mathbb{R}` et de raison
+:math:`r \in \mathbb{R}`, on a pour :math:`i \in \mathbb{N}` :
+:math:`s_i = a + i  r`. Dès lors :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = a + (a+r)  + (a+2r) + ... + (a+(k-2)r) + (a+(k-1)r) + (a+kr)
+
+On peut écrire cette somme dans l’autre sens :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = (a+kr) + (a+(k-1))r  + (a+(k-2)r) ... + (a+2r) + (a+r) + a
+
+Additionnons les deux égalités précédentes et groupons ensemble le
+premier terme de la somme du membre de droite de la première égalité
+avec le premier terme de la somme du membre de droite de la deuxième
+égalité, le deuxième terme de la somme du membre de droite de la
+première égalité avec le deuxième terme de la somme du membre de droite
+de la deuxième égalité, le troisième terme de la somme du membre de
+droite de la première égalité avec le troisième terme de la somme du
+membre de droite de la deuxième égalité et ainsi de suite :
+
+.. math::
+
+   \begin{aligned}
+           2 \sum\limits_{i=0}^{k} s_i =& [a+(a+kr)] + [(a+r)+(a+(k-1))r]  + [(a+2r)+(a+(k-2)r)] + {}... \\
+           &{}+ [(a+(k-2)r)+(a+2r)] + [(a+(k-1))r+(a+r)] + [(a+kr)+a]
+       \end{aligned}
+
+On observe que tous ces rassemblements donnent le même résultat :
+:math:`2a+kr`. Ces rassemblements sont au nombre de :math:`k+1`, on a
+donc :
+
+.. math:: 2 \sum\limits_{i=0}^{k} s_i =(2a + k  r)(k+1)
+
+Conclusion :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = \frac{(2a + k  r)(k+1)}{2}
+
+| 
+
+Nous avons une proposition similaire pour les suites géométriques :
+
+**Proposition 2.5.3.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite géométrique
+de terme initial :math:`b \in \mathbb{R}` et de raison
+:math:`q \in {\mathbb{R}} \backslash \{1\}`. Choisissons un nombre
+:math:`k \in \mathbb{N}`. On a :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = b. \frac{1-q^{k+1}}{1-q}
+
+*Démonstration* Puisque :math:`{(s_n)}_{n \in \mathbb{N}}` une suite géométrique de
+terme initial :math:`b \in \mathbb{R}` et de raison
+:math:`q \in \mathbb{R}`, on a pour :math:`i \in \mathbb{N}` :
+:math:`s_i = bq^i`. Dès lors :
+
+.. math:: \sum\limits_{i=0}^{k} s_i = b + (bi)  + (bi^2) + ... + (bq^{k-2}) + (bq^{k-1}) + (bq^{k})
+
+On peut multiplier cette égalité par :math:`q` :
+
+.. math:: q \sum\limits_{i=0}^{k} s_i = (bi)  + (bi^2) + (bi^3) ... + (bq^{k-1}) + (bq^{k}) + (bq^{k+1})
+
+Soustrayons la deuxième égalité à la première en groupant ensemble le
+deuxième terme de la somme du membre de droite de la première égalité
+avec le premier terme de la somme du membre de droite de la deuxième
+égalité, le troisième terme de la somme du membre de droite de la
+première égalité avec le deuxième terme de la somme du membre de droite
+de la deuxième égalité, le quatrième terme de la somme du membre de
+droite de la première égalité avec le troisième terme de la somme du
+membre de droite de la deuxième égalité et ainsi de suite :
+
+.. math:: \sum\limits_{i=0}^{k} s_i - q \sum\limits_{i=0}^{k} s_i = b + [bi - bi] + [bi^2 - bi^2]   + ... + [bq^{k-1} - bq^{k-1}] + [bq^{k}-bq^{k}] - bq^{k+1}
+
+On observe que tous ces rassemblements donnent le même résultat :
+:math:`0`. On a donc :
+
+.. math:: (1-q) \sum\limits_{i=0}^{k} s_i=b- bq^{k+1}
+
+Puisque :math:`q \neq 1`, on conclut :
+
+.. math:: \sum\limits_{i=0}^{k} s_i= \frac{b-bq^{k+1}}{1-q} = b. \frac{1-q^{k+1}}{1-q}
+
+**Remarque 2.5.4.** Si on souhaite calculer la somme des termes d’une suite arithmétique ou
+géométrique non pas à partir de :math:`0` mais à partir d’un autre
+nombre naturel choisi, disons :math:`l`, il est possible de s’en sortir
+facilement grâce aux formules des propositions
+`[sommeari] <#sommeari>`__ et `[sommegéo] <#sommegéo>`__ puisque pour
+une suite :math:`{(s_n)}_{n \in \mathbb{N}}`, on a :
+
+.. math:: \sum\limits_{i=l}^{k} s_i = \sum\limits_{i=0}^{k}s_i - \sum\limits_{i=0}^{l-1}s_i
+
+| 
+
+**Exercice 2.5.5.**
+
+.. inginious:: suite9_1
+.. inginious:: suite9_2
+
+| 
+
+**Exercice 2.5.6.** 
+
+.. inginious:: suite10_1
+.. inginious:: suite10_2
+.. inginious:: suite10_3
+.. inginious:: suite10_4
+
+| 
+
+**Exercice 2.5.7.** 
+
+.. inginious:: suite10_5
+.. inginious:: suite10_6
+
+| 
+
+**Exercice 2.5.8.** 
+
+.. inginious:: suite11
+
+| 

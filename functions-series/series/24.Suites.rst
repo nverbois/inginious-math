@@ -1,0 +1,55 @@
+
+2.4 Intérêts simples et intérêts composés
+-----------------------------------------
+
+**Problème** Considérons le problème suivant : nous disposons de :math:`100`\ € et
+nous avons la possibilité de déposer ces :math:`100`\ € sur un compte
+d’une première banque qui nous propose des intérêts mensuels de
+:math:`1` % de la somme initiale déposée sur le compte (c’est-à-dire,
+dans notre cas, :math:`100`\ €) ou sur un compte d’une seconde banque
+qui elle nous propose des intérêts mensuels de :math:`0,5` % de la
+somme présente sur le compte ce mois-là, somme qui évolue donc chaque
+mois. En supposant que nous allons laisser l’argent sur le compte
+pendant :math:`12` mois, sans y toucher ni y ajouter quelque chose,
+quelle est la banque la plus avantageuse (pour nous) ?
+
+
+Commençons par donner la suite des sommes d’argent dont nous
+disposerons après les premiers mois si nous choisissons la première
+banque : après :math:`1` mois, nous disposerons de
+:math:`100 + 0,01 . 100 = 101`\ €. Après :math:`2` mois, nous
+disposerons de :math:`101 + 0,01 . 100 = 102`\ €. Et ainsi de suite :
+on remarque qu’on a affaire à une suite arithmétique de terme initial
+:math:`a=100` et de raison :math:`1`. Après :math:`12` mois, nous
+disposerons donc de :math:`100 + 12 . 1 = 112`\ €.
+
+
+Passons au cas de la deuxième banque. Après le premier mois, nous
+disposerons de
+:math:`100 + 0,005 . 100 = 100 . (1 + 0,005) = 100 . 1,005 = 100,5`\ €.
+Après le deuxième mois, nous disposerons de
+:math:`100,5 + 0.005 . 100,5 = 100,5 . (1 + 0,005) = 100,5 . 1,005 = 101,0025`\ €.
+Et ainsi de suite : on remarque qu’on a affaire à une suite
+géométrique de terme initial :math:`b=100` et de raison :math:`1,005`.
+Après :math:`12` mois, nous disposerons donc de
+:math:`100 . (1,005)^{12} \simeq 106,17`\ €.
+
+
+Conclusion : la première banque est la plus intéressante. Néanmoins,
+ce ne sera pas éternellement le cas : puisque les intérêts de la
+seconde banque grandissent sans cesse et de plus en plus vite, il est
+clair que sur le plus long terme (pouvez-vous déterminer à partir de
+combien de mois ?), la seconde banque est plus intéressante.
+
+Les intérêts que propose la première banque sont ce qu’on appelle des
+*intérêts simples*, tandis que ceux que propose la seconde banque sont
+ce qu’on appelle des *intérêts composés*. Il est important de se
+souvenir que les intérêts simples correspondent à une suite
+arithmétique, tandis que les intérêts composés correspondent à une suite
+géométrique.
+
+| 
+
+**Exercice 2.4.1.** 
+
+.. inginious:: suite8

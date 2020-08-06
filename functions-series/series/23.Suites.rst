@@ -1,0 +1,126 @@
+
+2.3 Suites géométriques
+-----------------------
+
+| Considérons les trois suites dont les premiers termes sont :
+
+| :math:`1,2,4,8,16,32,...`
+| :math:`10,-10,10,-10,10,...`
+| :math:`81,27,9,3,1,\frac{1}{3},\frac{1}{9},...`
+
+| Elles ont un point commun : pour passer d’un terme au suivant, on
+  multiplie toujours par un même nombre. Pour la première suite, ce
+  nombre est :math:`2`, pour la deuxième, ce nombre est :math:`-1`, pour
+  la troisième, ce nombre est :math:`\frac{1}{3}`. C’est le principe qui
+  définit les suites géométriques.
+
+**Définition 2.3.1.**  
+
+  Une *suite géométrique* est une suite :math:`{(s_n)}_{n \in \mathbb{N}}` telle que :
+
+  .. math::
+
+     \left\{
+         \begin{array}{l}
+         s_0 = b \\
+         s_{n+1} = s_{n} . q ~~~~~~ n \in \mathbb{N}
+         \end{array}
+         \right.
+
+  où :math:`b \in \mathbb{R}` est le *terme initial* et
+  :math:`q \in \mathbb{R}` est la *raison* (ce par quoi on multiplie
+  pour passer d’un terme au suivant).
+
+| 
+
+**Exemple 2.3.2.** La suite dont les premiers termes sont
+:math:`81,27,9,3,1,\frac{1}{3},\frac{1}{9},...` est une suite
+géométrique de terme initial :math:`b=81` et de raison
+:math:`q=\frac{1}{3}`.
+
+**Remarque 2.3.3.** Puisque pour passer d’un terme au suivant dans une suite géométrique, il
+suffit de multiplier par la raison, les termes successifs d’une suite
+géométrique de terme initial :math:`b \in \mathbb{R}` et de raison
+:math:`q \in \mathbb{R}` peuvent être notés :
+
+.. math:: b,b.q,b.q^2,b.q^3,,b.q^4,b.q^5,...
+
+Il n’est dès lors pas surprenant qu’on puisse démontrer qu’une suite
+géométrique de terme initial :math:`b \in \mathbb{R}` et de raison
+:math:`q \in \mathbb{R}` est égale à la suite :
+
+.. math::
+
+   \begin{aligned}
+       f : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto b.q^n
+       \end{aligned}
+
+Ce qui correspond à la définition de cette suite en fonction du rang.
+
+**Exemple 2.3.4.** La suite dont les premiers termes sont
+:math:`81,27,9,3,1,\frac{1}{3},\frac{1}{9},...` est une suite
+arithmétique de terme initial :math:`b=81` et de raison
+:math:`q=\frac{1}{3}`. Elle est égale à la suite :
+
+.. math::
+
+   \begin{aligned}
+       f : \mathbb{N}&\to \mathbb{R}\\
+       n &\mapsto 81 . (\frac{1}{3})^n
+       \end{aligned}
+
+Et en effet, on calcule : :math:`f(0)=81 . (\frac{1}{3})^0 = 81`,
+:math:`81 . (\frac{1}{3})^1 = 27`, :math:`81 . (\frac{1}{3})^2 = 9`,
+:math:`81 . (\frac{1}{3})^3 = 3`, ...
+
+| 
+
+**Exercice 2.3.5.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite géométrique telle que
+:
+
+#. :math:`b=1` et :math:`q=-2`
+
+#. :math:`s_0 = 2` et :math:`s_1 = 6`
+
+#. :math:`\left\{\begin{array}{l}s_0 = -27 \\s_{n+1} = s_{n} . \frac{1}{3} ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`s_n = (\frac{1}{5})^n`        :math:`(n \in \mathbb{N})`
+
+#. :math:`s_4 = \frac{7}{16}` et :math:`s_{10} = 28`
+
+Pour chacune de ces possibilités, calculer :math:`b`, :math:`q` et le
+terme de rang :math:`6`.
+
+.. inginious:: suite5_1
+.. inginious:: suite5_2
+.. inginious:: suite5_3
+.. inginious:: suite5_4
+.. inginious:: suite5_5
+
+| 
+
+**Exercice 2.3.6.** Soit :math:`{(s_n)}_{n \in \mathbb{N}}` une suite telle que :
+
+#. :math:`s_n = 4^0`        :math:`(n \in \mathbb{N})`
+
+#. :math:`\left\{\begin{array}{l}s_0 = 1 \\s_{n+1} = 2s_{n} + \frac{3}{2} ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`\left\{\begin{array}{l}s_0 = -1 \\s_1 = 1 \\s_{n+2} = s_{n+1} + 2s_{n} ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+#. :math:`\left\{\begin{array}{l}s_0 = 0 \\s_{n+1} = s_{n} + s_0 ~~~~~~ n \in \mathbb{N}\end{array}\right.`
+
+Pour chacune de ces possibilités, déterminer s’il s’agit d’une suite
+géométrique.
+
+.. inginious:: suite6_1
+.. inginious:: suite6_2
+.. inginious:: suite6_3
+.. inginious:: suite6_4
+
+| 
+
+**Exercice 2.3.7.** 
+
+.. inginious:: suite7
+

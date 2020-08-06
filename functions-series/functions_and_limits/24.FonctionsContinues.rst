@@ -1,0 +1,143 @@
+
+2.4 Grands théorèmes des fonctions continues (optionnel)
+--------------------------------------------------------
+
+| Dans cette section, nous allons lister les grands résultats associés
+  aux fonctions continues.
+| Le premier est assez intuitif. Pour reprendre l’exemple de
+  l’introduction de la température dans une pièce, si on suppose que la
+  température de la pièce était de :math:`10\degree` à minuit et
+  qu’elle est de :math:`20\degree` à midi et qu’on choisit une
+  température en :math:`10\degree` et :math:`20\degree`, par exemple
+  :math:`15\degree`, on est intuitivement convaincu qu’il y a eu au
+  moins un court instant dans la matinée où la température de la pièce
+  était de :math:`15\degree` (puisque le phénomène est continu, on doit
+  bien passer par toutes les valeurs intermédiaires entre
+  :math:`10\degree` et :math:`20\degree` pour passer de
+  :math:`10\degree` à :math:`20\degree`). Cette intuition est
+  formalisée par le théorème suivant :
+
+**Théorème 2.4.1** (Théorème des valeurs intermédiaires). Soit :math:`I` un intervalle de la forme :math:`I=[a,b]`. Soit
+:math:`f : I \to \mathbb{R}` une fonction continue.
+Pour tout :math:`y \in \mathbb{R}` compris entre :math:`f(a)` et
+:math:`f(b)`, il existe :math:`x \in I` tel que :math:`f(x) = y`.
+
+*Démonstration* Pas en math 4. [2]_
+
+| 
+
+**Exemple 2.4.2.** Considérons la fonction suivante qui est la restriction de la fonction
+carrée sur :math:`[0,2]`.
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=0:2](\x,{(\x)^(2)});
+
+Puisque cette fonction est continue, :math:`f(0)=0`, :math:`f(2)=4` et
+:math:`0 \le \pi \le 4`, on peut être certain qu’il existe une abscisse
+:math:`x` entre :math:`0` et :math:`2` telle que la valeur de cette
+fonction en :math:`x` vaut exactement :math:`\pi` (dans ce cas-ci, il
+est possible de déterminer ce :math:`x` (qui est ici unique) :
+:math:`\sqrt{\pi}`).
+
+**Remarque 2.4.3.** Le théorème n’affirme pas que l’abscisse :math:`x` telle que
+:math:`f(x) = y` est unique ! Comme le montre l’exemple suivant (où on
+choisit pour :math:`y` l’ordonnée :math:`0`, qui se trouve entre
+:math:`f(-4)=-3` et :math:`f(4)=3`), il peut y avoir plusieurs abscisses
+de cette sorte :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick] plot[domain=-4:4](\x,{(1/16)*(\x-2)*(\x)*(\x+2)});
+		\draw (4,3)node{$\bullet$};
+		\draw (-4,-3)node{$\bullet$};
+
+La fonction vaut :math:`0` en :math:`-2`, en :math:`0` et en :math:`2`.
+
+| Le théorème des valeurs intermédiaires a de nombreuses applications et
+  pas seulement des applications purement théoriques. Il permet par
+  exemple de justifier la validité d’une solution à un problème
+  relativement courant dans la vie de tous les jours : une table
+  bancale.
+| Nous renvoyons vers cette vidéo de l’excellente chaîne youtube
+  *Numberphile* de vulgarisation mathématique pour plus de détails à ce
+  sujet : https://www.youtube.com/watch?v=OuF-WB7mD6k. 
+  À présent, donnons l’autre fameux théorème concernant les fonctions continues :
+
+| 
+
+**Théorème 2.4.4.** Soit :math:`I` un intervalle de la forme :math:`I=[a,b]`. Soit
+:math:`f : I \to \mathbb{R}` une fonction continue.
+:math:`f` est nécessairement bornée et atteint ses bornes, autrement
+dit :math:`f` a un point de minimum et un point de maximum.
+
+*Démonstration* Pas en math 4. [3]_
+
+**Remarque 2.4.5.** Dans le prochain chapitre, nous nous intéresserons beaucoup aux (points
+de) minimum et maximum d’une fonction. Ce théorème des bornes atteintes
+nous dit que pour une fonction continue définie sur un intervalle fermé,
+nous pouvons être certain qu’un point de minimum et qu’un point de
+maximum existe, mais il ne nous dit pas comment les trouver.
+
+**Remarque 2.4.6.** La fonction dont le graphe est ci-dessous est définie sur un intervalle
+de la forme :math:`[a;b]` et est continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+		\draw[thick, samples=50] plot[domain=-2:2](\x,{(15/16)*(\x-2)*(\x)*(\x+2)});
+		\draw (2,0)node{$\bullet$};
+		\draw (-2,-0)node{$\bullet$};
+
+Il s’agit de la fonction :
+
+.. math::
+
+   \begin{aligned}
+       f : [-2;2] &\to \mathbb{R}\\
+       x &\mapsto \frac{15}{16}.(x-2).(x).(x+2)
+       \end{aligned}
+
+Nous serions bien incapables (à ce stade) de déterminer quel est le
+(point de) maximum et le (point de) minimum de cette fonction, mais nous
+sommes certains que ceux-ci existent bel et bien (visuellement, on les
+identifie immédiatement sans pour autant être capable de les déterminer
+exactement).
+
+
+.. [2]
+   La démonstration de ce théorème est en fait assez compliquée et
+   nécessite de bien comprendre les propriétés fondamentales des nombres
+   réels. Heureusement, son énoncé est très intuitif.
+
+.. [3]
+   La démonstration de ce théorème est aussi assez compliquée.

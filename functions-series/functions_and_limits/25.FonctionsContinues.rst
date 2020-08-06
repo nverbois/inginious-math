@@ -1,0 +1,150 @@
+
+.. _procont:
+
+| 
+
+2.5 Prolongements continus
+--------------------------
+
+**Exemple 2.5.1.** Voici le graphe d’une fonction définie sur
+:math:`[-4;4] \backslash \{1\}` qui est continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+			\draw (-4,-2.2)node{$\bullet$};
+			\draw[thick] plot[domain=-4:0.93,samples=50](\x,{-2.2-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw[thick, fill=white](1,-2)circle(0.176);
+			\draw[thick, fill=white](1,1)circle(0.176);
+			\draw[thick] plot[domain=1.13:4,samples=50](\x,{0.8-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw (4,0.8)node{$\bullet$};
+
+Il ne fait pas sens de dire qu’elle est discontinue (ou continue) en
+:math:`1` puisqu’elle n’est pas définie en :math:`1`.
+
+| 
+
+**Exemple 2.5.2.** Voici le graphe d’une autre fonction définie sur
+:math:`[-4;4] \backslash \{1\}` qui est continue :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+			\draw (-4,-2.2)node{$\bullet$};
+			\draw[thick] plot[domain=-4:0.93,samples=50](\x,{-2.2-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw[thick, fill=white](1,-2)circle(0.176);
+			\draw[thick] plot[domain=1.13:4,samples=50](\x,{-2.2-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw (4,-2.2)node{$\bullet$};
+
+Il ne fait pas sens de dire qu’elle est continue (ou discontinue) en
+:math:`1` puisqu’elle n’est pas définie en :math:`1`.
+
+|  
+| Dans les deux cas, nous avons une fonction continue. Néanmoins,
+  intuitivement, il y a une différence de ces deux situations. Pour la
+  première fonction, il n’est pas possible de la prolonger en une
+  fonction continue, c’est-à-dire d’étendre la fonction en la
+  définissant en :math:`1` de sorte que le résultat final soit continu,
+  même en :math:`1`. Par contre, pour la deuxième fonction, il est
+  possible de trouver un tel prolongement continu : il suffit d’étendre
+  la fonction en la définissant en :math:`1` en décidant que le
+  prolongement de la fonction vaut :math:`-2` en :math:`1`. Cette
+  intuition correspond au fait que la deuxième fonction possède un
+  prolongement continu tandis que la première non.
+| Donnons la définition de prolongement continu d’une fonction.
+
+| 
+
+**Définition 2.5.3.** Soit un intervalle :math:`I` et soit :math:`c \in I`. Soit :math:`f : I \backslash \{c\} \to \mathbb{R}`.
+
+  Un *prolongement continu* de :math:`f` sur :math:`I` est une fonction
+  :math:`g : I \to \mathbb{R}` qui est continue (y compris en :math:`c`)
+  et telle que pour tout :math:`x \in I \backslash \{c\}`, on a
+  :math:`g(x)=f(x)`.
+
+| 
+
+**Exemple 2.5.4.** La fonction de l’exemple 2.5.1 ne possède pas de
+prolongement continu. Par contre, la fonction de l’exemple
+2.5.2 possède un prolongement continu dont le graphe
+est le suivant :
+
+.. tikz:: 
+
+      \draw[step=1cm,gray,very thin] (-5,-5) grid (5,5);
+
+      \draw[very thick,->] (-5,0) -- (6,0) node[anchor=south west] {x};
+		\draw[very thick,->] (0,-5) -- (0,6) node[anchor=south west] {y};
+
+      \foreach \x in {1}
+		\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
+
+      \foreach \y in {1}
+		\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
+			\draw (-4,-2.2)node{$\bullet$};
+			\draw[thick] plot[domain=-4:4,samples=100](\x,{-2.2-0.1*\x*(\x-2)*(\x+1)*sin(90*\x)});
+			\draw (4,-2.2)node{$\bullet$};
+
+Dans le cas de cet exemple, puisque nous possédions déjà le graphe de la
+fonction, ce prolongement continu n’était pas très difficile à trouver.
+
+|  
+| Mais plus généralement, comment savoir si pour une fonction
+  :math:`f : I \backslash \{c\} \to \mathbb{R}` (où :math:`I` est un
+  intervalle et :math:`c \in I`) donnée, cette fonction admet un
+  prologement continu ? Intuitivement, il n’est pas très difficle de
+  répondre à cette question : il faut que la fonction :math:`f` se
+  rapproche d’une certaine valeur lorsqu’on se rapproche de :math:`c`,
+  et ce de manière uniforme (il faut que la valeur de laquelle :math:`f`
+  se rapproche par la gauche soit la même que celle de laquelle
+  :math:`f` se rapproche par la droite ). Néanmoins, cette réponse
+  intuitive soulève au moins trois questions.
+
+#. Que signifie rigoureusement que la fonction :math:`f` se rapproche
+   d’une valeur lorsqu’on se rapproche de :math:`c` ?
+
+#. Comment savoir si la fonction :math:`f` se rapproche bien d’une
+   certaine valeur de manière uniforme et définitive lorsqu’on se
+   rapproche de :math:`c` ?
+
+#. Si :math:`f` se rapproche bien d’une certaine valeur de manière
+   uniforme et définitive lorsqu’on se rapproche de :math:`c`, comment
+   calculer cette valeur ?
+
+Pour répondre à ces questions, nous avons besoin d’une nouvelle notion :
+celle de limite de fonction.
+
+| 
+
+
+.. [1]
+   Remarque : pour la plupart des fonctions de référence, la
+   démonstration n’est pas très compliquée. N’hésitez pas à essayer de
+   faire vous-même la preuve par exemple pour une fonction constante ou
+   pour la fonction identité.
+
+.. [2]
+   La démonstration de ce théorème est en fait assez compliquée et
+   nécessite de bien comprendre les propriétés fondamentales des nombres
+   réels. Heureusement, son énoncé est très intuitif.
+
+.. [3]
+   La démonstration de ce théorème est aussi assez compliquée.
