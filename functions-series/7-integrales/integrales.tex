@@ -1,0 +1,1503 @@
+\documentclass[a4paper,fontsize=13pt]{scrreprt}
+
+\usepackage[francais]{babel}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{pifont}
+%\usepackage{verdana}
+\usepackage{ulem}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{mathabx}
+\usepackage{hyperref}
+\usepackage{setspace} 
+\usepackage{multicol}
+\onehalfspacing
+
+\usepackage[abbrev,backrefs]{amsrefs}
+\usepackage{eurosym}
+
+
+\usepackage{graphicx}
+\usepackage{array}
+
+\usepackage[framemethod=TikZ]{mdframed} % Cadres
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,backgrounds}
+
+\usepackage[all]{xy}
+\usepackage{flowchart}
+\usetikzlibrary{arrows}
+
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=2.5cm}
+\pagestyle{myheadings}
+\renewcommand{\chaptermark}[1]{\markboth{\textbf{\thechapter. #1}}{}}
+\renewcommand{\sectionmark}[1]{\markright{\textbf{\thesection. #1}}}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\theoremstyle{plain}
+\newtheorem{thé}[subsection]{Théorème}
+\newtheorem*{thé*}{Théorème}
+\newtheorem{pro}[subsection]{Proposition}
+\newtheorem*{pro*}{Proposition}
+\newtheorem{cor}[subsection]{Corollaire}	
+\newtheorem*{cor*}{Corollaire}
+\newtheorem{lem}[subsection]{Lemme}		
+
+\theoremstyle{definition}
+\newtheorem{déf}[subsection]{Définition}
+\newtheorem{exe}[subsection]{Exemple}
+\newtheorem{con}[subsection]{Contre-exemple}
+\newtheorem{rema}[subsection]{Remarque}	
+\newtheorem*{rema*}{Remarque}	
+\newtheorem*{nota}{Notation}
+\newtheorem*{prob}{Problème}	
+\newtheorem*{epcs}{Exercices pour cette section}
+\newtheorem{exo}[subsection]{Exercice}
+\newtheorem*{exo*}{Exercice}
+\newtheorem*{solu}{Solution}
+
+\newcommand{\nn}{\mathbb{N}}
+\newcommand{\nno}{\mathbb{N}_{0}}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\qu}{\mathbb{Q}}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\imp}{\Rightarrow}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\im}{im}
+
+%---------------------------------------------------------------------------------------------------------------------------------
+% Tikz
+%---------------------------------------------------------------------------------------------------------------------------------
+
+% Définition des nouvelles options xmin, xmax, ymin, ymax
+\tikzset{
+	xmin/.store in=\xmin, xmin/.default=-3, xmin=-3,
+	xmax/.store in=\xmax, xmax/.default=3, xmax=3,
+	ymin/.store in=\ymin, ymin/.default=-3, ymin=-3,
+	ymax/.store in=\ymax, ymax/.default=3, ymax=3,
+}
+
+% Commande \grille qui trace la grille entre (xmin,ymin) et (xmax,ymax)
+\newcommand {\grille}{\draw[help lines] (\xmin,\ymin) grid (\xmax,\ymax);}
+
+% Commande \axes
+\newcommand {\axes} {
+	\draw[thick, ->] (\xmin,0) -- (\xmax+1,0);
+	\draw[thick, ->] (0,\ymin) -- (0,\ymax+1);
+	\draw (0,\ymax+0.5) node [left] {$y$};
+	\draw (\xmax+0.5, 0) node [below] {$x$};
+	\draw[thick] (-0.15,1)--(0.15,1) (1,-0.15)--(1,0.15);
+	\draw (0,1)node[left]{$1$} (1,0)node[below]{$1$};
+}
+
+% Commande \axesnotick, axes sans les bâtonnets
+\newcommand {\axesnotick} {
+	\draw[thick, ->] (\xmin,0) -- (\xmax+1,0);
+	\draw[thick, ->] (0,\ymin) -- (0,\ymax+1);
+	\draw (0,\ymax+0.5) node [left] {$y$};
+	\draw (\xmax+0.5, 0) node [below] {$x$};
+}
+
+% Commande qui limite l'affichage à (xmin,ymin) et (xmax,ymax)
+\newcommand {\fenetre}{\clip (\xmin,\ymin) rectangle (\xmax,\ymax);}
+
+% Bold enumerate
+\newenvironment{benumerate}[1][0pt]{\begin{enumerate}\renewcommand{\makelabel}[1]{\textbf{##1}}\setlength{\itemsep}{#1}}{\end{enumerate}}
+\renewcommand{\d}{\displaystyle}
+
+\begin{document}
+	
+\begin{titlepage}
+	
+	\newcommand{\HRule}{\rule{\linewidth}{0.4mm}} % Defines a new command for the horizontal lines, change thickness here
+	
+	\center % Center everything on the page
+	
+	%----------------------------------------------------------------------------------------
+	%	HEADING SECTIONS
+	%----------------------------------------------------------------------------------------
+	
+	\vspace{4cm}
+	
+	\textsc{\Large Cours de mathématiques de sixième année \\ 4 périodes/semaine \\ Année 2018-2019}\\[0.3cm]
+	\vspace{9.4cm}
+	\textsc{\LARGE Intégrales}\\[0.6cm] % Major heading such as course name
+	\vspace{9.8cm}
+	\textsc{\Large Lycée Martin V}\\[0.3cm] % Minor heading such as course title
+	
+
+	
+\end{titlepage}
+	
+
+\tableofcontents
+
+\newpage
+Les intégrales sont un outil fantastique, en particulier lorsque reliées aux dérivées par le fameux théorème fondamental de l'analyse. C'est le lien entre ces deux notions donné par ce théorème qui a permis de révolutionner la science (et en particulier la physique), d'exploiter dans de nombreux contextes la puissance de l'analyse mathématique et d'inventer la majeure partie des technologies qui font à présent partie intégrante de notre vie de tous les jours. \\
+Les intégrales, avec les dérivées et surtout le théorème fondamental de l'analyse, constituent véritablement un monument de la connaissance humaine. Il n'est dès lors pas surprenant qu'une majeure partie du cours de mathématique de secondaire est construit avec comme but final de découvrir ce magnifique théorème. \\
+~\\
+Dans ce chapitre, nous allons découvrir la notion d'intégrale à partir de son interprétation géométrique : celle d'aire (orientée) sous la courbe du graphe d'une fonction (intégrable). Après avoir donné une définition précise de l'intégrale, nous explorerons d'abord certaines propriétés élémentaires de cette notion. Ensuite, nous découvrirons le théorème fondamental de l'analyse et nous apprendrons à l'utiliser. Nous étudierons quelques techniques de calcul intégral, puis nous terminerons ce chapitre avec quelques applications des intégrales.\\
+~\\
+Pour ce chapitre, il est extrêmemennt important de maîtriser les points de matière suivants :
+\begin{itemize}
+\item Fonctions
+\item Fonctions dérivables et dérivées
+\end{itemize}
+De plus, il serait souhaitable d'avoir déjà rencontré la notion de fonction continue.
+\newpage
+
+\chapter{Introduction}
+
+Il y a plus de 2000 ans, les Anciens Grecs passaient leur temps libre en s'amusant avec de la philosophie et des mathématiques. En particulier, certains d'entre eux étaient friands de géométrie. Parmi les questions que ces derniers se posaient, il y avait des questions de calcul d'aire. \\
+Par exemple, quelle est l'aire du carré ci-dessous ?
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=0.9]\axes
+\draw[very thick,blue] (0,0)--(0,1);
+\draw[very thick,blue] (0,1)--(1,1);
+\draw[very thick,blue] (1,0)--(1,1);
+\draw[very thick,blue] (0,0)--(1,0);
+\end{tikzpicture}
+\end{center}
+Dans ce cas-ci, rien de plus facile : il s'agit même de la très ancienne \textit{définition} de l'aire : combien d'unités d'aire, c'est-à-dire de petits carrés dont la longueur de côté est une unité de longueur, peut-on faire rentrer dans notre carré ? Exactement 1. Son aire est donc de 1. \\
+~\\
+Quelle est l'aire du carré ci-dessous ?
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=0.9]\axes
+\draw[very thick,blue] (1,1)--(3,1);
+\draw[very thick,blue] (1,1)--(1,3);
+\draw[very thick,blue] (3,1)--(3,3);
+\draw[very thick,blue] (1,3)--(3,3);
+\end{tikzpicture}
+\end{center}
+À nouveau, très facile : un petit carré dont la longueur de côté est 1 rentre exactement 4 fois dans ce carré, son aire est donc 4. \\
+~\\
+Les Anciens Grecs se sont rapidement rendus compte qu'ils pouvaient calculer l'aire de n'importe quel carré. Ils se sont alors demandés s'ils pouvaient faire de même avec les rectangles. Par exemple, quelle est l'aire du rectangle ci-dessous ?
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes
+\draw[very thick,blue] (1,0)--(1,2);
+\draw[very thick,blue] (1,0)--(4,0);
+\draw[very thick,blue] (1,2)--(4,2);
+\draw[very thick,blue] (4,0)--(4,2);
+\end{tikzpicture}
+\end{center}
+Cette fois-ci, 3 petits carrés dont la longueur de côté est 1 rentrent exactement dans ce rectangle, son aire est donc 3. \\
+Pour les rectangles, les Anciens Grecs se sont également assez vite rendus compte que ce n'était également pas très difficile. Il suffisait de multiplier la longueur par la largeur pour obtenir l'aire. \\
+~\\
+Les Anciens Grecs se sont alors intéressés aux triangles. Par exemple, quelle est l'aire du triangle ci-dessous ?
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes
+\draw[very thick,blue] (1,1)--(2,1);
+\draw[very thick,blue] (1,1)--(2,5);
+\draw[very thick,blue] (2,1)--(2,5);
+\end{tikzpicture}
+\end{center}
+\newpage
+Cette fois-ci, ils ont dû un peu chercher. Ils se sont finalement aperçus qu'en reproduisant le triangle de façon symétrique sur un de ses côtés, on obtenait un rectangle :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes
+\draw[very thick,blue] (1,1)--(2,1);
+\draw[very thick,blue] (1,1)--(2,5);
+\draw[very thick,blue] (2,1)--(2,5);
+\draw[very thick,blue,dotted] (1,1)--(1,5);
+\draw[very thick,blue,dotted] (1,5)--(2,5);
+\end{tikzpicture}
+\end{center}
+Ce rectangle a une aire de 4. Dès lors, le triangle de départ doit avoir une aire de 2. \\
+Cette construction géométrique pour trouver l'aire d'un triangle est en fait à l'origine de la formule pour calculer l'aire d'un triangle : on multiplie la longueur d'une des hauteurs du triangle par la longueur de la base correspondante (ce qui donne l'aire du rectangle de la construction géométrique), puis on divise par 2 (ce qui donne l'aire du triangle). \\
+~\\
+En s'inspirant de la construction géométrique utilisée pour calculer l'aire de certains triangles, les Anciens Grecs sont également parvenus à calculer les aires de beaucoup d'autres figures telles que les parallélogrammes, les trapèzes et même des figures plus complexes comme celle ci-dessous :\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes
+\draw[very thick,blue] (1,1)--(2,0);
+\draw[very thick,blue] (2,0)--(4,2);
+\draw[very thick,blue] (4,2)--(4,4);
+\draw[very thick,blue] (4,4)--(3,3);
+\draw[very thick,blue] (3,3)--(1,4);
+\draw[very thick,blue] (1,4)--(1,1);
+\end{tikzpicture}
+\end{center}
+En effet, une fois que l'on possède une formule pour l'aire d'un triangle quelconque, le calcul de l'aire de n'importe quelle figure avec un nombre fini de côtés rectilignes est aisé : il suffit de décomposer la figure en petits triangles (de la façon dont on le souhaite), calculer les aires de ces petits triangles et additionner celles-ci. Par exemple :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes
+\draw[very thick,blue] (1,1)--(2,0);
+\draw[very thick,blue] (2,0)--(4,2);
+\draw[very thick,blue] (4,2)--(4,4);
+\draw[very thick,blue] (4,4)--(3,3);
+\draw[very thick,blue] (3,3)--(1,4);
+\draw[very thick,blue] (1,4)--(1,1);
+\draw[very thick,blue,dotted] (1,3)--(3,3);
+\draw[very thick,blue,dotted] (2,0)--(2,3);
+\draw[very thick,blue,dotted] (1,1)--(2,1);
+\draw[very thick,blue,dotted] (1,3)--(2,1);
+\draw[very thick,blue,dotted] (2,2)--(4,2);
+\draw[very thick,blue,dotted] (2,2)--(3,3);
+\end{tikzpicture}
+\end{center}
+On calcule ici que l'aire de la figure vaut 8. \\
+~\\~\\~\\
+À ce stade, les Anciens Grecs étaient très fiers et très contents, ils savaient calculer l'aire de n'importe quelle figure avec un nombre fini de côtés rectilignes. Mais un jour, quelqu'un a eu la bonne idée de se demander qu'elle était l'aire de la figure suivante :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes
+\draw[very thick,blue] (0,0)--(2,0);
+\draw[very thick,blue] (2,0)--(2,4);
+\draw[very thick,blue] plot[domain=0:2](\x,{\x * \x});
+\end{tikzpicture}
+\end{center}
+Un triangle... dont un côté est arrondi. En fait, le côté arrondi est un boût de parabole : il s'agit du graphe de la fonction carrée limité aux abscisses entre 0 et 2. \\
+Et là, les Anciens Grecs ont été bloqués. Ils ne parvenaient pas à calculer facilement l'aire de cette figure. En fait, il n'était même pas clair que cette figure avait une aire bien définie au sens qu'il n'était absoluement pas intuitif qu'il était possible de découper un certain nombre d'unités d'aires de façon à remplir exactement la figure. \newpage
+Plus de 2000 ans plus tard, grâce aux mathématiques, nous savons comment définir proprement ce qu'est l'aire d'une telle figure et comment la calculer : son aire vaut exactement $\frac{8}{3}$. Un des objectifs principaux de ce chapitre est d'apprendre à calculer l'aire d'une telle figure. Mais avant de savoir calculer quoi que ce soit, il nous faut nous assurer que nous savons de quoi nous parlons. Pour cette raison, nous allons commencer par construire une définition de l'intégrale d'une fonction (intégrable), qui est la notion qui formalise l'idée d'aire (orientée) sous le graphe d'une fonction (intégrable).
+
+\chapter{Définition d'intégrale}
+
+Nous allons construire petit à petit la définition d'intégrale, qui est la définition la plus complexe que vous rencontrerez dans votre cours de mathématiques de sixième année secondaire. Pour ce faire, nous allons partir de l'exemple proposé dans l'introduction :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes\grille
+\draw[very thick,blue] (0,0)--(2,0);
+\draw[very thick,blue] (2,0)--(2,4);
+\draw[very thick,blue] plot[domain=0:2](\x,{\x * \x});
+\end{tikzpicture}
+\end{center}
+Nous cherchons donc à déterminer ce qu'est \og l'aire \fg{} sous la courbe du graphe de la fonction :
+\begin{align*}
+f : [0;2] & \to \rr \\
+x \mapsto& x^2
+\end{align*}
+Même si nous ne savons pas encore précisément ce que nous entendons par l'aire de cette figure, tout le monde s'accordera à dire qu'on peut l'approximer. Par exemple, si nous calculons la somme des aires des deux petits rectangles ci-dessous.
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes\grille
+\draw[very thick,blue] (0,0)--(2,0);
+\draw[very thick,blue] (2,0)--(2,4);
+\draw[very thick,blue] plot[domain=0:2](\x,{\x * \x});
+\draw[very thick,red,dotted] (0,0)--(1,0);
+\draw[very thick,red,dotted] (0,0)--(0,1);
+\draw[very thick,red,dotted] (1,0)--(1,1);
+\draw[very thick,red,dotted] (0,1)--(1,1);
+\draw[very thick,red,dotted] (1,0)--(2,0);
+\draw[very thick,red,dotted] (1,0)--(1,4);
+\draw[very thick,red,dotted] (1,4)--(2,4);
+\draw[very thick,red,dotted] (2,0)--(2,4);
+\end{tikzpicture}
+\end{center}
+Il est raisonnable d'affirmer que 5 est une approximation de l'aire de que nous cherchons à déterminer. \\
+Intuitivement, nous sommes même capables de mieux : quitte à prendre davantage de petits rectangles et à diminuer la largeur de ceux-ci, notrer erreur devrait diminuer. Par exemple :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes\grille
+\draw[very thick,blue] (0,0)--(2,0);
+\draw[very thick,blue] (2,0)--(2,4);
+\draw[very thick,blue] plot[domain=0:2](\x,{\x * \x});
+
+\draw[very thick,red,dotted] (0,0)--(0.5,0);
+\draw[very thick,red,dotted] (0,0)--(0,0.25);
+\draw[very thick,red,dotted] (0.5,0)--(0.5,0.25);
+\draw[very thick,red,dotted] (0,0.25)--(0.5,0.25);
+
+\draw[very thick,red,dotted] (0.5,0)--(1,0);
+\draw[very thick,red,dotted] (0.5,0)--(0.5,1);
+\draw[very thick,red,dotted] (1,0)--(1,1);
+\draw[very thick,red,dotted] (0.5,1)--(1,1);
+
+\draw[very thick,red,dotted] (1,0)--(1.5,0);
+\draw[very thick,red,dotted] (1,0)--(1,2.25);
+\draw[very thick,red,dotted] (1,2.25)--(1.5,2.25);
+\draw[very thick,red,dotted] (1,2.25)--(1.5,2.25);
+
+\draw[very thick,red,dotted] (1.5,0)--(1.75,0);
+\draw[very thick,red,dotted] (1.5,0)--(1.5,3.0625);
+\draw[very thick,red,dotted] (1.5,3.0625)--(1.75,3.0625);
+\draw[very thick,red,dotted] (1.5,3.0625)--(1.75,3.0625);
+
+\draw[very thick,red,dotted] (1.75,0)--(2,0);
+\draw[very thick,red,dotted] (1.75,0)--(1.75,4);
+\draw[very thick,red,dotted] (1.75,4)--(2,4);
+\draw[very thick,red,dotted] (2,0)--(2,4);
+\end{tikzpicture}
+\end{center}
+Dans ce cas-ci, la somme des aires des petits rectangles est égale à :
+$$\frac{1}{2}*(\frac{1}{2})^2 + \frac{1}{2}*(1)^2 + \frac{1}{2}*(\frac{3}{2})^2 + \frac{1}{4} * (\frac{7}{4})^2 + \frac{1}{4}*(2)^2 = \frac{225}{64} = 3.515625$$
+(Notons que l'on se rapproche déjà du $\frac{8}{3}$ annoncé plus haut.) \\
+~\\
+Bien entendu, nous pouvons encore et encore améliorer notre approximation en exigeant des longueurs maximales pour les rectangles toujours plus petites. Néanmoins, toutes ces approximations, aussi bonnes seront-elles, seront des approximations. \newpage
+L'idée géniale des mathématiciens, d'un niveau d'abstraction peut-être nouveau pour vous, entre alors en jeu : puisque nous sommes tous d'accord que ces approximations obtenues avec notre méthode des rectangles sont des approximations de ce que nous cherchons à définir (l'intégrale de la fonction, ce qui correspond géométriquement à l'aire délimitée par le graphe de cette fonction) et que ces approximations peuvent être rendue de plus en plus précises quitte à augmenter le nombre de petits rectangles utilisés et à diminuer leurs largeurs, pourquoi ne pas définir l'intégrale de cette fonction... comme un nombre qui a la propriété de pouvoir être approximé aussi bien qu'on le souhaite avec cette méthode des rectangles à condition de prendre suffisament de rectangles dont la longueur de la base est assez petite pour une erreur maximale donnée ? \\
+La propriété qu'on associe intuitivement à ce que devrait être la notion d'intégrale... est choisie comme définition ! Cela vous surprend peut-être, mais il s'agit en fait d'une procédure standard pour construire une définition. Si nous cherchons par exemple à définir ce qu'est une baleine, nous pouvons lister les propriétés que possèdent toutes les baleines (mammifère marin, de l'ordre des cétacés, posséde des fanons, se nourrit principalement de plancton) et choisir comme définition pour baleine la caractérisation donnée par l'ensemble de ces propriétés (\og Une baleine est un mammifère marin, de l'ordre des cétacés, qui possède des fanons et qui se nourrit principalement de plancton. \fg{}). \\
+Pour résumer, l'idée intuitive de définition pour l'intégrale d'une fonction est donc la suivante : si on a une fonction $f : [a;b] \to \rr$ une fonction définie sur un intervalle compact\footnote{Un intervalle compact est un intervalle de la forme $[a;b]$ avec $a,b \in \rr$ et $a \le b$.}, on aimerait définir son intégrale comme un nombre qui peut être approximé aussi bien qu'on le souhaite par la méthode des rectangles présentées ci-dessus, à condition de prendre assez de petits rectangles et faire en sorte que leurs largeurs soient assez petites. \\
+Il nous faut à présent préciser et formaliser cette définition. Pour ce faire, nous allons introduire quelques notions. Commençons avec celle de subdivision d'un intervalle (compact). Cette notion correspond au choix des bases des petits rectangles dans la construction ci-dessus.
+\begin{déf}
+Soit un intervalle compact $I = [a;b]$. \\
+Une \emph{subdivision} de $I$ (de taille $n$ ($n \in \nn$)) est un ensemble de $n$ sous-intervalles de $I$ :
+$$\left\{[a_1;b_1];[a_2;b_2];...;[a_n;b_n]\right\}$$
+tels que :
+\begin{itemize}
+\item [$\bullet$] $a_1 = a$
+\item [$\bullet$] $b_n = b$
+\item [$\bullet$] $b_1 = a_2$, $b_2=a_3$, ..., $b_{n-1} = a_n$
+\end{itemize}
+\end{déf}
+Une subdivision d'un intervalle compact n'est donc rien d'autre qu'un \textit{bon} découpage de cet intervalle, bon dans le sens où ce découpage commence au début de l'intervalle, termine à la fin de l'intervalle et ne loupe aucun morceau de l'intervalle.
+\begin{exe}
+Soit l'intervalle $I = [0;2]$. Une subdivision de $I$ est par exemple :
+$$\left\{[0;\frac{1}{4}];[\frac{1}{4};1];[1;\frac{3}{2}];[\frac{3}{2};2]\right\}$$
+\end{exe}
+Nous pouvons améliorer la notion de subdivision d'un intervalle compact en celle de subdivision pointée en choisissant un point (n'importe lequel) à l'intérieur de chaque sous-intervalle. Ces points vont nous permettre de déterminer les hauteurs des petits rectangles dans la construction présentée ci-dessus.
+\begin{déf}
+Soit un intervalle compact $I = [a;b]$. \\
+Une \emph{subdivision pointée} de $I$ (de taille $n$ ($n \in \nn$)) est une subdivision pointée de $I$ pour laquelle on a associé à chaque sous-intervalle un point de ce sous intervalle :
+$$\left\{([a_1;b_1];c_1);([a_2;b_2];c_2);...;([a_n;b_n];c_n)\right\}$$
+On doit donc avoir $c_1 \in [a_1;b_1]$, $c_2 \in [a_2;b_2]$, ..., $c_n \in [a_n;b_n]$.
+\end{déf}
+Un exemple :
+\begin{exe}
+Soit l'intervalle $I = [0;2]$. Une subdivision pointée de $I$ est par exemple :
+$$\left\{([0;\frac{1}{4}];\frac{1}{5});([\frac{1}{4};1];1);([1;\frac{3}{2}];\frac{2}{3});([\frac{3}{2};2];\frac{3}{2})\right\}$$
+\end{exe}
+Pour désigner \og la somme des aires des petits rectangles \fg, on utilise en général le terme de somme de Riemann :
+\begin{déf}
+Soit un intervalle compact $I = [a;b]$. Soit $f : I \to \rr$. Soit une subdivision pointée de $I$ (de taille $n$ ($n \in \nn$)) :
+$$\left\{([a_1;b_1];c_1);([a_2;b_2];c_2);...;([a_n;b_n];c_n)\right\}$$
+La \emph{somme de Riemann} associée à $f$ et à la subdivision pointée de $I$ choisie est le nombre :
+$$\sum\limits_{i=1}^{n} (b_i - a_i) f(c_i)$$
+\end{déf}
+Surtout, n'étudiez pas la formule de la définition de somme de Riemann sans la comprendre. Cette formule s'obtient directement en exprimant en fonction des données ce à quoi est égal la somme des petits rectangles dont les bases sont les sous-intervalles $[a_1;b_1];[a_2;b_2];...;[a_n;b_n]$ et dont les hauteurs sont égales à $f(c_1), f(c_2),...,f(c_n)$ !
+\begin{exe}
+Soit l'intervalle $I = [0;2]$. \\
+Soit la fonction :
+\begin{align*}
+f : I &\to \rr \\
+x \mapsto & 2x+1
+\end{align*}
+Soit la subdivision pointée de $I$ suivante :
+$$\left\{([0;\frac{1}{4}];\frac{1}{5});([\frac{1}{4};1];1);([1;\frac{3}{2}];\frac{2}{3});([\frac{3}{2};2];\frac{3}{2})\right\}$$
+La somme de Riemann associée à $f$ et à cette subdivision pointée est :
+$$(\frac{1}{4}-0)(2(\frac{1}{5})+1)+(1-\frac{1}{4})(2(1)+1) + (\frac{3}{2}-1)(2(\frac{2}{3})+1) + (2-\frac{3}{2})(2(2)+1)={}$$
+$$\frac{1}{4}.\frac{7}{5}+\frac{3}{4}.3 + \frac{1}{2}.\frac{7}{3}+\frac{1}{2}.5 = {}$$
+$$\frac{94}{15}$$
+\end{exe}
+Nous sommes presque en mesure de donner la définition exacte d'intégrale, nous avons encore besoin de la notion de jauge et de la notion de subdivision pointée subordonnée à une jauge. C'est ce qui va nous permettre de contrôler la largeur des petits rectangles pour une subdivision pointée (et pour la somme de Riemann associée).
+\begin{déf}
+Une \emph{jauge} est une fonction $\delta : \rr \to \rr$ strictement positive.
+\end{déf}
+\begin{exe}
+La fonction $\delta : \rr \to \rr$ telle que pour tout $x \in \rr$ on ait $\delta(x) = |x|+1$ est une jauge.
+\end{exe}
+Les jauges seront ce qui contrôle la largeur maximale des sous-intervalles d'une subdivision pointée (autrement dit la largeur maximale des bases des petits rectangles d'une somme de Riemann). \newpage
+\begin{déf}
+Soit un intervalle compact $I = [a;b]$. Soit $\delta : \rr \to \rr$ une jauge. Soit une subdivision pointée de $I$ (de taille $n$ ($n \in \nn$)) :
+$$\left\{([a_1;b_1];c_1);([a_2;b_2];c_2);...;([a_n;b_n];c_n)\right\}$$
+On dit que la subdivision pointée est \emph{subordonnée à $\delta$}, ou \emph{$\delta$-fine}, si on a :
+\begin{itemize}
+\item [$\bullet$] $(b_1 -a_1) \le \delta(c_1)$
+\item [$\bullet$] $(b_2 -a_2) \le \delta(c_2)$\\
+\vdots
+\item [$\bullet$] $(b_n -a_n) \le \delta(c_n)$
+\end{itemize}
+\end{déf}
+Que signifie qu'une subdivision pointée est $\delta$-fine pour une jauge $\delta$ donnée ? Intuitivement, on peut dire que cette subdivision \og passe le contrôle \fg{} de $\delta$, ce contrôle consistant à la vérification des largeurs de chaque sous-intervalle, celles-ci doivent être respectivement plus petites ou égales aux valeurs $\delta(c_1),\delta(c_2),...,\delta(c_n)$.
+\begin{exe}
+Soit l'intervalle $I = [0;2]$. Soit la subdivision pointée de $I$ suivante :
+$$\left\{([0;\frac{1}{4}];\frac{1}{5});([\frac{1}{4};1];1);([1;\frac{3}{2}];\frac{2}{3});([\frac{3}{2};2];\frac{3}{2})\right\}$$
+Soit la jauge :
+\begin{align*}
+\delta : \rr &\to \rr \\
+x \mapsto & |x|+1
+\end{align*}
+La subdivision est $\delta$-fine. En effet, on a bien :
+\begin{itemize}
+\item [$\bullet$] $(\frac{1}{4} -0) \le |\frac{1}{5}|+1$
+\item [$\bullet$] $(1-\frac{1}{4}) \le |1|+1$
+\item [$\bullet$] $(\frac{3}{2} -1) \le |\frac{2}{3}|+1$
+\item [$\bullet$] $(2 -\frac{3}{2}) \le |\frac{3}{2}|+1$
+\end{itemize}
+\end{exe}
+\newpage
+Nous sommes enfin en mesure de donner la définition d'intégrale. Pour bien comprendre cette définition complexe, gardons sous les yeux notre définition intuitive : \\
+\og Une intégrale d'une fonction $f : [a;b] \to \rr$ est un nombre qui peut être approximé aussi bien qu'on le souhaite par la méthode des rectangles présentées ci-dessus, à condition de prendre assez de petits rectangles et faire en sorte que leurs largeurs soient assez petites.  \fg{}
+La définition rigoureuse n'est rien d'autre que la traduction précise avec le vocabulaire adéquat de cette définition intuitive.
+\begin{déf}
+Soit un intervalle compact $I = [a;b]$. Soit $f : I \to \rr$. \\
+On dit que $f$ a une intégrale $A \in \rr$ si pour toute précision\footnote{(qui correspond à l'erreur maximale qu'on accepte pour les approximations de $A$)} $\epsilon > 0$, on peut construire une jauge\footnote{(qui va imposer des largeurs maximales pour les bases des petits rectangles des sommes de Riemann, plus $\epsilon$ est petit, plus $\delta$ devra être exigeante)} $\delta$ telle que pour toute subdivision pointée $\{([a_1;b_1];c_1);([a_2;b_2];c_2);...;([a_n;b_n];c_n)\}$ de $I$ qui est $\delta$-fine, l'erreur commise par la somme de Riemann associée à $f$ et à cette subdivision pointée soit plus petite ou égale à $\epsilon$, c'est-à-dire qu'on ait :
+$$\left\|A - \sum\limits_{i=1}^{n} (b_i - a_i) f(c_i) \right\| \le \epsilon$$
+\end{déf}
+~\\~\\~\\
+Donnons immédiatement plusieurs remarques importantes :
+\begin{rema}
+La définition parle bien d'\textbf{une} intégrale d'une fonction $f : [a;b] \to \rr$ et non de \textbf{LA} intégrale d'une telle fonction. En effet, a priori, si on se base uniquement sur la définition, rien ne nous assure qu'une fonction $f : [a;b] \to \rr$ ne pourrait pas avoir plusieurs intégrales. Néanmoins, cette idée est totalement incompatible avec l'idée intuitive initiale qui nous a menés à la définition d'intégrale, celle d'aire délimitée par le graphe d'une fonction. Comment le graphe d'une fonction pourrait-elle délimiter une surface... qui a plusieurs aires différentes ? Heureusement, il est possible de démontrer à partir de la définition d'intégrale que si une fonction $f : [a;b] \to \rr$ possède une intégrale, celle-ci est nécessairement unique :
+\begin{thé}
+Soit $I$ un intervalle compact. Soit $f : I \to \rr$. \\
+Si $f$ possède une intégrale $A \in \rr$, cette intégrale est unique.
+\end{thé}
+Malheureusement, la démonstration de ce théorème dépasse le cadre de ce cours. Nous considérerons donc ce théorème comme acquis.
+\end{rema}
+\newpage
+\begin{rema}
+De la même manière que la définition d'intégrale ne garantit pas a priori l'unicité de l'intégrale d'une fonction $f : [a;b] \to \rr$, elle ne garantit pas non plus a priori qu'il existe nécessairement une intégrale pour n'importe quelle fonction de ce type. Malheureusement, contrairement à l'unicité, l'existence n'est pas toujours garantie. Il existe des fonctions étranges qui n'ont pas d'intégrales (autrement dit, des fonctions dont le graphe délimite une \og surface \fg{} à laquelle il n'est pas possible d'attribuer une aire. Tristement, la présentation d'une telle fonction dépasse également le cadre de ce cours, mais sachez que de telles fonctions existent (certaines d'entre elles sont vraiment étranges et nous n'en rencontrerons pas dans le cadre de ce cours). \\
+~\\
+Lorsqu'une fonction possède une intégrale, on dit que cette fonction est \emph{intégrable}.
+\end{rema}
+\vspace{0.5cm}
+\begin{rema}
+L'interprétation géométrique de l'intégrale d'une fonction $f : [a;b] \to \rr$ intégrable n'est en fait pas tout à fait l'aire délimitée par le graphe de cette fonction. En effet, une intégrale peut être négative alors qu'une aire est toujours positive. L'interprétation géométrique de l'intégrale est en fait celle d'\emph{aire orientée} : toute aire comprise au-dessus de l'axe des abscisses est comptabilisée positivement, tandis que toute aire comprise en dessous de l'axe des abscisses est comptabilisée négativement. Cette notion d'aire orientée peut sembler un peu artificielle de prime abord, mais elle est moins contraignante que celle d'aire et son intérêt deviendra de plus en plus évident, au fur et à mesure que nous progresserons.
+\end{rema}
+\begin{rema}
+L'aire (orientée) de la surface délimitée par le graphe d'une fonction $f : [a;b] \to \rr$ est \emph{définie} comme son intégrale, \textbf{ET NON L'INVERSE}. Considérer que l'intégrale d'une fonction $f : [a;b] \to \rr$ (qui est positive) est définie comme l'aire de la surface délimitée par son graphe témoigne d'une mécompréhension complète de la notion d'intégrale (comme nous l'avons dit ci-dessus, certaines fonctions $f : [a;b] \to \rr$ délimitent même des \og surfaces \fg{} auxquelles il n'est pas possible de leur attribuer une aire). Pourtant, cette erreur se retrouve dans énormément de manuels mathématiques, ainsi que sur la page wikipédia dédiée à l'intégration. \\
+Cette erreur est vraiment préoccupante parce qu'elle témoigne d'une erreur de logique : c'est justement parce que nous ne savions pas précisément ce qu'est l'aire de la surface délimitée par une fonction $f : [a;b] \to \rr$ que nous avons dû construire la notion d'intégrale pour y donner sens. Définir l'intégrale d'une fonction $f : [a;b] \to \rr$ (qui est positive) comme l'aire de la surface délimitée par son graphe revient à donner une définition circulaire ou sans fondement, dont le sens est vide.
+\end{rema}
+\newpage
+\begin{rema}
+Notre superbe définition d'intégrale d'une fonction $f : [a;b] \to \rr$ permet donc de définir rigoureusement et de parler sans équivoque de l'aire (orientée) de la surface délimité par le graphe d'une telle fonction. Mais un point doit très probablement vous tourmenter à ce stade... \\
+En effet, cette définition semble complétement inutilisable ! Non seulement elle est très complexe, mais elle est formulée de telle manière qu'elle ne nous permet que de \textbf{vérifier} si un nombre est l'intégrale d'une fonction $f : [a;b] \to \rr$, elle ne nous permet pas de \textbf{trouver et calculer} une intégrale. \\
+Effectivement, dans un premier temps, cette définition peut sembler peu utile. Heureusement, comme nous verrons plus loin, les mathématiciens sont parvenus à démontrer un incroyable résultat à partir de cette définition, le théorème fondamental de l'analyse, qui permet de trouver et calculer l'intégrale d'une fonction intégrable. Mais avant de découvrir celui-ci, nous allons devoir explorer certaines des propriétés élémentaires des intégrales, il va donc falloir faire preuve d'encore un peu de patience.
+\end{rema}
+Pour terminer cette section, vérifions sur un exemple que la définition d'intégrale correspond à notre intuition initiale. Il est à noter que cet exemple est volontairement un peu trivial et qu'il ne vous sera jamais demandé d'être capable de justifier qu'une fonction possède une intégrale donnée $A \in \rr$ à partir de la définition, comme cela va être réalisé dans l'exemple ci-dessous.
+\begin{exo}
+Considérons la fonction :
+\begin{align*}
+f : [0;3] &\to \rr \\
+x \mapsto & 2
+\end{align*}
+Son graphe est le suivant :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes
+\draw[very thick,blue] plot[domain=0:3](\x,{2});
+\end{tikzpicture}
+\end{center} \newpage
+Si notre définition d'intégrale correspond à notre intuition, cette fonction devrait avoir comme intégrale $6$. Vérifions à partir de la définition que c'est le cas. \\
+Soit $\epsilon > 0$ (aussi petit qu'on le souhaite). Si je prends par exemple comme jauge la jauge suivante :
+\begin{align*}
+\delta : \rr &\to \rr \\
+x \mapsto & 1
+\end{align*}
+alors pour n'importe quelle subdivision pointée $\left\{([a_1;b_1];c_1);([a_2;b_2];c_2);...;([a_n;b_n];c_n)\right\}$ de $[0;3]$ qui est $\delta$-fine (c'est-à-dire dans ce cas-ci (étant donné la jauge choisie) telle que les largeurs des sous-intervalles $[a_1;b_1],[a_2;b_2],...,[a_n;b_n]$ sont toutes plus petites que $1$), on a :
+$$\sum\limits_{i=1}^{n} (b_i - a_i) f(c_i) ={}$$
+$$ (b_1 - a_1)f(c_1) + (b_2 - a_2)f(c_2) + ... + (b_n - a_n)f(c_n) = {}$$
+$$ (b_1 - a_1)2 + (b_2 - a_2)2 + ... + (b_n - a_n)2 = {}$$
+$$2. \Big( (b_1 - a_1) + (b_2 - a_2) + ... + (b_n - a_n) \Big) = {}$$
+$$2(b_n - a_1) = {}$$
+$$ 2(3-0)={}$$
+$$6$$
+En conclusion, on a $\left\|6 - \sum\limits_{i=1}^{n} (b_i - a_i) f(c_i) \right\| = \left\|6 - 6 \right\| = 0$ et donc :
+$$\left\|6 - \sum\limits_{i=1}^{n} (b_i - a_i) f(c_i) \right\| \le \epsilon$$
+Comme la fonction est constante, les sommes de Riemann l'approximent parfaitement, raison pour laquelle la différence entre les sommes de Riemann et l'intégrale est $0$. En général, ce n'est pratiquement jamais le cas.
+\end{exo}
+\newpage
+\begin{nota}
+Si on a une fonction $f : [a;b] \to \rr$ intégrable, il existe plusieurs façon de noter son intégrale : \\
+\begin{itemize}
+\item [$\bullet$] $\int_{[a;b]} f$ : \og l'intégrale de la fonction $f$ sur l'intervalle $[a;b]$ \fg{}\\
+\item [$\bullet$] $\int_{a}^{b} f$ : \og l'intégrale de $a$ à $b$ de la fonction $f$ \fg{}\\
+\item [$\bullet$] $\int_{a}^{b} f$ : \og l'intégrale de $a$ à $b$ de la fonction dont l'expression est $f(x)$ avec comme variable d'intégration $dx$ \fg{}
+\end{itemize}~\\
+Nous utiliserons dans un premier temps les deux premières notations, mais nous passerons ensuite à la troisième lorsque nous commencerons à calculer des intégrales (l'intérêt de cette troisième notation deviendra alors clair).
+\end{nota}
+~\\
+\begin{rema}
+La définition de l'intégrale donnée dans ce cours est celle de l'intégrale de Kurzweil-Henstock. Cette définition est relativement jeune et son ancêtre est l'intégrale de Riemann, dont la définition est identique à ceci près que les jauges utilisées sont uniquement les jauges constantes. Cette limitation permet une définition légèrement plus simple, mais nettement inférieure.
+\end{rema}
+
+\chapter{Propriétés élémentaires de l'intégrale}
+
+Même si nous ne sommes pas encore capable de calculer des intégrales, nous pouvons déjà lister quelques propriétés élémentaires de cette notion. \\
+Commençons avec deux résultats qui permettront de nous assurer que les fonctions que nous manipulons sont bien intégrables :
+\begin{pro}
+Soit une fonction $f : [a;b] \to \rr$. \\
+Si $f$ est monotone sur $[a;b]$ (c'est-à-dire soit toujours croissante, soit toujours décroissante), alors $f$ est intégrable sur $[a;b]$.
+\end{pro}
+\begin{proof}
+Malheureusement, nous ne démontrerons pas cette proposition dans ce cours.
+\end{proof}
+Cette première condition d'intégrabilité permet déjà de justifier l'intégrabilité d'énormément de fonctions (y compris celle de l'introduction), mais la suivante est celle qui permet de justifier l'intégrabilité de toutes les fonctions de référence sur un intervalle compact :
+\begin{pro}
+Soit une fonction $f : [a;b] \to \rr$. \\
+Si $f$ est continue sur $[a;b]$, alors $f$ est intégrable sur $[a;b]$.
+\end{pro}
+\begin{proof}
+Malheureusement, nous ne démontrerons pas cette proposition dans ce cours.
+\end{proof}
+Comme toutes les fonctions de référence sont continues et que toute fonction construite à partir de fonctions continues et des opérations d'addition, de soustraction, de multiplication, de division et de composition sont continues, cette proposition garantit l'intégrabilité sur n'importe quel intervalle compact de la (quasi) totalité des fonctions qu'on rencontre dans un cours de mathématiques de secondaire. \\
+~\\
+Maintenant que nous avons de quoi nous assurer que certaines fonctions sont intégrables, donnons quelques propriétés de l'intégrale.
+\begin{pro} [Additivité de l'intégrale]
+Soit une fonction $f : [a;b] \to \rr$ et soit $p \in [a;b]$. \\
+Si $f$ est intégrale sur $[a;p]$ et si $f$ est intégrable sur $[p;b]$, alors $f$ est intégrable sur $[a;b]$ et on a :
+$$\int_{a}^{p} f + \int_{p}^{b} f = \int_{a}^{b} f$$
+\end{pro}
+\begin{proof}
+Malheureusement, nous ne démontrerons pas cette proposition dans ce cours.
+\end{proof}
+L'additivité de l'intégrale ne devrait surprendre personne étant donné l'interprétation géométrique de l'intégrale (aire orientée) : elle correspond à la propriété d'additivité de l'aire. \\
+~\\
+En un certain sens, la proposition suivante également. Il s'agit de la linéarité de l'intégrale.
+\begin{pro} [Linéarité de l'intégrale]
+Soient deux fonctions $f : [a;b] \to \rr$ et $f : [a;b] \to \rr$ toutes les deux intégrables. Soit $k \in \rr$. \\
+Alors la fonction $k.f : [a;b] \to \rr$ est intégrable et on a :
+$$\int_{a}^{b} k.f = k.\int_{a}^{b} f$$
+De plus, les fonctions $f+g : [a;b] \to \rr$ et $f-g : [a;b] \to \rr$ sont intégrables et on a :
+$$\int_{a}^{b} f+g = \int_{a}^{b} f + \int_{a}^{b} g$$
+et
+$$\int_{a}^{b} f-g = \int_{a}^{b} f - \int_{a}^{b} g$$
+\end{pro}
+\begin{proof}
+Malheureusement, nous ne démontrerons pas cette proposition dans ce cours.
+\end{proof}
+Cette proposition est extrêmement pratique lorsque qu'on souhaite calculer une intégrale. Par exemple, lorsque nous souhaiterons calculer l'intégrale d'une fonction telle que :
+\begin{align*}
+h : [0;4]& \to \rr \\
+x \mapsto & x^3 + x^2
+\end{align*}
+Il nous suffira de calculer les intégrales des fonctions carrée et cubique et ensuite, d'additionner ces deux intégrales. \newpage
+Pour terminer cette section, une dernière propriété des intégrales elle aussi assez intuitive, puisqu'elle correspond en terme d'interprétation géométrique de l'intégrale à la monotonie de l'aire (orientée).
+\begin{pro} [Monotonie de l'intégrale]
+Soient deux fonctions $f : [a;b] \to \rr$ et $f : [a;b] \to \rr$ toutes les deux intégrables. Supposons que pour tout $x \in [a;b]$, on ait $f(x) \le g(x)$. \\
+Alors on a nécessairement :
+$$\int_{a}^{b} f \le \int_{a}^{b} g$$
+\end{pro}
+\begin{proof}
+Malheureusement, nous ne démontrerons pas cette proposition dans ce cours.
+\end{proof}
+
+\chapter{Le théorème fondamental de l'analyse} \label{tf}
+
+Il est temps de découvrir le magnifique et incroyable théorème fondamental de l'analyse, aussi appelé théorème fondamental du calcul différentiel et intégral. Ce théorème a véritablement été une révolution dans l'histoire de la connaissance humaine. Avant ce théorème, on ne disposait pratiquement d'aucun moyen pour calculer des intégrales et les applications sont si nombreuses et si diverses qu'on peut véritablement affirmer que notre monde d'aujourd'hui serait singulièrement différent s'il n'avait pas vu le jour. \\
+~\\
+Dans cette section, nous allons nous contenter de présenter le théorème et de comprendre son énoncé. Nous nous entraînerons ensuite à l'utiliser et lorsque nous serons convaincus de son utilité et efficacité, nous nous attaquerons à essayer d'expliquer pourquoi ce théorème est vrai et comment on peut le démontrer.\\
+\begin{large}
+\begin{thé} [Théorème fondamental de l'analyse, théorème fondamental du calcul différentiel et intégral] ~\\
+Soit $F : [a;b] \to \rr$ une fonction dérivable. Notons $f = F'$ sa dérivée. \\
+Alors $f$ est nécessairement intégrable et on a :
+$$\int_{a}^{b} f = F(b) - F(a)$$
+\end{thé} ~\\\end{large}~\\
+Comment utiliser ce théorème pour calculer une intégrale ? Voyons immédiatement cela sur l'exemple de l'introduction.
+\begin{exe}
+Considérons la fonction :
+\begin{align*}
+f : [0;2]& \to \rr \\
+x \mapsto & x^2
+\end{align*}
+Le graphe de cette fonction est le suivant :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=5, scale=1]\axes
+\draw[very thick,blue] plot[domain=0:2](\x,{\x * \x});
+\end{tikzpicture}
+\end{center}
+Cette fonction est intégrable car monotone. On souhaite calculer son intégrale, autrement dit l'aire délimitée par le graphe de cette fonction. On souhaite calculer :
+$$\int_{0}^{2} x^2 dx$$
+Le théorème fondamental nous dit que si on trouve une fonction $F : [0;2] \to \rr$ qui est dérivable telle que $F'(x) = x^2$, alors :
+$$\int_{0}^{2} x^2 dx = F(2) - F(0)$$
+Comment trouver cette fonction $F$ ? Ici, je vais vous la donner. Considérons la fonction :
+\begin{align*}
+F : [0;2]& \to \rr \\
+x \mapsto & \frac{1}{3}x^3
+\end{align*}
+Pour tout $x \in [0;2]$, on a bien $F'(x) = x^2$. Dès lors, par le théorème fondamental :
+$$\int_{0}^{2} x^2 dx =\frac{1}{3}2^3 - \frac{1}{3}0^3 = \frac{8}{3}$$
+On retrouve le nombre annoncé dans l'introduction.
+\end{exe}
+Pour calculer l'intégrale d'une fonction intégrable donnée à l'aide du théorème fondamental, il suffit donc de trouver une fonction dont la dérivée est égale à la fonction que l'on souhaite intégrer, c'est-à-dire une primitive de la fonction que l'on souhaite intégrer :
+\begin{déf}
+Soit $I$ un intervalle et soit une fonction $f : I \to \rr$. \\
+Une \emph{primitive} de $f$, généralement notée $F$, est une fonction $F : I \to \rr$ dérivable dont la dérivée est égale à $f$ : $F' = f$.
+\end{déf}
+En fait, étant donné le théorème fondamental, la principale difficulté du calcul intégral est la recherche de primitives. De la même manière qu'il a fallu apprendre à dériver de façon efficace des fonctions, il va vous falloir apprendre à primitiver de façon efficace des fonctions.
+\begin{rema}
+Une fonction peut avoir plusieurs primitives (et le théorème fondamental fonctionne avec n'importe laquelle de celles-ci, nous comprendrons plus tard pourquoi). Par exemple, voici deux primitives différentes de la fonction de l'introduction :
+\begin{align*}
+F_1 : [0;2]& \to \rr \\
+x \mapsto & \frac{1}{3}x^3
+\end{align*}
+et
+\begin{align*}
+F_2 : [0;2]& \to \rr \\
+x \mapsto & \frac{1}{3}x^3+1
+\end{align*}
+Ces deux fonctions sont dérivables et ont la même dérivée : pour tout $x \in [0;2]$, $F_1 ' (x) = x^2$ et $F_2 ' (x) = x^2$.
+\end{rema}
+Puisque nous avons besoin d'être capables de calculer des primitives de fonctions pour utiliser le théorème fondamental, la prochaine section est dédiée au calcul élémentaire de primitives.
+
+\chapter{Calcul élémentaire de primitives}
+
+La quasi totalité des techniques de base pour calculer des primitives découlent directement de ce que vous avez appris au sujet des dérivées l'année passée. En fait, la plupart des résulats proposés dans cette section sont des résultats que vous connaissez déjà, mais présenté \og à l'envers \fg{}.
+
+\section{Primitives des fonctions de référence}
+Comme échauffement, donnons un exemple de primitive pour chaque fonction de référence.
+
+\begin{pro}
+La fonction :
+\begin{align*}
+F : \rr &\to \rr \\
+x \mapsto& \frac{x^2}{2}
+\end{align*}
+est une primitive de la fonction identité.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in \rr$, on a :
+$$F'(x) = 2.\frac{x}{2} = x$$ 
+\end{proof}
+
+\begin{pro}
+Soit $k \in \rr$. La fonction :
+\begin{align*}
+F : \rr &\to \rr \\
+x \mapsto& k.x
+\end{align*}
+est une primitive de la fonction constante de constante $k$.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in \rr$, on a :
+$$F'(x) = k.1 = k$$ 
+\end{proof}
+
+\begin{pro}
+La fonction :
+\begin{align*}
+F : \rr &\to \rr \\
+x \mapsto& \frac{x^3}{3}
+\end{align*}
+est une primitive de la fonction carrée.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in \rr$, on a :
+$$F'(x) = 3.\frac{x^2}{3} = x^2$$ 
+\end{proof}
+
+\begin{pro}
+La fonction :
+\begin{align*}
+F : \rr &\to \rr \\
+x \mapsto& \frac{x^4}{4}
+\end{align*}
+est une primitive de la fonction cubique.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in \rr$, on a :
+$$F'(x) = 4.\frac{x^3}{4} = x^3$$ 
+\end{proof}
+
+\begin{pro}
+La fonction :
+\begin{align*}
+F : {{\rr}_{0}}^{+} &\to \rr \\
+x \mapsto& \frac{2}{3}.\sqrt{x^3}
+\end{align*}
+est une primitive de la fonction racine carrée.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in {{\rr}_{0}}^{+}$, on a :
+$$F'(x) = \frac{2}{3}.\frac{3}{2}.x^{\frac{1}{2}} = \sqrt{x}$$ 
+\end{proof}
+
+\begin{pro}
+La fonction :
+\begin{align*}
+F : {\rr}_{0} &\to \rr \\
+x \mapsto& \frac{3}{4}.\sqrt[3]{x^4}
+\end{align*}
+est une primitive de la fonction racine cubique.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in {\rr}_{0}$, on a :
+$$F'(x) = \frac{3}{4}.\frac{4}{3}.x^{\frac{1}{3}} = \sqrt[3]{x}$$ 
+\end{proof}
+
+\begin{pro}
+La fonction :
+\begin{align*}
+F : {\rr}_{0} &\to \rr \\
+x \mapsto& \frac{3}{4}.\sqrt[3]{x^4}
+\end{align*}
+est une primitive de la fonction racine cubique.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in {\rr}_{0}$, on a :
+$$F'(x) = \frac{3}{4}.\frac{4}{3}.x^{\frac{1}{3}} = \sqrt[3]{x}$$ 
+\end{proof}
+
+\begin{pro}
+La fonction :
+\begin{align*}
+F : \rr &\to \rr \\
+x \mapsto& \begin{cases}\frac{x^2}{2} \mbox{~~si~} x \ge 0 \\ -\frac{x^2}{2} \mbox{~~si~} x < 0\end{cases}
+\end{align*}
+est une primitive de la fonction valeur absolue.
+\end{pro}
+\begin{proof}
+Pas en math4.\\
+(Note : c'est un petit défi tout à fait à votre portée. Ce n'est pas très compliqué.)
+\end{proof}
+Les primitives des deux fonctions suivantes ne sont plus matière du cours de mathématiques de 4h/semaine (depuis deux ans), mais elles pourraient néanmoins vous être utiles un jour :
+\begin{pro}
+La fonction :
+\begin{align*}
+F : \rr &\to \rr \\
+x \mapsto& \sin(x)
+\end{align*}
+est une primitive de la fonction cosinus.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in \rr$, on a :
+$$F'(x) = \cos(x)$$ 
+\end{proof}
+\begin{pro}
+La fonction :
+\begin{align*}
+F : \rr &\to \rr \\
+x \mapsto& -\cos(x)
+\end{align*}
+est une primitive de la fonction sinus.
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in \rr$, on a :
+$$F'(x) = -(-\sin(x))=\sin(x)$$ 
+\end{proof}
+
+Et quid de la fonction inverse ? Vous aurez beau chercher parmi les fonctions que vous connaissez, aucune n'a comme dérivée la fonction inverse. Nous résoudrons ce mystère avec le prochain chapitre, dédié aux fonctions exponentielles et logarithmiques.
+
+\section{Primitives des fonctions puissances à exposant rationnel}
+On peut généraliser les résultats donnés au sujet des fonctions carré, cubique, racine carrée ou racine cubique de la section précédente. En effet, vous avez normalement vu l'année passée que pour tout $q \in {\qu}_{0}$, la fonction :
+\begin{align*}
+f : {{\rr}_{0}}^{+} &\to \rr \\
+x \mapsto& x^q
+\end{align*}
+est dérivable et on a pour tout $x \in {{\rr}_{0}}^{+}$ :
+$$f'(x) = q.x^{q-1}$$
+En \og inversant \fg{} ce résultat, on obtient la proposition suivante :
+\begin{pro}
+Soit $q \in {\qu} \backslash \{-1\}$. La fonction :
+\begin{align*}
+F : {{\rr}_{0}}^{+} &\to \rr \\
+x \mapsto& \frac{1}{q+1}.x^{q+1}
+\end{align*}
+est une primitive de la fonction :
+\begin{align*}
+f : {{\rr}_{0}}^{+} &\to \rr \\
+x \mapsto& x^q
+\end{align*}
+\end{pro}
+\begin{proof}
+La fonction $F$ est bien dérivable et pour tout $x\in {{\rr}_{0}}^{+}$, on a :
+$$F'(x) = \frac{1}{q+1}.(q+1)x^{q+1-1} = x^q$$ 
+\end{proof}
+
+\section{Linéarité de la primitivation}
+
+Puisque la dérivation de fonction est un processus linéaire, il en est de même pour la primitivation, ce qui est extrêmement pratique. Concrètement, nous avons les trois résultats ci-dessous.
+\begin{pro}
+Soit $I$ un intervalle et soient $f : I \to \rr$ et $g : I \to \rr$. Supposons avoir trouvé une primitive $F : I \to \rr$ de $f$ et une primitive $G : I \to \rr$ de $g$. \\
+Alors $(F+G) : I \to \rr$ est une primitive de $(f+g) : I \to \rr$.\end{pro}
+\begin{proof}
+Puisque $F$ et $G$ sont dérivables, la fonction $(F+G)$ aussi. \\
+Puisque la dérivée de la somme de deux fonctions dérivables est égale à la somme des dérivées des deux fonctions :
+$$(F+G)'=F'+G'=f+g$$
+\end{proof}
+\begin{pro}
+Soit $I$ un intervalle et soient $f : I \to \rr$ et $g : I \to \rr$. Supposons avoir trouvé une primitive $F : I \to \rr$ de $f$ et une primitive $G : I \to \rr$ de $g$. \\
+Alors $(F-G) : I \to \rr$ est une primitive de $(f-g) : I \to \rr$.\end{pro}
+\begin{proof}
+Puisque $F$ et $G$ sont dérivables, la fonction $(F-G)$ aussi. \\
+Puisque la dérivée de la somme de deux fonctions dérivables est égale à la somme des dérivées des deux fonctions :
+$$(F-G)'=F'-G'=f-g$$
+\end{proof}
+\begin{pro}
+Soit $I$ un intervalle et soient $k \in \rr$ et $f : I \to \rr$. Supposons avoir trouvé une primitive $F : I \to \rr$ de $f$. \\
+Alors $k.F : I \to \rr$ est une primitive de $k.f : I \to \rr$.\end{pro}
+\begin{proof}
+Puisque $F$ est dérivable, la fonction $k.F$ aussi. \\
+Puisque la dérivée du produit d'une fonction dérivable est égale au produit de la dérivée de cette fonction par cette constante :
+$$(k.F)'=k.F'=k.f$$
+\end{proof}
+
+\section{Exercices}
+
+\begin{exo}
+Grâce au théorème fondamental, calculer les intégrales des fonctions suivantes après avoir représenté la surface dont l'aire correspond à l'intégrale calculée.
+\begin{enumerate}
+\begin{multicols}{2}
+\item \begin{align*}
+f : [-2;0] &\to \rr \\
+x \mapsto& x^2
+\end{align*}
+\item \begin{align*}
+f : [\frac{\sqrt{2}}{2};\sqrt{2}] &\to \rr \\
+x \mapsto& x^3
+\end{align*}
+\item \begin{align*}
+f : [1;4] &\to \rr \\
+x \mapsto& \sqrt{x}
+\end{align*}
+\item \begin{align*}
+f : [-\pi;-1] &\to \rr \\
+x \mapsto& \sqrt[3]{x}
+\end{align*}
+\end{multicols}
+\end{enumerate}
+\end{exo}
+\newpage
+\begin{exo}
+Donner une primitive des fonctions suivantes.
+\begin{enumerate}
+\begin{multicols}{2}
+\item \begin{align*}
+f : [1;3] &\to \rr \\
+x \mapsto& \pi
+\end{align*}
+\item \begin{align*}
+f : [1;2] &\to \rr \\
+x \mapsto& x+x^2
+\end{align*}
+\item \begin{align*}
+f : [-1000;2] &\to \rr \\
+x \mapsto& 3x^7
+\end{align*}
+\item \begin{align*}
+f : [-1;\pi] &\to \rr \\
+x \mapsto& -3x^{91}+x^{17}-x^2
+\end{align*}
+\item \begin{align*}
+f : [0;10] &\to \rr \\
+x \mapsto& \pi x^{17} - 2x^{12}+1
+\end{align*}
+\item \begin{align*}
+f : [0;10] &\to \rr \\
+x \mapsto& \pi x^{17} - 2x^{12}+1
+\end{align*}
+\item \begin{align*}
+f : [1;5] &\to \rr \\
+x \mapsto& x+\frac{1}{x^2}
+\end{align*}
+\item \begin{align*}
+f : [11;\frac{125}{3}] &\to \rr \\
+x \mapsto& \frac{7}{2}\sqrt{x}-7x^2
+\end{align*}
+\item \begin{align*}
+f : [-11;-1] &\to \rr \\
+x \mapsto& \frac{4}{x^4}
+\end{align*}
+\item \begin{align*}
+f : [-11;-1] &\to \rr \\
+x \mapsto& \frac{4}{x^4}
+\end{align*}
+\item \begin{align*}
+f : [100;111] &\to \rr \\
+x \mapsto& \sqrt{x}-\frac{1}{\sqrt{x}}
+\end{align*}
+\item \begin{align*}
+f : [101;111] &\to \rr \\
+x \mapsto& 4\sqrt[3]{x^2}-\frac{2}{4\sqrt{x^3}}
+\end{align*}
+\item \begin{align*}
+f : [-1111111;-798687] &\to \rr \\
+x \mapsto& x\sqrt[3]{x}
+\end{align*}
+\item \begin{align*}
+f : [2;3] &\to \rr \\
+x \mapsto& (3x-7)^2
+\end{align*}
+\item \begin{align*}
+f : [1;\frac{3}{2}] &\to \rr \\
+x \mapsto& (2x-1)(3x+2)(x-\frac{1}{2})
+\end{align*}
+\item \begin{align*}
+f : [22;32] &\to \rr \\
+x \mapsto& \frac{x^3+1}{x^3}
+\end{align*}
+\end{multicols}
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+Un moine souhaite faire complétement restaurer un vitrail dont le contour supérieur peut être approximé par une parabole et dont la base est droite. Sachant que le vitrail est symétrique, que la base du vitrail est de 2 mètre de long et que sa hauteur est de 4 mètres, combien lui coûtera la restauration du vitrail étant donné que l'artisan lui demande 250 euros par m$^2$ ?
+\end{exo}
+
+\begin{exo}
+Quelle est l'aire de la figure ci-dessous ? \\
+Remarque : la figure est symétrique et le bord arrondi supérieur droit de la figure correspond au graphe de la fonction :
+\begin{align*}
+f : [\frac{1}{2};2] &\to \rr \\
+x \mapsto& \frac{1}{x^2}
+\end{align*}
+\begin{center}
+\begin{tikzpicture}[xmin=-5,xmax=5,ymin=-5,ymax=5, scale=1]\axes\grille
+\draw[very thick] (-0.5,4)--(0.5,4);
+\draw[very thick] (-0.5,-4)--(0.5,-4);
+\draw[very thick] (-2,0.25)--(-2,-0.25);
+\draw[very thick] (2,0.25)--(2,-0.25);
+\draw[very thick] plot[domain=0.5:2](\x,{1 / (\x * \x)});
+\draw[very thick] plot[domain=0.5:2](\x,{-1 / (\x * \x)});
+\draw[very thick] plot[domain=-2:-0.5](\x,{1 / (\x * \x)});
+\draw[very thick] plot[domain=-2:-0.5](\x,{-1 / (\x * \x)});
+\end{tikzpicture}
+\end{center}
+\end{exo}
+
+\chapter{Techniques avancées de calcul intégral}
+
+Dans cette section, nous allons découvrir certaines techniques de calcul intégral plus subtiles que celle donnée par le théorème fondamental uniquement. Ultimement, elles reposent toutes sur ce dernier, mais elles exploitent également certains résultats des dérivées dont nous n'avons pas encore vu le pendant en terme de calcul de primitives.
+
+\section{Théorème d'intégration par partie}
+
+La dérivation est un processus linéaire et il en est donc de même pour la primitivation. Malheureusement, la dérivée du produit de deux fonctions dérivables n'est par contre pas simplement le produit des dérivées des deux fonctions. \\ Rappelons le résultat suivant :
+\begin{pro}
+Soient deux fonctions $f : [a;b] \to \rr$ et $g : [a;b] \to \rr$ dérivables. \\
+Alors la fonction $f.g : [a;b] \to \rr$ est dérivable et on a :
+$$(f.g)' = f'.g + f.g'$$
+\end{pro}
+Nous allons exploiter ce résultat concernant la dérivée du produit de deux fonctions dérivables pour démontrer le théorème d'intégration par partie :
+\begin{thé} [Théorème d'intégration par partie]
+Soient $F : [a;b] \to \rr$ et $G : [a;b] \to \rr$ dérivables et $f : [a;b] \to \rr$ et $g : [a;b] \to \rr$ avec $F'=f$ et $G'=g$. \\
+Alors si les fonctions $f.G : [a;b] \to \rr$ et $F.g : [a;b] \to \rr$ sont intégrables, on a :
+$$\int_a^b f.G = [F.G]_a^b - \int_a^b F.g$$
+\end{thé}
+\begin{proof}
+La fonction $F.G : [a;b] \to \rr$ est dérivable et on a : $$(F.G)' = f.G + F.g$$. Par le théorème fondamental, on a donc :
+$$\int_a^b f.G + F.g =  \int_a^b (F.G)' = [F.G]_a^b$$
+Puisque les fonctions $f.G : [a;b] \to \rr$ et $F.g : [a;b] \to \rr$ sont intégrables, on a par linéarité de l'intégrale :
+$$\int_a^b f.G + F.g = \int_a^b f.G + \int_a^b F.g$$
+En conclusion :
+$$\int_a^b f.G + \int_a^b F.g = [F.G]_a^b$$
+$$\int_a^b f.G = [F.G]_a^b - \int_a^b F.g$$
+\end{proof}
+\begin{rema}
+Le théorème d'intégration par partie est très utile lorsqu'on souhaite intégrer une fonction dont on ne sait pas calculer directement une primitive et qui peut s'exprimer comme le produit de deux fonctions plus simples pour lesquelles on est capable de trouver facilement une primitive (ou au moins pour une des deux). Savoir bien utiliser le théorème d'intégration par partie demande un peu d'entraînement puisqu'il faut parvenir à identifier quand et comment l'utiliser, autrement dit à identifier dans des cas concrets ce qui correspond à la fonction $f : [a;b] \to \rr$ et à la fonction $G : [a;b] \to \rr$ du théorème.
+\end{rema}
+\begin{exe}
+Donnons un exemple d'intégrale qui est impossible à calculer sans le théorème d'intégration par partie, quitte à sortir légèrement du programme. Calculons l'intégrale :
+$$\int_{0}^{\frac{\pi}{2}} \cos(x).x~dx$$
+Appliquons le théorème d'intégration par partie en choisissant comme fonction $f : [0;\frac{\pi}{2}] \to \rr$ la fonction dont l'expression est $\cos(x)$ et comme fonction $G : [0;\frac{\pi}{2}] \to \rr$ la fonction dont l'expression est $x$ :
+$$\int_{0}^{\frac{\pi}{2}} \cos(x).x~dx = [\sin(x).x]_{0}^{\frac{\pi}{2}} - \int_{0}^{\frac{\pi}{2}} \sin(x).1~dx$$
+Or, par le théorème fondamental :
+$$\int_{0}^{\frac{\pi}{2}} \sin(x).1~dx = [-\cos(x)]_{0}^{\frac{\pi}{2}} = -\cos(\frac{\pi}{2} - (-\cos(0)) = 1$$
+En conclusion :
+$$\int_{0}^{\frac{\pi}{2}} \cos(x).x~dx = [\sin(x).x]_{0}^{\frac{\pi}{2}} - 1 = (\sin(\frac{\pi}{2}).\frac{\pi}{2} - \sin(0).0) - 1 = \frac{\pi}{2}-1$$
+\end{exe}
+
+\section{Méthode de substitution}
+
+De la même manière que le résultat portant sur la dérivée du produit de deux fonctions dérivables permet d'obtenir un nouveau résultat intéressant pour le calcul intégral, celui portant sur la dérivée de la composée de deux fonctions dérivables permet également d'obtenir une nouvelle technique de calcul intégral. Rappelons ce dernier :
+\begin{pro}
+Soient deux fonctions $f : [a;b] \to \rr$ et $g : [a;b] \to \rr$ dérivables. \\
+Alors la fonction $f \circ g : [a;b] \to \rr$ est dérivable et on a :
+$$(f \circ g)' = f' \circ g . g'$$
+\end{pro}
+À présent, démontrons ce que certains désignent par \og méthode de substitution (pour le calcul intégral) \fg{} :
+\begin{thé} [Méthode de substitution]
+Soient $F : [a;b] \to \rr$ et $G : [a;b] \to \rr$ dérivables et $f : [a;b] \to \rr$ et $g : [a;b] \to \rr$ avec $F'=f$ et $G'=g$. \\
+Alors la fonction $f \circ G . g : [a;b] \to \rr$ est intégrable et on a :
+$$\int_a^b f \circ G . g = [F \circ G]_a^b$$
+\end{thé}
+\begin{proof}
+La fonction $F \circ G : [a;b] \to \rr$ est dérivable donc sa dérivée, la fonction $f \circ G . g : [a;b] \to \rr$, est intégrable (par le théorème fondamental). De plus, par le théorème fondamental, on a :
+$$\int_a^b f \circ G . g = \int_a^b (F \circ G)' = [F \circ G]_a^b$$
+\end{proof}
+\begin{rema}
+La méthode de substitution est sans doute une des techniques de calcul intégral qui demande le plus d'entraînement. Non seulement il faut parvenir à identifier dans des cas concrets ce qui correspond au différents éléments constituants de la fonction $f \circ G . g : [a;b] \to \rr$, mais il est parfois nécessaire de les faire apparaître en exploitant par exemple la linéarité de l'intégrale.
+\end{rema}
+\begin{exe}
+Donnons d'abord un exemple d'intégrale qui est impossible à calculer sans la méthode de substitution où tous les éléments constituants de la fonction $f \circ G . g : [a;b] \to \rr$ du théorème apparaissent clairement :
+$$\int_{0}^{1} \frac{1}{2\sqrt{1+x^3}}.3x^2~dx$$
+On remarque que la dérivée d'une fonction $G : [0;1] \to \rr$ dont l'expression est $1+x^3$ est une fonction $g : [0;1] \to \rr$ dont l'expression est $3x^2$. En considérant $f : [0;1] \to \rr$ la fonction dont l'expression est $\frac{1}{2\sqrt{x}}$ dont une primitive est la fonction $F : [0;1] \to \rr$ dont l'expression est $\sqrt{x}$, la méthode de substitution nous dit que :
+$$\int_{0}^{1} \frac{1}{2\sqrt{1+x^3}}.3x^2~dx = [\sqrt{1+x^3}]_0^1 = \sqrt{1+1^3} - \sqrt{1+0^3}= \sqrt{2} - 1$$
+\end{exe}
+À présent, donnons un autre exemple où il faut ruser un peu (dans ce cas-ci, invoquer la linérité de l'intégrale) pour pouvoir utiliser la méthode de substitution :
+\begin{exe}
+Calculons :
+$$\int_{-1}^{1} (2x+1)^{10} dx$$
+La fonction à intégrer peut être vue comme la composée de deux fonctions : une fonction $f : [0;1] \to \rr$ dont l'expression est $x^{10}$ et une fonction $G : [0;1] \to \rr$ dont l'expression est $2x+1$. La dérivée de cette fonction $G : [0;1] \to \rr$ est la fonction $g : [0;1] \to \rr$ dont l'expression est $2$. Malheureusement, nous ne pouvons dans un premier temps pas appliquer la méthode de substitution, puisque nous ne cherchons pas à calculer l'intégrale :
+$$\int_{-1}^{1} (2x+1)^{10} . 2~dx$$
+Si nous devions calculer cette intégrale, nous pourrions appliquer la méthode de substitution car tous les éléments du théorème sont présent, y compris la fonction $g : [0;1] \to \rr$. Puisque la fonction $F : [0;1] \to \rr$ dont l'expression est $\frac{1}{11}x^{11}$ est une primitive de la fonction $f : [0;1] \to \rr$ dont l'expression est $x^{10}$, on a :
+$$\int_{-1}^{1} (2x+1)^{10} . 2~dx = [\frac{1}{11}(2x+1)^{11}]_{-1}^{1} = \frac{1}{11}(1)^{11} - \frac{1}{11}(-1)^{11} = \frac{2}{11}$$
+Malheureusement, nous ne devons pas calculer cette intégrale-ci :
+$$\int_{-1}^{1} (2x+1)^{10} . 2~dx$$
+Mais bien cette intégrale-là :
+$$\int_{-1}^{1} (2x+1)^{10}~dx$$
+Heureusement, par linéarité de l'intégrale, on a :
+$$\int_{-1}^{1} (2x+1)^{10}.1~dx = \int_{-1}^{1} (2x+1)^{10}.\frac{2}{2}~dx = \int_{-1}^{1} (2x+1)^{10}.2.\frac{1}{2}~dx = \frac{1}{2}.\int_{-1}^{1} (2x+1)^{10}.2 ~dx$$
+En conclusion, on a :
+$$\int_{-1}^{1} (2x+1)^{10}~dx = \frac{1}{2}.\int_{-1}^{1} (2x+1)^{10}.2~dx = \frac{1}{2}.\frac{2}{11} = \frac{1}{11}$$
+\end{exe}
+\section{Décomposition en fractions simples}
+Pas en math4.
+\section{Théorème de changement de variable}
+Pas en math4.
+\section{Exercices avancés de calcul d'intégral}
+Il est temps de s'entraîner à utiliser les techniques avancées de calcul intégral que nous avons développées. Il vous sera sans doute nécessaire d'y consacrer autant d'effort que vous avez consacré l'année passée au calcul de dérivées, voire plus.
+\begin{exo}
+En utilisant le théorème d'intégration par partie ou la méthode de substitution, calculer les intégrales des fonctions suivantes.
+\begin{enumerate}
+\begin{multicols}{2}
+\item \begin{align*}
+f : [1;3] &\to \rr \\
+x \mapsto& x\frac{-2}{(x+1)^3}
+\end{align*}
+\item \begin{align*}
+f : [0;1] &\to \rr \\
+x \mapsto& (4x^3-2x)(x^4-x^2+1)^9
+\end{align*}
+\item \begin{align*}
+f : [2;3] &\to \rr \\
+x \mapsto& -\frac{3x^2}{(x^3-7)^2}
+\end{align*}
+\item \begin{align*}
+f : [3;8] &\to \rr \\
+x \mapsto& x.\frac{3}{2}\sqrt{1+x}
+\end{align*}
+\end{multicols}
+\end{enumerate}
+\end{exo}
+%\begin{solu}
+%\begin{enumerate}
+%\begin{multicols}{2}
+%\item $-\frac{5}{16}$
+%\item $0$
+%\item $-\frac{19}{20}$
+%\item $\frac{538}{5}$
+%\end{multicols}
+%\end{enumerate}
+%\end{solu}
+\begin{exo}
+En invoquant la linéarité de l'intégrale afin d'utiliser le théorème d'intégration par partie ou la méthode de substitution, calculer les intégrales des fonctions suivantes.
+\begin{enumerate}
+\begin{multicols}{2}
+\item \begin{align*}
+f : [0;1] &\to \rr \\
+x \mapsto& \frac{x-2}{(x^2-4x+4)^2}
+\end{align*}
+\item \begin{align*}
+f : [-4;-3] &\to \rr \\
+x \mapsto& \frac{12x}{(x+1)^4}
+\end{align*}
+\item \begin{align*}
+f : [1;\sqrt[4]{3}] &\to \rr \\
+x \mapsto& x^3\sqrt{x^4+1}
+\end{align*}
+\item \begin{align*}
+f : [0;\sqrt{3}] &\to \rr \\
+x \mapsto& \frac{x^3}{\sqrt{x^2+1}}
+\end{align*}
+\end{multicols}
+\end{enumerate}
+\end{exo}
+%\begin{solu}
+%\begin{enumerate}
+%\begin{multicols}{2}
+%\item $-\frac{3}{8}$
+%\item $-\frac{32}{27}$
+%\item $\frac{1}{3}(4-\sqrt{2})$
+%\item $\frac{4}{3}$
+%\end{multicols}
+%\end{enumerate}
+%\end{solu}
+
+\chapter{Le théorème fondamental : le retour}
+
+\`A ce stade, nous avons appris que le fameux théorème fondamental du calcul différentiel et intégrale permettait de calculer relativement facilement des intégrales, ce que ne permettait pas de faire la définition d'intégrale. Nous avons découvert que les primitives étaient assez surprenamment une notion clé de ce théorème et nous nous avons développés des outils avancés pour calculer des intégrales complexes. \\
+Malgré tout, deux grandes questions devraient encore subsister dans vos esprits :
+\begin{large}
+\begin{enumerate}
+\item Pourquoi le théorème fondamental fonctionne-t-il ? Comment le démontrer ? Pourquoi les primitives et les dérivées interviennent-elles dans le calcul d'intégrales ?
+\item Pourquoi nous enseigne-t-on cette notion d'intégrale ? Pourquoi les intégrales (et les dérivées) sont-elles un outil aussi important en sciences et dans le développement de nouvelles technologies ?
+\end{enumerate}
+\end{large}
+En effet, ces deux questions absoluement légitimes et importantes sont toujours sans réponse. \\
+Le théorème fondamental a été présenté à la section \ref{tf} comme une solution miracle à notre problème de calcul d'intégral. Pourtant, nous ne l'avons pas démontré ni même essayé de le comprendre de façon intuitive. \\
+Il a été annoncé dans l'introduction que ce chapitre des intégrales était l'aboutissement d'un parcours en analyse des cours de mathématiques de secondaire et que la notion d'intégrale (et de dérivée, et surtout du lien qu'il existe entre ces deux notions) est un des piliers fondateurs de la science moderne et des technologies dont nous profitons aujourd'hui. Pourtant, la seule utilité que nous connaissons pour le moment aux intégrales est le calcul d'aire de surfaces délimitées par le graphe d'une fonction intégrable. \\
+Bref, il est grand temps de répondre à ces deux questions et de découvrir les mystères qui se cachent dérrière le théorème fondamental.
+
+\section{Le premier théorème fondamental de l'analyse}
+
+Le théorème fondamental présenté à la section \ref{tf} est celui que la plupart des personnes qui ont besoin des intégrales connaissent et utilisent. Pourtant, ce théorème est considéré relativement peu important par les mathématiciens. Il est d'ailleurs parfois appelé \textit{second} théorème fondamental de l'analyse\footnote{C'est par exemple le cas sur Wikipedia.}. \\
+En fait, ce second théorème fondamental, celui qui nous a permis de calculer de nombreuses intégrales, est une conséquence d'un autre théorème bien plus important, bien plus fondamental, dont découle le second théorème fondamental. \\
+Pour cette raison, découvrons le \textbf{véritable} théorème fondamental de l'analyse, celui qui est parfois appelé le \textit{premier} théorème fondamental de l'analyse. Essayons dans un premier temps de l'approcher par un exemple simple.\\
+~\\
+\begin{exe}
+Considérons la fonction :
+~\\
+\begin{align*}
+f : [0;4] &\to \rr \\
+x \mapsto& 2x
+\end{align*}
+~\\
+À présent, construisons une fonction d'une manière totalement inédite. À chaque valeur de $x$ de l'intervalle $[0;4]$, associons le nombre $\int_{0}^{x} f(t)~dt$ :
+~\\
+\begin{align*}
+F : [0;4] &\to \rr \\
+x \mapsto& \int_{0}^{x} f(t)~dt
+\end{align*}
+~\\
+Pour bien comprendre le principe de la fonction $F$, visualisons la géométriquement grâce au graphe de la fonction $f$.
+\newpage
+Voici le graphe de la fonction $f$ :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=10, scale=0.8]\axes\grille
+\draw[thick] plot[domain=0:4](\x,{\x * 2});
+\end{tikzpicture}
+\end{center}
+Que vaut par exemple $F(1)$ ? On a $F(1) = \int_{0}^{1} f(t)~dt$, ce qui correspond géométriquement (étant donné l'interprétation géométrique de l'intégrale) à l'aire sous le graphe de la fonction $f$ entre $0$ et $1$, autrement dit l'aire du triangle bleu ci-dessous :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=10, scale=0.8]\axes\grille
+\draw[thick] plot[domain=0:4](\x,{\x * 2});
+\draw[very thick,blue] (0,0)--(1,2);
+\draw[very thick,blue] (0,0)--(1,0);
+\draw[very thick,blue] (1,0)--(1,2);
+\end{tikzpicture}
+\end{center}
+On peut donc calculer la valeur de $F(1)$ purement géométriquement. Il s'agit de l'aire d'un triangle d'une base de longueur $1$ et de hauteur de longeur $2$. On a donc $F(2) = \frac{1.2}{2} = 1$. \\
+~\\
+De la même manière, que vaut par exemple $F(2)$ ? On a $F(1) = \int_{0}^{2} f(t)~dt$, ce qui correspond géométriquement (étant donné l'interprétation géométrique de l'intégrale) à l'aire sous le graphe de la fonction $f$ entre $0$ et $2$, autrement dit l'aire du triangle bleu ci-dessous :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=10, scale=0.7]\axes\grille
+\draw[thick] plot[domain=0:4](\x,{\x * 2});
+\draw[very thick,blue] (0,0)--(2,4);
+\draw[very thick,blue] (0,0)--(2,0);
+\draw[very thick,blue] (2,0)--(2,4);
+\end{tikzpicture}
+\end{center}
+On peut donc calculer la valeur de $F(2)$ purement géométriquement. Il s'agit de l'aire d'un triangle d'une base de longueur $2$ et de hauteur de longeur $4$. On a donc $F(2) = \frac{2.4}{2} = 4$. \\
+~\\
+De manière plus générale, que fait donc la fonction $F$ ? À tout nombre $x \in [0;4]$, elle associe le nombre $\int_{0}^{x} f(t)~dt$ qui correspond géométriquement à l'aire d'un triangle dont la base est de longueur $x$ et la hauteur de longueur $2x$ :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=5,ymin=-0.1,ymax=10, scale=0.7]\axes\grille
+\draw[thick] plot[domain=0:4](\x,{\x * 2});
+\draw[very thick,blue] (0,0)--(3.2,6.4);
+\draw[very thick,blue] (0,0)--(3.2,0);
+\draw[very thick,blue] (3.2,0)--(3.2,6.4);
+\draw (3.2,0) node [below] {x};
+\draw[dotted] (0,6.4)--(3.2,6.4);
+\draw (0,6.4) node [left] {2x};
+\end{tikzpicture}
+\end{center}
+Autrement dit, on a pour tout $x \in [0;4]$ : $F(x) = \frac{x.2x}{2} = x^2$.
+\newpage
+Une remarque incroyable s'impose alors : la fonction $F$ est dérivable et a comme dérivée la fonction $f$ :
+$$(x^2)' = 2x$$
+En dérivant la fonction $F$ que nous avions construite comme une \emph{intégrale indéfinie} de la fonction $f$, nous retrouvons la fonction de départ $f$ !
+\end{exe}
+Il serait raisonnable de se demander si la remarque finale de notre exemple est un hasard propre à cet exemple ou s'il constitue un cas particulier d'une vérité plus générale ? Si nous choisissions une autre fonction $f : [0;4] \to \rr$ et que nous définissions $F : [0;4] \to \rr$ de la même façon, la fonction $F$ ainsi obtenue serait-elle elle aussi une fonction dérivable dont la dérivée serait notre nouvelle fonction $f$ ? La réponse est donnée par le premier théorème fondamental de l'analyse, le \textbf{véritable} théorème fondamental de l'analyse :
+\begin{large}
+\begin{thé}[Le premier théorème fondamental de l'analyse] ~\\
+Soit $f : [a;b] \to \rr$ une fonction continue. \\
+Posons :
+\begin{align*}
+F : [a,b] &\to \rr \\
+x \mapsto& \int_{a}^{x} f(t)~dt
+\end{align*}
+(Puisque la fonction $f$ est continue, elle est intégrable sur tout intervalle $[0;x]$ avec $x \in [a;b]$. La fonction $F$ est donc bien définie.) \\
+~\\
+Alors la fonction $F$ ainsi définie est dérivable et on a :
+$$F'=f$$
+\end{thé}
+\end{large}~\\
+Comme on le voit, notre observation de notre exemple n'était pas un hasard. \\~\\
+Donnons immédiatement quelques commentaires importants au sujet du ce premier théorème fondamental de l'analyse.
+\newpage
+\begin{rema}
+C'est ce premier théorème fondamental de l'analyse qui fait que de nombreuses personnes affirment que \og les intégrales sont le processus inverse des dérivées \fg{}. Cette affirmation est grossière et peu rigoureuse\footnote{Techniquement, le processus inverse de la dérivation est plutôt la primitivation.}, mais capture bien l'idée incroyable qui est contenue dans ce premier théorème fondamental de l'analyse : il existe un lien complétement inattendu entre deux notions qui n'avaient a priori rien à voir : les intégrales et les dérivées. Contrairement au second théorème fondamental de l'analyse, celui qui nous permet de calculer des intégrales, le premier théorème fondamental de l'analyse donne ce lien de façon explicite et précise : l'intégrale indéfinie d'une fonction continue définie sur un intervalle est compact est dérivable et a comme dérivée la fonction initiale.
+\end{rema}
+\vfill
+\begin{rema}
+La fonction $F$ définie dans l'énoncé du premier théorème fondamental est ce qu'on appelle une intégrale indéfinie. Une intégrale indéfinie est une fonction dont l'expression est donnée sous la forme d'une intégrale qui dépend de la variable de la fonction $F$, le plus souvent au niveau des bornes de l'intégrale. Il faut bien faire attention à ne pas confondre ce que sont les intégrales (définies), des nombres, et ce que sont les intégrales indéfinies, des fonctions.
+\end{rema}
+\vfill
+\begin{rema}
+C'est ce premier théorème fondamental de l'analyse qui permet également de comprendre l'importance des intégrales dans de très nombreux domaines. Les intégrales ne servent pas uniquement à calculer des aires, elles permettent de réaliser le chemin inverse que ce que permettaient les dérivées. Les situations où des phénomènes naturels sont formalisés à l'aide de fonctions dont on connait certaines dérivées ou dont on connait un lien avec certaines des dérivées\footnote{Ce qui correspond à ce qu'on appelle une équation différentielle.} sont innombrables. Les intégrales sont alors l'outil qu'on utiliser pour étudier ces phénomènes et réaliser des prédictions. \\
+Pour illustrer cela, intéressons-nous à un sujet de physique simple que vous avez déjà rencontré : la chute d'un corps à la surface de la Terre. Il s'agit d'un MRUA unidirectionnel, un des mouvements les plus simples à étudier. En négligeant les frottements de l'air, on peut supposer que l'unique force qui s'applique sur un corps en chute libre est la force de pesanteur, dont l'intensité est égale à $m.g$, où $m$ est la masse du corps en question et $g$ est la constante de pesanteur terrestre qui vaut environ $9,81$m/s$^2$. La deuxième loi de Newton nous dit que l'accélération $a$ du mouvement du corps doit en chaque instant respecter l'équation :
+$$\vec{F} = m.\vec{a}$$
+\newpage
+Dans le cas de la chute libre unidirectionnelle d'un corps, nous avons donc que l'accélération est constante et vaut :
+$$m.g=m.a$$
+$$g=a$$
+Nous savons que la fonction de la vitesse du corps en fonction du temps, notée $v$, est la dérivée de la fonction de la position du corps en fonction du temps, notée $x$ et que la fonction de l'accélération du corps en fonction du temps est la dérivée de la fonction de la vitesse du corps en fonction du temps. Nous connaissons déjà l'accélération du corps en fonction du temps : il s'agit d'une fonction constante. Il faut donc trouver une fonction dont la dérivée est égale à cette fonction constante pour trouver la vitesse du corps en fonction du temps, puis une fonction dont la dérivée est égale à cette fonction de la vitesse pour trouver la position du corps en fonction du temps. C'est ici que les intégrales et le premier théorème fondamental de l'analyse intervienne : en supposant que le référentiel est choisi de façon adéquate, on peut supposer que la position initiale et la vitesse initiale du corps sont nulles et on a alors :
+$$v(t) = \int_0^t a(y)~dy = \int_0^t g~dy = gt$$
+$$x(t) = \int_0^t v(y)~dy = \int_0^t gy~dy = g\frac{t^2}{2}$$
+On retrouve ainsi les formules classiques d'une chute libre. Notons que la présence du facteur $\frac{1}{2}$ dans la formule de la fonction de la position en fonction du temps n'est plus mystérieuse : elle provient du processus de primitivation de la vitesse.
+\end{rema}
+~\\
+\begin{rema}
+Nous allons démontrer le second théorème fondamental de l'analyse à partir du premier théorème fondamental de l'analyse assez facilement. Néanmoins, toute personne qui souhaite vraiment comprendre le c\oe ur de cette histoire et cet étrange lien entre les intégrales et les dérivées exigera alors (à raison !) que le premier théorème fondamental soit alors à son tour démontré. Malheureusement, la démonstration de ce théorème sort du cadre de ce cours. Nous proposerons à tous ceux qui le demandent une démonstration de celui-ci mais en dehors du cours et cette démonstration ne fait absolument pas partie de la matière du cours qui sera évaluée.
+\end{rema}
+\newpage
+\section{Petit complément sur les primitives}
+
+Afin de démontrer le second théorème fondamental de l'analyse à partir du premier théorème fondamental de l'analyse, nous avons d'abord besoin d'étudier un peu plus la notion de primitive. \\
+Tout d'abord, notons que le premier théorème fondamental de l'analyse assure l'existence d'au moins une primitive pour toute fonction continue :
+\begin{pro}
+Soit $f : [a;b] \to \rr$ une fonction continue. Alors il existe au moins une primitive $F : [a;b] \to \rr$ de $f$.
+\end{pro}
+\begin{proof}
+Par le premier théorème fondamental de l'analyse, la fonction
+\begin{align*}
+F : [a,b] &\to \rr \\
+x \mapsto& \int_{a}^{x} f(t)~dt
+\end{align*}
+est une primitive de $f$.
+\end{proof}
+À présent, rappelons une remarque qui avait été faite à la section \ref{tf} : si on possède une primitive $F : [a,b] \to \rr $ d'une fonction $f : [a,b] \to \rr $, on peut lui ajouter n'importe quel constante non nulle pour obtenir une autre primitive de la fonction $f : [a,b] \to \rr$.
+\begin{pro}
+Soient $f : [a;b] \to \rr$ une fonction et $F : [a;b] \to \rr$ une primitive de cette fonction. Soit $k \in \rr$. \\
+Alors la fonction
+\begin{align*}
+F_k : [a,b] &\to \rr \\
+x \mapsto& F(x)+k
+\end{align*}
+est aussi une primitive de $f$.
+\end{pro}
+\begin{proof}
+La fonction $F_k$ est dérivable car c'est une somme de fonctions dérivables et on a :
+$$F_k ' = F' +0 = f$$
+\end{proof}
+On pourrait se demander si la réciproque de cette dernière proposition est vraie, c'est-à-dire si la différence de deux primitives $F : [a;b] \to \rr$ et $\mathcal{F} : [a;b] \to \rr$ d'une fonction $f : [a;b] \to \rr$ est toujours égale à une constante. C'est en fait le cas ! Pour le démontrer, rappelons un résultat portant sur les dérivées.
+\begin{pro} \label{rappel} [Rappel] \\
+Soit une fonction $f : [a;b] \to \rr$ dérivable.
+\begin{itemize}
+\item [$\bullet$] Si $f'$ est positive, alors $f$ est croissante sur $[a;b]$.
+\item [$\bullet$] Si $f'$ est négative, alors $f$ est décroissante sur $[a;b]$.
+\end{itemize}
+\end{pro}
+Avec ce rappel, démontrons le résultat suivant qui servira de manière cruciale dans la démonstration du second théorème fondamental de l'analyse à partir du premier théorème fondamental de l'analyse :
+\begin{pro} \label{deuxprim}
+Soit $f : [a;b] \to \rr$ une fonction. Soient $F : [a;b] \to \rr$ et $\mathcal{F} : [a;b] \to \rr$ deux primitives de cette fonction. \\
+Alors il existe $k \in \rr$ tel que pour tout $x \in [a;b]$ :
+$$F(x) - \mathcal{F}(x) = k$$
+\end{pro}
+\begin{proof}
+Posons :
+\begin{align*}
+G : [a,b] &\to \rr \\
+x \mapsto& F(x) - \mathcal{F}(x)
+\end{align*}
+$G$ est une fonction dérivable car c'est la différence de deux fonctions dérivables et on a :
+$$G' = F' - \mathcal{F}' =  f-f =0$$
+Donc $G$ est une fonction définie sur un intervalle $[a;b]$ dérivable et dont la dérivée est nulle. Puisque la dérivée de $G$ est nulle, elle est positive \textbf{et} négative. Par la proposition rappel \ref{rappel}, $G$ est donc croissante \textbf{et} décroissante. Or, les seules fonctions définie sur un intervalle $[a;b]$ qui sont à la fois croissante et décroissante sont les fonctions constantes. Donc il existe $k \in \rr$ tel que pour tout $x \in [a;b]$ :
+$$G(x) = k$$
+$$F(x) - \mathcal{F}(x) = k$$
+\end{proof}
+
+\begin{rema}
+La dernière proposition nous apprend que non seulement nous pouvons générer de nouvelles primitives d'une fonction $f : [a,b] \to \rr $ à partir d'une de ses primitives $F : [a,b] \to \rr$ en lui ajoutant une constante (non nulle), mais nous les obtiendrons toutes de cette manière ! \\
+Pour cette raison, certaines personnes parlent de \og primitive généralisée \fg{} en considérant l'ensemble des primitives d'une fonction. Par exemple, la \og primitive généralisée \fg{} de la fonction carrée est l'ensemble des fonctions dont l'expression est $\frac{x^3}{3} + k$ pour un certain nombre $k \in \rr$, ce que certaines personnes notent :
+$$\int x^2~dx = \frac{x^3}{3} + k$$
+Ce qui est une très mauvaise idée et une notation qui sème la confusion : utiliser le symbole d'intégrale pour parler de primitive (généralisée) donne l'impression qu'on confond ces deux notions et occulte le lien incroyable qu'il existe entre celles-ci. \\
+Je vous déconseille donc vivement d'utiliser cette notation ou même cette notion de \og primitive généralisée \fg{} et elle ne sera jamais employée dans ce syllabus.
+\end{rema}
+\section{Démonstration du second théorème fondamental de l'analyse}
+
+Nous allons (enfin) démontrer le théorème suivant à partir du premier théorème fondamental de l'analyse :
+\begin{thé} [Le second théorème fondamental de l'analyse] ~\\
+Soit $F : [a;b] \to \rr$ une fonction dérivable. Notons $f = F'$ sa dérivée. On suppose que la fonction $f$ est continue.\\
+Alors $f$ est nécessairement intégrable et on a :
+$$\int_{a}^{b} f = F(b) - F(a)$$
+\end{thé}
+Notons qu'il s'agit d'une version un peu moins générale que celle donnée à la section \ref{tf}. On suppose ici que la fonction $f$, dérivée de $F$, est continue. En pratique, cette version du théorème suffit dans la quasi totalité des cas qu'on rencontre.
+\begin{proof}
+La fonction $f : [a;b] \to \rr$ est continue, donc elle est intégrable sur tout intervalle $[a;x]$ avec $x \in [a;b]$. On peut donc définir la fonction :
+\begin{align*}
+\mathcal{F} : [a,b] &\to \rr \\
+x \mapsto& \int_{a}^{x} f(t)~dt
+\end{align*}
+Par le premier théorème fondamental de l'analyse, cette fonction $\mathcal{F}$ est dérivable et a comme dérivée $f$. \\
+Posons la fonction :
+\begin{align*}
+G : [a,b] &\to \rr \\
+x \mapsto& F(x)-\mathcal{F}(x)
+\end{align*}
+Comme $F$ et $\mathcal{F}$ sont toutes les deux une primitive de la fonction $f$, on sait (grâce à la proposition \ref{deuxprim}) qu'il existe $k \in \rr$ tel que pour tout $x \in [a;b]$, on ait :
+$$F(x)-\mathcal{F}(x) = k$$
+$$F(x)=\mathcal{F}(x)+k$$
+Par additivité de l'intégrale, on doit avoir :
+$$\mathcal{F}(a) = \int_a^a f(t)~dt = \int_a^a f(t)~dt + \int_a^a f(t)~dt = 2 \int_a^a f(t)~dt = 2\mathcal{F}(a)$$
+Donc :
+$$\mathcal{F}(a)=2\mathcal{F}(a)$$
+$$0=\mathcal{F}(a)$$
+Dès lors, on doit avoir :
+$$F(a)=\mathcal{F}(a)+k = 0+k = k$$
+En conclusion, pour tout $x \in [a;b]$, on a :
+$$F(x)=\mathcal{F}(x)+F(a)$$
+En particulier, si $x=b$, on a :
+$$F(b)=\mathcal{F}(x)+F(a)$$
+$$F(b)-F(a)=\mathcal{F}(b)=\int_{a}^{b} f(t)~dt$$
+\end{proof}
+Nous voici à la fin de notre parcours. Le théorème que nous avons utilisé et que nous utiliserons encore pour calculer des intégrales est finalement démontré, même si cette démonstration repose sur un théorème encore plus fondamental que nous n'avons pas démontré et que malheureusement nous ne pourrons pas démontrer dans ce cours\footnote{Rappelons que ce premier théorème fondamental de l'analyse sera expliqué et démontré à tous ceux qui le souhaitent.}.
+
+\chapter{Calcul d'aires avec des intégrales}
+
+Ce chapitre est presque terminé : avant de passer au chapitre suivant, nous allons encore nous entrainer un peu à calculer des aires avec les intégrales, mais plus rien de fondamental... \\
+L'interprétation géométrique de l'intégrale permet non seulement de calculer l'aire de la surface sous le graphe d'une fonction fonction intégrable, mais aussi l'aire d'une surface délimitée par deux graphes de deux fonctions dérivables différentes. \\
+Plutôt que de donner un théorème vide de substance, découvrons cette idée avec des exemples. Commençons avec un exemple simple, où une des deux fonctions est toujours plus grande ou égale que l'autre.
+\begin{exe}
+On souhaite calculer l'aire de la surface délimité par les graphes de la fonction identité et de la fonction carrée entre 0 et 1 :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=2,ymin=-0.1,ymax=2, scale=1]\axes\grille
+\draw[thick] plot[domain=0:1](\x,{\x * \x});
+\draw[thick] plot[domain=0:1](\x,{\x});
+\end{tikzpicture}
+\end{center}
+L'interprétation géométrique de l'intégrale nous dit que l'aire de la surface délimitée par le graphe de la fonction identité est $\int_0^1 x~dx$ et que l'aire de la surface délimitée par le graphe de la fonction carrée est $\int_0^1 x^2~dx$. Dès lors, puisque la surface délimitée par le graphe de la fonction carrée est complétement incluse dans la surface délimitée par le graphe de la fonction identité (puisque la fonction identité est toujours plus grande ou égale à la fonction carrée entre 0 et 1), l'aire que nous recherchons doit être égale à :
+$$\int_0^1 x~dx - \int_0^1 x^2~dx$$
+Par linéarité de l'intégrale, c'est égal à :
+$$\int_0^1 x-x^2~dx$$
+Par le théorème fondamental :
+$$\int_0^1 x-x^2~dx = [\frac{x^2}{2} - \frac{x^3}{3}]_0^1 = \frac{1}{2}-\frac{1}{3}$$
+\end{exe}
+De manière générale, si on souhaite calculer l'aire de la surface délimitée par les graphes de deux fonctions $f : [a;b] \to \rr$ et $g : [a;b] \to  \rr$ intégrables avec $f \ge g$, il suffit de calculer (par linéarité) :
+$$\int_a^b (f-g)$$
+(Remarquons que l'interprétation géométrique de l'intégrale d'une fonction $f : [a;b] \to \rr$ est l'aire \emph{orientée} de la surface délimité par le graphe de cette fonction. Dès lors, même si les fonctions $f$ et $g$ prennent des valeurs négatives, la formule ci-dessus reste valable et donne bien l'aire de la surface délimitée par les graphes des deux fonctions.) \\
+~\\
+Donnons un autre exemple où aucune des deux fonctions n'est toujours plus grande ou égale que l'autre.
+\begin{exe}
+On souhaite calculer l'aire de la surface délimité par les graphes de la fonction identité et de la fonction carrée entre 0 et 2 :
+\begin{center}
+\begin{tikzpicture}[xmin=-0.1,xmax=4,ymin=-0.1,ymax=4, scale=1]\axes\grille
+\draw[thick] plot[domain=0:2](\x,{\x * \x});
+\draw[thick] plot[domain=0:2](\x,{\x});
+\end{tikzpicture}
+\end{center}
+L'interprétation géométrique de l'intégrale nous dit que l'aire de la surface délimitée par le graphe de la fonction identité est $\int_0^2 x~dx$ et que l'aire de la surface délimitée par le graphe de la fonction carrée est $\int_0^2 x^2~dx$. Malheureusement, la surface délimitée par le graphe de la fonction carrée n'est cette fois-ci pas complétement incluse dans la surface délimitée par le graphe de la fonction identité (puisque la fonction identité n'est pas toujours plus grande ou égale à la fonction carrée entre 0 et 2). L'aire que nous recherchons \textbf{n'est pas} :
+$$\int_0^2 x~dx - \int_0^2 x^2~dx$$
+Mais bien :
+$$(\int_0^1 x~dx - \int_0^1 x^2~dx) + (\int_1^2 x^2~dx - \int_0^1 x~dx) $$
+Par linéarité de l'intégrale, c'est égal à :
+$$\int_0^1 x-x^2~dx + \int_1^2 x^2 -x~dx$$
+Par le théorème fondamental :
+$$\int_0^1 x-x^2~dx + \int_1^2 x^2 -x~dx = [\frac{x^2}{2} - \frac{x^3}{3}]_0^1 +  [\frac{x^3}{3} - \frac{x^2}{2}]_1^2= (\frac{1}{2}-\frac{1}{3}) + ((\frac{8}{3} - \frac{4}{2})-(\frac{1}{3} - \frac{1}{2}))=1$$
+\end{exe}
+De manière générale, si on souhaite calculer l'aire de la surface délimitée par les graphes de deux fonctions $f : [a;b] \to \rr$ et $g : [a;b] \to  \rr$ intégrables quelconques, il suffit de décomposer la surface en question en plus petites surfaces qui correspondent aux sous-intervalles de $[a;b]$ où $f$ est toujours plus grande ou égale à $g$ ou l'inverse et calculer les intégrales qui correspondent aux aires de ces plus petites surfaces. \\
+~\\
+Donnons un dernier exemple :
+\begin{exe}
+On souhaite calculer l'aire de la surface délimité par les graphes de la fonction identité et de la fonction cubique entre -2 et 2 :
+\begin{center}
+\begin{tikzpicture}[xmin=-9,xmax=9,ymin=-9,ymax=9, scale=0.55]\axes\grille
+\draw[thick] plot[domain=-2:2](\x,{\x * \x * \x});
+\draw[thick] plot[domain=-2:2](\x,{\x});
+\end{tikzpicture}
+\end{center}
+La fonction identité est plus grande ou égale la fonction cubique sur $[-2;-1]$ et $[0;1]$ et est plus petite ou égale à la fonction cubique sur $[-1;0]$ et $[1:2]$. L'aire recherchée est donc :
+$$\int_{-2}^{-1} x-x^3~dx + \int_{-1}^1 x^3-x~dx + \int_0^1 x-x^3~dx + \int_1^2 x^3-x~dx $$
+Par le théorème fondamental, c'est égal à :
+$$[\frac{x^2}{2} - \frac{x^4}{4}]_{-2}^{-1} +  [\frac{x^4}{4} - \frac{x^2}{2}]_{-1}^1+[\frac{x^2}{2} - \frac{x^4}{4}]_{0}^{1} +  [\frac{x^4}{4} - \frac{x^2}{2}]_{1}^2$$
+Ce qui vaut :
+$$((\frac{4}{2} - \frac{16}{4})-(\frac{1}{2} - \frac{1}{4})) +  ((\frac{0}{4} - \frac{0}{2})-(\frac{1}{4} - \frac{1}{2}))+((\frac{1}{2} - \frac{1}{4})-(\frac{0}{2} - \frac{0}{4})) +  ((\frac{16}{4} - \frac{4}{2})-(\frac{1}{4} - \frac{1}{2}))=\frac{19}{4}$$
+\end{exe}
+~\\
+\begin{rema}
+D'un point de vue géométrique, les intégrales permettent de faire encore bien d'autres choses. Elles permettent par exemple de démontrer la formule de l'aire d'un cercle de rayon $r \in {\rr}_{0}^{+}$ ou de calculer des volumes de solides de révolution. Les possibilités sont innombrables et la plupart d'entre elles sortent du cadre de ce cours.
+\end{rema}
+~\\
+\begin{exo}
+Pour chaque couple de fonctions ci-dessous, calculer l'aire de la surface délimitée par les graphes des deux fonctions.
+\begin{enumerate}
+\begin{multicols}{2}
+\item \begin{align*}
+f : [1,2] &\to \rr \\
+x \mapsto& 2x
+\end{align*}
+et
+\begin{align*}
+g : [1,2] &\to \rr \\
+x \mapsto& \sqrt{x}
+\end{align*}
+\item \begin{align*}
+f : [-1,2] &\to \rr \\
+x \mapsto& 1
+\end{align*}
+et
+\begin{align*}
+g : [-1,2] &\to \rr \\
+x \mapsto& x^2
+\end{align*}
+\newpage
+\item \begin{align*}
+f : [-1,1] &\to \rr \\
+x \mapsto& (x-1)(x+1)
+\end{align*}
+et
+\begin{align*}
+g : [-1,1] &\to \rr \\
+x \mapsto& -x^4+1
+\end{align*}
+\item \begin{align*}
+f : [1,3] &\to \rr \\
+x \mapsto& \frac{1}{x^2}
+\end{align*}
+et
+\begin{align*}
+g : [1,3] &\to \rr \\
+x \mapsto& \frac{2}{x^3}
+\end{align*}
+\item \begin{align*}
+f : [0,\frac{1}{5}] &\to \rr \\
+x \mapsto& \frac{1}{(5x+1)^2}
+\end{align*}
+et
+\begin{align*}
+g : [0,\frac{1}{5}] &\to \rr \\
+x \mapsto& \frac{1}{(5x-2)^2}
+\end{align*}
+\item \begin{align*}
+f : [-3,0] &\to \rr \\
+x \mapsto& 12x^3+12x^2+12x+12
+\end{align*}
+et
+\begin{align*}
+g : [-3,0] &\to \rr \\
+x \mapsto& -12x^2-12
+\end{align*}
+\end{multicols}
+\end{enumerate}
+\end{exo}
+\vfill
+%\begin{solu}~\\
+%\begin{enumerate}
+%\begin{multicols}{2}
+%\item $\frac{1}{3}(11-4\sqrt{2}) \simeq 1,781$
+%\item $\frac{8}{3}$
+%\item $\frac{44}{15}$
+%\item $\frac{5}{18}$
+%\item $\frac{1}{15}$
+%\item $89$
+%\end{multicols}
+%\end{enumerate}
+%\end{solu}
+\newpage
+\begin{exo}
+On considère les deux fonctions ci-dessous.
+\begin{align*}
+f : [0;\infty[ &\to \rr \\
+x \mapsto& -\sqrt{x^3}+3.\sqrt{x}
+\end{align*}
+et
+\begin{align*}
+g : ]0;\infty[ &\to \rr \\
+x \mapsto& \frac{2}{\sqrt{x}}
+\end{align*}
+Dont les graphes sont les suivants.
+\begin{center}
+\begin{tikzpicture}[xmin=-1,xmax=5,ymin=-1,ymax=5, scale=1]\axes\grille
+\draw[thick] plot[domain=0:3.55,samples=100](\x,{(-1*(\x) + 3)*(\x)^(0.5)});
+\draw[thick] plot[domain=0.16:5,samples=100](\x,{2*(\x)^(-0.5)});
+\end{tikzpicture}
+\end{center}
+Calculer l'aire de la surface délimitée par le contour bleu ci-dessous. Justifier votre réponse.
+\begin{center}
+\begin{tikzpicture}[xmin=-1,xmax=5,ymin=-1,ymax=5, scale=1]\axes\grille
+\draw[thick] plot[domain=0:1,samples=100](\x,{(-1*(\x) + 3)*(\x)^(0.5)});
+\draw[thick] plot[domain=0.16:1,samples=100](\x,{2*(\x)^(-0.5)});
+\draw[thick] plot[domain=2:3.55,samples=100](\x,{(-1*(\x) + 3)*(\x)^(0.5)});
+\draw[thick] plot[domain=2:5,samples=100](\x,{2*(\x)^(-0.5)});
+\draw[very thick,blue] plot[domain=1:2,samples=100](\x,{(-1*(\x) + 3)*(\x)^(0.5)});
+\draw[very thick,blue] plot[domain=1:2,samples=100](\x,{2*(\x)^(-0.5)});
+\end{tikzpicture}
+\end{center}
+\end{exo}
+
+%\begin{solu}
+%$\frac{4}{5}(3-2\sqrt{2}) \simeq 0,1372$
+%\end{solu}
+\end{document}

@@ -14,6 +14,10 @@ Table des matières
 .. toctree::
    :maxdepth: 2
 
-   exp_and_log/index
-   functions_and_limits/index
+   1-rappels/index
    series/index
+   functions_and_limits/index
+   4-derivees/index
+   5-trigono/index
+   exp_and_log/index
+   7-integrales/index
