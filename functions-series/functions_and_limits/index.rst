@@ -11,9 +11,23 @@ Les fonctions continues et limites de fonctions
    :caption: Chapitres:
 
    1.Introduction
-   2.Fonctions continues
-   3.Limites de fonctions
-   4.Annexes
+   21.FonctionsContinues
+   22.FonctionsContinues
+   23.FonctionsContinues
+   24.FonctionsContinues
+   25.FonctionsContinues
+   31.Limites
+   32.Limites
+   33.Limites
+   34.Limites
+   35.Limites
+   36.Limites
+   37.Limites
+   38.Limites
+		     
+
+
+..   4.Annexes
 
 
 

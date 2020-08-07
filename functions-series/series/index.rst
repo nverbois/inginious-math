@@ -11,9 +11,14 @@ Les suites
    :caption: Chapitres: 
 
    1.Introduction
-   2.Suites
-   3.Introduction aux limites de suites
-   4.Limites de suites
+   21.Suites
+   22.Suites
+   23.Suites
+   24.Suites
+   25.Suites
+   3.Introduction
+   4.Limites
+   43.Limites
    5.Conclusion
 
 

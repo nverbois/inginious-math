@@ -19,5 +19,6 @@ Table des matières
    functions_and_limits/index
    4-derivees/index
    5-trigono/index
-   exp_and_log/index
    7-integrales/index
+   exp_and_log/index
+
